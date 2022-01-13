@@ -167,7 +167,7 @@ This will contain all the necessary information to check out in a simple form. T
 <br/>
 This page confirms that the order has been received. It will confirm the delivery date and that a payment of £xx.xx has been taken, as well as wether any special requests/dietary requirements have been made. It will encourage users who don't have an account, to register for an account so they can track there order.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Order_Sucess.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Order_Success.png) / [Tablet](#) / [Desktop](#)
 <br/>
 
 **Register page**
@@ -191,7 +191,7 @@ log in/out
 register
 show personal information
 <br/>
-[Mobile](#) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Account.png) / [Tablet](#) / [Desktop](#)
 <br/>
 
 **Gallery page**
@@ -207,6 +207,14 @@ admin user
 CRUD functionality for products, images and orders
 <br/>
 [Mobile](readme-docs/wireframes/phone/Mobile-Admin.png) / [Tablet](#) / [Desktop](#)
+<br/>
+
+**Contact page**
+<br/>
+Contact Form
+Facebook option
+<br/>
+[Mobile](readme-docs/wireframes/phone/Mobile-Contact_Us.png) / [Tablet](#) / [Desktop](#)
 <br/>
 
 **Notifications**
