@@ -19,13 +19,9 @@ Users should be able to view products in a collection or as an individual produc
 An Admin users should be able to add, edit and remove both products and images conveniently from the frontend. They should be able to edit and update orders status and information.
 
 ### User stories
-
 #### Shopper Story 1
-
 -   As a Shopper, I want to browse products and add them to my basket.
-
 #### Acceptance Criteria
-
 -   Show a summary of all products on a page.
 -   Be able to filter by
     -   product type
@@ -36,58 +32,34 @@ An Admin users should be able to add, edit and remove both products and images c
 -   Show the detail of an individual product.
 -   Mechanism to add multiples of a product to the basket.
 -   Confirmation that the product has been added to the basket.
-
 #### Description:
-
 -
-
 #### Shopper Story 2
-
 -   As a Shopper, I want to be able to view/edit my basket.
-
 #### Acceptance Criteria
-
 -   Show a summary of the basket items.
 -   Items have the ability to change quantity.
 -   Items can be deleted from the basket.
-
 #### Description:
-
 -
-
 #### Shopper Story 3
-
 -   As a Shopper, I would like to pay for my items.
-
 #### Acceptance Criteria
-
 -   Inputs are clear and rational.
 -   Payments are confirmed on the site and via email.
 -   Payment should be taken from the account.
-
 #### Description:
-
 -
-
 #### Shopper Story 4
-
 -   As a Shopper, I would like to navigate the site easily on any device.
-
 #### Acceptance Criteria
-
 -   Clear menu options.
 -   Responsive on all devices.
-
 #### Description:
-
 -
-
 #### Shopper Story 5
-
 -   As a returning user, I would like to see my previous orders and edit my information.
-
 #### Acceptance Criteria
-
 -   There is a working Register page.
 -   The user can log in/out.
 -   The account page has a list of orders.
@@ -95,37 +67,22 @@ An Admin users should be able to add, edit and remove both products and images c
     -   Billing address
     -   Name
     -   Dietary requirement
-
 #### Description:
-
 -
-
 #### Shopper Story 6
-
 -   As a returning user, I would like to re-set my password.
-
 #### Acceptance Criteria
-
 -   A forgotten my password link on the login page.
 -   A forgotten my password form, that works.
 -   The user can change the password on the account page.
-
 #### Description:
-
 -
-
 #### Shop Owner Story 1
-
 -   As a Shop Owner, I would like to add/edit and remove products.
-
 #### Acceptance Criteria
-
 -
-
 #### Description:
-
 -
-
 ### Skeleton (wireframes)
 
 **Home page**
@@ -227,53 +184,36 @@ Notifications will be triggered when:
     <br/>
 
 ## Design Considerations
-
-This is where I say why i made some of my more controversial decisions.
+This is where I say why I made some of my more controversial decisions.
 
 why checkout on top
-
 ## Features
-
 I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is currently at the Issue one.
-
 -   ### Beta
     -   Register
     -   Log on/off
     -   Make Responsive on all Devices.
 -   ### Issue 1
-
     -   some sort of user/customer blog
         -   option to post to fb too?
-
 -   ### Issue 2
     -   Track the users?
     -   Add Filters to the products page?
 -   ### Issue 3
     -
-
 ## Database
-
 ![Database](readme-docs/database-image.jpg)
-
-<!-- show the tables and how they interact. -->
-
 ## Technologies Used
-
 ### Languages Used
-
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JS](https://en.wikipedia.org/wiki/JavaScript)
 -   [Django](https://docs.djangoproject.com/en/4.0/)
-
 ### Frameworks, Libraries & Programs Used
-
 -   [Google Fonts](https://fonts.google.com/)
 -   [Heroku](https://id.heroku.com/)
 -   [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
-
 ### Resources
-
 -   [Code Institute Course Content](https://courses.codeinstitute.net/)
 -   Code Institute **SLACK Community**
 -   [Stack Overflow](https://stackoverflow.com/)
@@ -281,13 +221,10 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   [CSS-Tricks](https://css-tricks.com/)
 -   [Balsamiq](https://balsamiq.com/wireframes/)
 -   [techsini](https://techsini.com/multi-mockup/)
-
+-   [dbdiagram](https://dbdiagram.io/)
 ## Testing
-
 Full Testing is detailed in a separate file [here](testing.md).
-
 ### Interesting Bugs / Issues
-
 This section will detail the interesting Issues and Bugs that I came across whilst coding and the main ones that I found during testing.
 
 **During coding**
@@ -303,16 +240,12 @@ This section will detail the interesting Issues and Bugs that I came across whil
 |           |          |           |
 
 ## Deployment
-
 ### Project Creation
-
 I used VScode and git to produce this project.
 The following commands were used to keep version control
-
 -   `git add .` to stage files before committing
 -   `git commit -m "message explaining commit"` to commit the local repository
 -   `git push` to push all committed changes to the GitHub repository
-
 ### Deployment to Heroku
 
 **Create application:**
@@ -390,8 +323,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 |        |          |
 
 ### Content
-
 -   All content was written by the developer.
+-   insperation https://github.com/mitchdavenport88/hop_shop/blob/main/README.md
 
 ### Media
 
