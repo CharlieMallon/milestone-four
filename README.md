@@ -32,31 +32,23 @@ An Admin users should be able to add, edit and remove both products and images c
 -   Show the detail of an individual product.
 -   Mechanism to add multiples of a product to the basket.
 -   Confirmation that the product has been added to the basket.
-#### Description:
--
 #### Shopper Story 2
 -   As a Shopper, I want to be able to view/edit my basket.
 #### Acceptance Criteria
 -   Show a summary of the basket items.
 -   Items have the ability to change quantity.
 -   Items can be deleted from the basket.
-#### Description:
--
 #### Shopper Story 3
 -   As a Shopper, I would like to pay for my items.
 #### Acceptance Criteria
 -   Inputs are clear and rational.
 -   Payments are confirmed on the site and via email.
 -   Payment should be taken from the account.
-#### Description:
--
 #### Shopper Story 4
 -   As a Shopper, I would like to navigate the site easily on any device.
 #### Acceptance Criteria
 -   Clear menu options.
 -   Responsive on all devices.
-#### Description:
--
 #### Shopper Story 5
 -   As a returning user, I would like to see my previous orders and edit my information.
 #### Acceptance Criteria
@@ -67,22 +59,26 @@ An Admin users should be able to add, edit and remove both products and images c
     -   Billing address
     -   Name
     -   Dietary requirement
-#### Description:
--
 #### Shopper Story 6
 -   As a returning user, I would like to re-set my password.
 #### Acceptance Criteria
 -   A forgotten my password link on the login page.
 -   A forgotten my password form, that works.
 -   The user can change the password on the account page.
-#### Description:
--
 #### Shop Owner Story 1
--   As a Shop Owner, I would like to add/edit and remove products.
+-   As a Shop Owner, I would like to manage products.
 #### Acceptance Criteria
--
-#### Description:
--
+-   There is an add product page
+-   There is an edit products page
+-   There is a delete products button
+-   Deleting a product is easy
+-   There should be mechanisms in place to prevent accidental deletion
+#### Shop Owner Story 2
+-   As a Shop Owner, I would like to manage orders.
+#### Acceptance Criteria
+-   There is a way to view all orders
+-   Orders can be viewed in detail
+-   Status of the order can be changed
 ### Skeleton (wireframes)
 
 **Home page**
