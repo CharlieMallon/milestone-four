@@ -1,25 +1,25 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
     {% block meta %}
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock%}
 
-    {% core css %}
+    {% block core_css %}
         <link rel='stylesheet' href='static\style.css'></link>
     {% endblock %}
 
     {% block extra_css %}
     {% endblock%}
 
-    {% core js %}
+    {% block core_js %}
     {% endblock %}
 
     {% block extra_js %}
@@ -28,10 +28,10 @@
     <title>Cake Shop {% block extra_title %}{% endblock%}</title>
 </head>
 <body>
-    <header class="container sticky-top"></header>
+    <header class='container sticky-top'></header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class='message-container'></div>
     {%  endif %}
 
     {% block page_header %}
