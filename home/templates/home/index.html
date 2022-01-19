@@ -6,7 +6,56 @@
 {% endblock %}
 
 {% block content%}
-<h1>Cake Shop Home Page</h1>
+<!-- Search Bar-->
+<div class="container search">
+    <form methord="GET" action="" class="container w-100 search">
+        <div class="w-100">
+            <input class="w-100 search-bar" type="text" placeholder="search">
+        </div>
+        <div>
+            <button type="submit">
+                <img class="icon" src="static\icons\search_black.svg" alt="search">
+            </button>
+        </div>
+    </form>
+</div>
+
+<section>
+    <!-- CHANGE this should be done with jinger templating and should be ediable, put in a loop
+    that goes over all of the categories for the secound part-->
+	<div class="container w-100 cta cta-large">
+		<img class="cta-img" src="media\images\pexels-helena-lopes-1931368.jpg" alt="" />
+		<div class="cta-text">
+			<h3>Beautiful Cakes for all Occations</h3>
+			<a class="button cta-button">Shop Now</a>
+		</div>
+	</div>
+
+    <div class="container w-100 cta cta-small">
+		<img class="cta-img" src="media\images\pexels-evg-kowalievska-1170986.jpg" alt="" />
+		<div class="cta-text">
+			<h3>Cupcakes</h3>
+			<a class="button cta-button">Shop Now</a>
+		</div>
+	</div>
+
+    <div class="container w-100 cta cta-small">
+		<img class="cta-img" src="media\images\pexels-flickr-148182.jpg" alt="" />
+		<div class="cta-text">
+			<h3>Bouquets</h3>
+			<a class="button cta-button">Shop Now</a>
+		</div>
+	</div>
+
+    <div class="container w-100 cta cta-small">
+		<img class="cta-img" src="media\images\pexels-ihsan-adityawarman-1056252.jpg" alt="" />
+		<div class="cta-text">
+			<h3>Seasonal</h3>
+			<a class="button cta-button">Shop Now</a>
+		</div>
+	</div>
+</section>
+
 {% endblock %}
 
 {% block postload_js %}
