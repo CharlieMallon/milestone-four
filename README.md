@@ -324,7 +324,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Media
 
--   Photos are copy righed by xyz
+-   Stock photos are from Pexels a [Cute Animal Collection](https://www.pexels.com/collections/cute-animals-17ey6em/)
+
 
 ### Acknowledgements
 
