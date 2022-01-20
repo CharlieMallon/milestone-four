@@ -20,13 +20,15 @@
 		</div>
 	</div>
 
-    <div class="container w-100 cta cta-small">
-		<img class="cta-img" src="media\images\pexels-evg-kowalievska-1170986.jpg" alt="" />
-		<div class="cta-text">
-			<h3>Cupcakes</h3>
-			<a class="button cta-button">Shop Now</a>
+	{% for category in categories %}
+		<div class="container w-100 cta cta-small">
+			<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}"/>
+			<div class="cta-text">
+				<h3>{{ category.name }}</h3>
+				<a class="button cta-button">Shop Now</a>
+			</div>
 		</div>
-	</div>
+	{% endfor %}
 
     <div class="container w-100 cta cta-small">
 		<img class="cta-img" src="media\images\pexels-flickr-148182.jpg" alt="" />
