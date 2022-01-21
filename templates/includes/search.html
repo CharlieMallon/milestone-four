@@ -1,7 +1,7 @@
 <div class="container search">
-    <form methord="GET" action="" class="container w-100 search">
+    <form methord="GET" action="{% url 'products' %}" class="container w-100 search">
         <div class="w-100">
-            <input class="w-100 search-bar" type="text" placeholder="search">
+            <input class="w-100 search-bar" type="text" name="q" placeholder="Search">
         </div>
         <div>
             <button type="submit">
