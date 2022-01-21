@@ -16,7 +16,7 @@
 		<img class="cta-img" src="media\images\pexels-helena-lopes-1931368.jpg" alt="" />
 		<div class="cta-text">
 			<h3>Beautiful Cakes for all Occations</h3>
-			<a class="button cta-button">Shop Now</a>
+			<a class="button cta-button" href="{% url 'products' %}">Shop Now</a>
 		</div>
 	</div>
 
@@ -25,7 +25,7 @@
 			<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}"/>
 			<div class="cta-text">
 				<h3>{{ category.friendly_name }}</h3>
-				<a class="button cta-button">Shop Now</a>
+				<a class="button cta-button" href="{% url 'products' %}?category={{ category.name }}">Shop Now</a>
 			</div>
 		</div>
 	{% endfor %}
