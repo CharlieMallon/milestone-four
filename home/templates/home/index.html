@@ -24,27 +24,12 @@
 		<div class="container w-100 cta cta-small">
 			<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}"/>
 			<div class="cta-text">
-				<h3>{{ category.name }}</h3>
+				<h3>{{ category.friendly_name }}</h3>
 				<a class="button cta-button">Shop Now</a>
 			</div>
 		</div>
 	{% endfor %}
 
-    <div class="container w-100 cta cta-small">
-		<img class="cta-img" src="media\images\pexels-flickr-148182.jpg" alt="" />
-		<div class="cta-text">
-			<h3>Bouquets</h3>
-			<a class="button cta-button">Shop Now</a>
-		</div>
-	</div>
-
-    <div class="container w-100 cta cta-small">
-		<img class="cta-img" src="media\images\pexels-ihsan-adityawarman-1056252.jpg" alt="" />
-		<div class="cta-text">
-			<h3>Seasonal</h3>
-			<a class="button cta-button">Shop Now</a>
-		</div>
-	</div>
 </section>
 
 {% endblock %}
