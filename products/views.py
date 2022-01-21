@@ -9,15 +9,17 @@ def all_products(request):
     """A view to show all products, including sorting and search categories"""
 
     products = Product.objects.all()
+    categories = Category.objects.all
     query = None
-    categories = None
+    search_categories = None
+    
 
     if request.GET:
 
         if 'category' in request.GET:
-                categories = request.GET['category'].split(',')
-                products = products.filter(category__name__in=categories)
-                categories = Category.objects.filter(name__in=categories)
+                search_categories = request.GET['category'].split(',')
+                products = products.filter(category__name__in=search_categories)
+                search_categories = Category.objects.filter(name__in=search_categories)
     
         if 'q' in request.GET:            
             query = request.GET['q']
@@ -31,7 +33,8 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_categories': categories,
+        'current_categories': search_categories,
+        'categories': categories,
     }
 
     return render(request, 'products/products.html', context)
