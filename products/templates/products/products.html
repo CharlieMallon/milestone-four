@@ -3,6 +3,38 @@
 
 {% block content %}
 
-    {{ products }}
+<div class="container product-container col">
+
+    {% for product in products %}
+    <div class="card w-100 col">
+        <div class="card-title w-100">
+            <h3 class="product-title">{{ product.name }}</h3>
+        </div>
+        <div class="card-content W-100 row">
+            <div class="product-img w-50">
+                <img class="" src="" alt=""/>
+            </div>
+            <div class="product-info col w-50">
+                <strong>
+                    <p class="product-price">£{{ product.price }}</p>
+                </strong>
+                <p class="product-text">{{ product.description }}</p>
+                <div class="diet-button-box row">
+                    <div class="button diet-button">GF</div>
+                    <div class="button diet-button">DF</div>
+                    <div class="button diet-button">V</div>
+                </div>
+                <div class="button-box row">
+                    <div class="button buy-btn">Add 1 to Basket</div>
+                </div>
+            </div>
+        </div>
+    
+
+    </div>
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}

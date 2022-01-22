@@ -15,6 +15,10 @@
     width: 100%;
 }
 
+.w-50{
+    width: 50%;
+}
+
 .sticky{
     position: -webkit-sticky;
     position: sticky;
@@ -22,13 +26,8 @@
 
 .button {
     border: 1px solid black;
-}
 
-a {
-    text-decoration: none;
-    color: black;
 }
-
 .icon{
     display: block;
     padding: 5px;
@@ -36,6 +35,26 @@ a {
     align-items: center;
     min-height: 35px;
 }
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.text-center{
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 
 img{
     width: 100%;
@@ -147,4 +166,61 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ---------- products ---------- */
+
+.product-container{
+    padding: 0px 10px 10px 10px;
+}
+
+.card{
+    margin: 10px;
+    margin-bottom: 0px;
+    border: solid 1px black;
+}
+
+.product-title{
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.product-img{
+    padding: 5px;
+    height: 140px;
+}
+
+.product-info{
+    padding: 5px;
+    justify-content: space-around;
+}
+
+.product-price{
+    font-size: larger;
+}
+
+.product-text{
+    line-height: 0.8;
+}
+
+.diet-button-box{
+    padding: 5px;
+    justify-content: center;
+}
+
+.diet-button{
+    min-width: 30px;
+    text-align: center;
+}
+
+.button-box{
+    justify-content: center;
+}
+
+.buy-btn{
+    width: 60%;
+    text-align: center;
+    font-size: large;
 }
