@@ -178,6 +178,15 @@ img{
     justify-content: space-between;
 }
 
+.sort-select-wrapper{
+    align-self: flex-start;
+}
+
+.product-num{
+    align-self: flex-end;
+    font-size: smaller;
+}
+
 .card{
     margin: 10px;
     margin-bottom: 0px;

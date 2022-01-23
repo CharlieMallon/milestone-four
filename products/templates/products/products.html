@@ -2,82 +2,93 @@
 {% load static %}
 
 {% block content %}
-<!-- Search Bar-->
-{% include 'includes/search.html' %}
-
-<div class="container product-container col">
-
-    <div class="container w-100 row products-top">
-        <div class="curent-filters">
-            {% for category in current_categories %}
-                <div class="button filter-button">
-                    <a href="">{{category.friendly_name}} &#10006;</a>
+    <!-- Search Bar-->
+    {% include 'includes/search.html' %}
+    <div class="container product-container col">
+        <div class="container w-100 row products-top">
+            <div class="curent-filters">
+                {% for category in current_categories %}
+                    <div class="button filter-button">
+                        <a href="">{{category.friendly_name}} &#10006;</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="container col">
+                <div class="sort-select-wrapper w-50">
+                    <select id="sort-selector" class="">
+                        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                        <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                        <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                        <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                    </select>
                 </div>
-            {% endfor %}
-        </div>
-    
-        <div class="container">
-            <div class="sort-select-wrapper w-50">
-                <select id="sort-selector" class="">
-                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                    <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="">
-            <p class="">
-                {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class=""><a href="{% url 'products' %}">Products Home</a> | </span>
-                {% endif %}
-                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-            </p>
-        </div>
-    </div>
-
-    {% for product in products %}
-    <div class="card w-100 col">
-        <div class="card-title w-100">
-            <a href="{% url 'product_detail' product.id %}">
-                <h3 class="product-title">{{ product.name }}</h3>
-            </a>
-        </div>
-        <div class="card-content W-100 row">
-            <div class="product-img w-50">
-                <a href="{% url 'product_detail' product.id %}">
-                    <img class="" src="" alt=""/>
-                </a>
-            </div>
-            <div class="product-info col w-50">
-                <strong>
-                    <p class="product-price">£{{ product.price }}</p>
-                </strong>
-                <p class="product-text">{{ product.description }}
-                    <a href="{% url 'product_detail' product.id %}">
-                        more info
-                    </a>
+                <p class="product-num">
+                    {{ products|length }} Products
                 </p>
-                <div class="diet-button-box row">
-                    <div class="button diet-button">GF</div>
-                    <div class="button diet-button">DF</div>
-                    <div class="button diet-button">V</div>
-                </div>
-                <div class="button-box row">
-                    <div class="button buy-btn">Add 1 to Basket</div>
-                </div>
             </div>
         </div>
-    
-
+        {% for product in products %}
+            <div class="card w-100 col">
+                <div class="card-title w-100">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                    </a>
+                </div>
+                <div class="card-content W-100 row">
+                    <div class="product-img w-50">
+                        <a href="{% url 'product_detail' product.id %}">
+                            <img class="" src="" alt=""/>
+                        </a>
+                    </div>
+                    <div class="product-info col w-50">
+                        <strong>
+                            <p class="product-price">£{{ product.price }}</p>
+                        </strong>
+                        <p class="product-text">{{ product.description }}
+                            <a href="{% url 'product_detail' product.id %}">
+                                more info
+                            </a>
+                        </p>
+                        <div class="diet-button-box row">
+                            <div class="button diet-button">GF</div>
+                            <div class="button diet-button">DF</div>
+                            <div class="button diet-button">V</div>
+                        </div>
+                        <div class="button-box row">
+                            <div class="button buy-btn">Add 1 to Basket</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
+{% endblock %}
 
-    {% endfor %}
+{% block postload_js %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
 
-</div>
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
 
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
