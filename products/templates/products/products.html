@@ -8,17 +8,25 @@
     {% for product in products %}
     <div class="card w-100 col">
         <div class="card-title w-100">
-            <h3 class="product-title">{{ product.name }}</h3>
+            <a href="{% url 'product_detail' product.id %}">
+                <h3 class="product-title">{{ product.name }}</h3>
+            </a>
         </div>
         <div class="card-content W-100 row">
             <div class="product-img w-50">
-                <img class="" src="" alt=""/>
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="" src="" alt=""/>
+                </a>
             </div>
             <div class="product-info col w-50">
                 <strong>
                     <p class="product-price">£{{ product.price }}</p>
                 </strong>
-                <p class="product-text">{{ product.description }}</p>
+                <p class="product-text">{{ product.description }}
+                    <a href="{% url 'product_detail' product.id %}">
+                        more info
+                    </a>
+                </p>
                 <div class="diet-button-box row">
                     <div class="button diet-button">GF</div>
                     <div class="button diet-button">DF</div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 
@@ -38,3 +38,19 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+
+def product_detail(request, product_id):
+    """A view to show an individual product"""
+
+    product = get_object_or_404(Product, pk=product_id)
+    categories = Category.objects.all
+
+    # if request.GET:
+    
+    context = {
+        'product': product,
+        'categories': categories,
+    }
+
+    return render(request, 'products/product_detail.html', context)
