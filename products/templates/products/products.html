@@ -2,8 +2,18 @@
 {% load static %}
 
 {% block content %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
 
 <div class="container product-container col">
+
+    <div class="curent-filters">
+        {% for category in current_categories %}
+            <div class="button filter-button">
+                <a href="">{{category.friendly_name}} &#10006;</a>
+            </div>
+        {% endfor %}
+    </div>
 
     {% for product in products %}
     <div class="card w-100 col">
