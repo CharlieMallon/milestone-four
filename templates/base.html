@@ -59,9 +59,23 @@
                     <a href="">Gallery</a>
                     <a href="">FAQ's</a>
                     <a href="">Contact</a>
-                    <a href="">Log In</a>
-                    <a href="">Register</a>
-                    <a href="">Basket (0)</a>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="">Admin</a>
+                        {% endif %}
+                            <a href="">Account</a>
+                            <a href="">Log Out</a>
+                    {% else %}
+                        <a href="">Log In</a>
+                        <a href="">Register</a>
+                    {% endif %}
+                    <a href="">Basket 
+                        {% if bag.items %}
+                            ({{ bag.items }})
+                        {% else %}
+                            (0)
+                        {% endif %}
+                    </a>
                 </div>
                 <img onclick="openNav()" class="icon" src="{% static '\icons\menu.svg' %}" alt="menu">
             </div>
