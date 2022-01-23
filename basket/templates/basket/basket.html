@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content%}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+    <section class="w-100">
+        <div class="page-title">
+            <h4>Basket</h4>
+        </div>
+        {% if bag_items %}
+            <div>
+                <button class="button">Buy Now</button>
+            </div>
+        {% endif %}
+        <div class="basket w-100">
+            {% if basket_items %}
+                <div class="table"></div>
+            {% else %}
+                <p>Your Basket is Empty</p>
+                <a href="{% url 'products' %}" class="button">Continue Shopping</a>
+            {% endif %}
+        </div>
+
+    </section>
+
+{% endblock %} 
+
+{% block postload_js %}
+{% endblock %}

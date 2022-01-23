@@ -45,7 +45,7 @@
         </div>
         <div class="container nav-buttons">
             <div class="basket">
-                <a href="">
+                <a href="{% url 'view_basket' %}">
                     <img class="icon"  src="{% static 'icons\shopping_basket.svg' %}" alt="basket">
                 </a>
             </div>
@@ -71,7 +71,7 @@
                         <a href="{% url 'account_login' %}">Log In</a>
                         <a href="{% url 'account_signup' %}">Register</a>
                     {% endif %}
-                    <a href="">Basket 
+                    <a href="{% url 'view_basket' %}">Basket 
                         {% if bag.items %}
                             ({{ bag.items }})
                         {% else %}
