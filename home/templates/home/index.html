@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block page_header %}
 {% endblock %}
 
@@ -10,29 +9,34 @@
 {% include 'includes/search.html' %}
 
 <section>
-    <!-- CHANGE this should be done with jinger templating and should be ediable, put in a loop
+	<!-- CHANGE this should be done with jinger templating and should be ediable, put in a loop
     that goes over all of the categories for the secound part-->
 	<div class="container w-100 cta cta-large">
 		<img class="cta-img" src="media\images\pexels-helena-lopes-1931368.jpg" alt="" />
 		<div class="cta-text">
 			<h3>Beautiful Cakes for all Occations</h3>
-			<a class="button cta-button" href="{% url 'products' %}">Shop Now</a>
+			<a class="button cta-button" href="{% url 'products' %}?sort=name&direction=asc"
+				>Shop Now</a
+			>
 		</div>
 	</div>
 
 	{% for category in categories %}
-		<div class="container w-100 cta cta-small">
-			<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}"/>
-			<div class="cta-text">
-				<h3>{{ category.friendly_name }}</h3>
-				<a class="button cta-button" href="{% url 'products' %}?category={{ category.name }}">Shop Now</a>
-			</div>
+	<div class="container w-100 cta cta-small">
+		<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
+		<div class="cta-text">
+			<h3>{{ category.friendly_name }}</h3>
+			<a
+				class="button cta-button"
+				href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc"
+				>Shop Now</a
+			>
 		</div>
+	</div>
 	{% endfor %}
-
 </section>
 
-{% endblock %}
+{% endblock %} 
 
 {% block postload_js %}
 {% endblock %}

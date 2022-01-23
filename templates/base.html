@@ -51,10 +51,10 @@
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="{% url 'home' %}">Home</a>
-                    <a href="{% url 'products' %}">Products</a>
+                    <a href="{% url 'products' %}?sort=name&direction=asc">Products</a>
                     <a class="indent" href="{% url 'products' %}">All Products</a>
                     {% for category in categories %}
-                        <a class="indent" href="{% url 'products' %}?category={{ category.name }}">{{ category.friendly_name }}</a>
+                        <a class="indent" href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">{{ category.friendly_name }}</a>
                     {% endfor %}
                     <a href="">Gallery</a>
                     <a href="">FAQ's</a>
