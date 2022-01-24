@@ -72,8 +72,8 @@
                         <a href="{% url 'account_signup' %}">Register</a>
                     {% endif %}
                     <a href="{% url 'view_basket' %}">Basket 
-                        {% if bag.items %}
-                            ({{ bag.items }})
+                        {% if product_count %}
+                            ({{ product_count }})
                         {% else %}
                             (0)
                         {% endif %}

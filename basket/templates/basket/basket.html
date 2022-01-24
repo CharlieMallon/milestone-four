@@ -8,27 +8,96 @@
 <!-- Search Bar-->
 {% include 'includes/search.html' %}
 
-    <section class="w-100">
+    <section class="">
         <div class="page-title">
             <h4>Basket</h4>
         </div>
-        {% if bag_items %}
-            <div>
-                <button class="button">Buy Now</button>
-            </div>
-        {% endif %}
-        <div class="basket w-100">
+        {% if basket_items %}
+        <div class="">
+            {% if checkout %}
+                <button class="button">
+                {% else %}
+                <button class="button gray">
+                {% endif %}
+                    Buy Now
+                </button>
+            {% endif %}
+        </div>
+        <div class="basket">
             {% if basket_items %}
-                <div class="table"></div>
+                {% for item in basket_items %}
+                    <div class="card col">
+                        <div class="card-content W-100 row">
+                            <div class="product-img w-50">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img class="" src="" alt=""/>
+                                </a>
+                            </div>
+                            <div class="product-info col w-50">
+                                <div class="card-title w-100">
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        <h3 class="product-title">{{ item.product.name }}</h3>
+                                    </a>
+                                </div>
+                                <div class="w-100 row basket-info">
+                                    <div class="w-50 col info-text">
+                                        <p>Colour: {{items.product.colour}}</p>
+                                        <p>Dietry Req: {{ item.product.diet }}</p>
+                                    </div>
+                                    <strong>
+                                        <p class="product-price">£{{ item.product.price }}</p>
+                                    </strong>
+                                </div>
+                                <!-- update price form-->
+                                {% include "basket\quantity-from.html" %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="basket-totals">
+                    <p><strong>Basket Total: £{{ total }}</strong></p>
+                    <p>Delivery: £{{ delivery}}</p>
+                    <p><strong>Grand Total: £{{ grand_total}}</strong></p>
+                    {% if not checkout %}
+                        <p>Miniumum Order Quantity 6, add {{ delta }} more yummy cake to Checkout</p>
+                    {% endif %}
+                </div>
             {% else %}
                 <p>Your Basket is Empty</p>
                 <a href="{% url 'products' %}" class="button">Continue Shopping</a>
             {% endif %}
         </div>
-
     </section>
 
 {% endblock %} 
 
 {% block postload_js %}
+{{ block.super }}
+{% include 'includes/quantity_input_script.html' %}
+
+<!-- Taken from the boutique_ado project-->
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/basket/remove/${itemId}/`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'product_size': size
+        };
+
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+    })
+</script>
 {% endblock %}

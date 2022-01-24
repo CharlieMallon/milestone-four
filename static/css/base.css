@@ -243,3 +243,18 @@ img{
 .basket{
     text-align: center;
 }
+
+.basket-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.info-text{
+    text-align: left;
+    line-height: 0.8;
+}
+
+.gray{
+    color: red;
+}
