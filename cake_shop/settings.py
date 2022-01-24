@@ -77,7 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth', # Required by allauth
                 'django.contrib.messages.context_processors.messages',
-                'basket.contexts.basket_contents',
+                'django.template.context_processors.media', # makes images available anywhere
+                'basket.contexts.basket_contents', # makes basket available anywhere
             ],
         },
     },
