@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="container col">
+        <div class="w-100">
+            <h2 class="">Checkout</h2>
+        </div>
+
+        <div class="row container w-100">
+            <div class="col w-100">
+                <p class="">Please fill out the form below to complete your order</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="col">
+                        <legend class="">Details</legend>
+                        {{ order_form.full_name}}
+                        {{ order_form.email}}
+                    </fieldset>
+                    <fieldset class="col">
+                        <legend class="">Delivery</legend>
+                        {{ order_form.phone_number}}
+                        {{ order_form.street_address1}}
+                        {{ order_form.street_address2}}
+                        {{ order_form.town_or_city}}
+                        {{ order_form.county}}
+                        {{ order_form.postcode}}
+                        {{ order_form.country}}
+                        <div class="">
+							{% if user.is_authenticated %}
+								<label class="" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="" type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label class="" for="id-save-info">
+                                    <a class="" href="">Create an account</a> or 
+                                    <a class="" href="">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
+                    </fieldset>
+                    <fieldset class="">
+                        <legend class="">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        {% comment %} <input type="hidden" value="{{ client_secret }}" name="client_secret"> {% endcomment %}
+                    </fieldset>
+
+                    <div class="submit-button">                    
+						<a href="{% url 'view_basket' %}" class="button">
+							<span class="font-weight-bold">Adjust basket</span>
+						</a>
+						<button id="submit-button" class="button">
+							<span class="font-weight-bold">Complete Order</span>
+						</button>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block post_load_js %}
+    {{ block.super }}
+    {% comment %} {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script> {% endcomment %}
+{% endblock %}

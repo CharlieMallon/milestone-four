@@ -1,4 +1,4 @@
-# This is from the boutique_ado project
+#
 from django import forms
 from .models import Order
 

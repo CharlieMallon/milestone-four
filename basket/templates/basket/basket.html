@@ -13,16 +13,20 @@
             <h4>Basket</h4>
         </div>
         {% if basket_items %}
-        <div class="">
-            {% if checkout %}
-                <button class="button">
+            <div class="">
+                {% if checkout %}
+                    <a href="{% url 'checkout' %}">
+                        <button class="button">
+                            Buy Now
+                        </button>
+                    </a>
                 {% else %}
-                <button class="button gray">
+                    <button class="button gray">
+                        Buy Now
+                    </button>
                 {% endif %}
-                    Buy Now
-                </button>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
         <div class="basket">
             {% if basket_items %}
                 {% for item in basket_items %}
