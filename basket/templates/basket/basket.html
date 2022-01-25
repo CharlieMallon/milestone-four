@@ -33,9 +33,15 @@
                     <div class="card col">
                         <div class="card-content W-100 row">
                             <div class="product-img w-50">
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    <img class="" src="" alt=""/>
-                                </a>
+                                {% if item.product.image %}
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        <img class="" src="{{ item.product.image.url }}" alt=""/>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' item.product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
                             </div>
                             <div class="product-info col w-50">
                                 <div class="card-title w-100">

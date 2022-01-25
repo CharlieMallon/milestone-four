@@ -8,9 +8,15 @@
         <h3 class="product-title">{{ product.name }}</h3>
     </div>
     <div class="card-content W-100 col">
-        <div class="product-img">
-            <img class="" src="" alt=""/>
-        </div>
+        {% if product.image %}
+            <a href="{% url 'product_detail' product.id %}">
+                <img class="" src="{{ product.image.url }}" alt=""/>
+            </a>
+            {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                </a>
+            {% endif %}
         <div class="product-info col">
             <strong>
                 <p class="product-price">£{{ product.price }}</p>
