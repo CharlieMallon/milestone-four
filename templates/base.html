@@ -85,7 +85,13 @@
     </header>
 
     {% if messages %}
-        <div class='message-container'></div>
+        <div class='message-container'>
+        {% for message in messages %}
+            <div class="message">
+                {{message}}
+            </div>    
+        {% endfor %}
+        </div>
     {%  endif %}
 
     {% block page_header %}
