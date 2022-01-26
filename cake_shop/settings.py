@@ -80,6 +80,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', # makes images available anywhere
                 'basket.contexts.basket_contents', # makes basket available anywhere
+                'products.contexts.categories',
             ],
         },
     },

@@ -10,7 +10,6 @@ def all_products(request):
     """A view to show all products, including sorting and search categories"""
 
     products = Product.objects.all()
-    categories = Category.objects.all
     query = None
     search_categories = None
     sort = None
@@ -52,7 +51,6 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': search_categories,
-        'categories': categories,
         'current_sorting': current_sorting,
     }
 
@@ -63,13 +61,11 @@ def product_detail(request, product_id):
     """A view to show an individual product"""
 
     product = get_object_or_404(Product, pk=product_id)
-    categories = Category.objects.all
 
     # if request.GET:
     
     context = {
         'product': product,
-        'categories': categories,
     }
 
     return render(request, 'products/product_detail.html', context)

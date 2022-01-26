@@ -5,11 +5,9 @@ from products.models import Category
 
 def index(request):
     """ A view to render the index page with the categories on it """
-    
-    categories = Category.objects.all
 
     context = {
-        'categories': categories,
+
     }
 
     

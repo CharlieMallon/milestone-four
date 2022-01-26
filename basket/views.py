@@ -8,10 +8,9 @@ from products.models import Product, Category
 def view_basket(request):
     """ A view to render the basket and items """
     
-    categories = Category.objects.all
 
     context = {
-        'categories': categories,
+
     }
 
     return render(request, 'basket/basket.html', context)
