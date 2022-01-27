@@ -27,9 +27,6 @@
                 <div class="button diet-button">DF</div>
                 <div class="button diet-button">V</div>
             </div>
-            <div class="button-box row">
-                <div class="button buy-btn">Add 1 to Basket</div>
-            </div>
             <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
