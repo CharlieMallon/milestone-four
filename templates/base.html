@@ -49,6 +49,13 @@
                     <img class="icon"  src="{% static 'icons\shopping_basket.svg' %}" alt="basket">
                 </a>
             </div>
+            <div class="count">
+                {% if product_count %}
+                    ({{ product_count }})
+                {% else %}
+                    (0)
+                {% endif %}
+            </div>
             <div class="nav">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -65,7 +72,7 @@
                         {% if request.user.is_superuser %}
                             <a href="">Admin</a>
                         {% endif %}
-                            <a href="">Account</a>
+                            <a href="{% url 'profile' %}">Account</a>
                             <a href="{% url 'account_logout' %}">Log Out</a>
                     {% else %}
                         <a href="{% url 'account_login' %}">Log In</a>
