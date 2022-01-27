@@ -75,8 +75,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth', # Required by allauth
+                'django.template.context_processors.request', # Required by allauth
+                'django.contrib.auth.context_processors.auth', 
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', # makes images available anywhere
                 'basket.contexts.basket_contents', # makes basket available anywhere
@@ -97,7 +97,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # this just means that the emails go to the console - change for main site
-EMAIL_BACKEND = 'django.core.null.backend.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # allows users to log in with email or username
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
