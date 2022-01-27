@@ -335,6 +335,8 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ## Notes
 
+Secret key - moved to the env.py before deployment.
+
 Cantelo Treats
 
 facebook - https://www.facebook.com/cantelotreats/?ref=page_internal
