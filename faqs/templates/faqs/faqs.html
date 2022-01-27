@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content%}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+<section>
+	{% for fact in faq %}
+		<div class="container w-100">
+			<h3>{{ fact.faq_title }}</h3>
+			<p>{{ fact.faq_content }}</p>
+		</div>
+	{% endfor %}
+</section>
+
+{% endblock %} 
+
+{% block postload_js %}
+{% endblock %}
