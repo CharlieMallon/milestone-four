@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 
+if os.path.exists("env.py"):
+    import env
+
 from pathlib import Path
 from re import L
 
@@ -22,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dzg2)tm*-&x(z)gyrz-k=*p6%&-!=5ol1rxmhgp95jn3#2$8rn'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG ='DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = []
 
