@@ -278,3 +278,8 @@ img{
 .gray{
     color: red;
 }
+
+/* --------- Gallery ---------- */
+.tag{
+    text-align: center;
+}

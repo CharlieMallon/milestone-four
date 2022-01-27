@@ -5,8 +5,13 @@
     <!-- Search Bar-->
     {% include 'includes/search.html' %}
     <h1>Gallery</h1>
-    
-    {{ images }}
+
+    {% for i in images %}
+    <div class="image-card">
+        <img src="{{ i.image.url }}" alt="{{ i.alt }}">
+        <p class="tag">{{ i.tag_line }}</p>
+    </div>
+    {% endfor %}
 
 {% endblock %}
 
