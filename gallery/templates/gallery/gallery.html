@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Search Bar-->
+    {% include 'includes/search.html' %}
+    <h1>Gallery</h1>
+    
+    {{ images }}
+
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+{% endblock %}
