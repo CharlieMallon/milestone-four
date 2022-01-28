@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Search Bar-->
+    {% include 'includes/search.html' %}
+    <h1>Add Image</h1>
+    <form method="POST" action="{% url 'add_image' %}" enctype="multipart/form-data">
+        {% csrf_token%}
+        {{ form }}
+        <div class="col">
+            <a href="{% url 'gallery' %}" class="">
+                <span class="">Back</span>
+            </a>
+            <button type="submit">Add Image</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+{% endblock %}
