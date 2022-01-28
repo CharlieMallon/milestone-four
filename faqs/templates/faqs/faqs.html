@@ -9,6 +9,7 @@
 {% include 'includes/search.html' %}
 
 <section>
+	<a href="{% url 'add_faq' %}" class="button">Add FAQ</a>
 	{% for fact in faqs %}
 		<div class="container w-100 col">
 			<div class="faq-header w-100">

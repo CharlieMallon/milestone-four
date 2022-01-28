@@ -5,7 +5,7 @@
     <!-- Search Bar-->
     {% include 'includes/search.html' %}
     <h1>Gallery</h1>
-
+    <a href="{% url 'add_image' %}" class="button">Add Image</a>
     {% for i in images %}
         <div class="image-card">
             <img src="{{ i.image.url }}" alt="{{ i.alt }}">
