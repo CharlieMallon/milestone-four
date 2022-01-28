@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content%}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+<section>
+	<h2>Admin</h2>
+	<div class="Card">
+		<div class="Card-header">
+			<h3>Site Management</h3>
+		</div>
+		<div class="Card-content">
+			<a href="{% url 'products' %}" class="button">Product Management</a>
+			<a href="{% url 'gallery' %}" class="button">Gallery Management</a>
+		</div>
+	</div>
+	<div class="Card">
+		<div class="Card-header">
+			<h3>Orders</h3>
+		</div>
+		<div class="Card-content">
+			{% include 'includes/search.html' %}
+			<p>Orders go here</p>
+			{% for order in orders %}
+				<div class="card">
+					<p>Details go here</p>
+					<a href="" class="button">Details</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% endblock %} 
+
+{% block postload_js %}
+{% endblock %}
