@@ -11,6 +11,12 @@
             <img src="{{ i.image.url }}" alt="{{ i.alt }}">
             <p class="tag">{{ i.tag_line }}</p>
         </div>
+        {% if request.user.is_superuser %}
+            <small class="">
+                <a href="{% url 'edit_image' i.id %}">Edit</a> | 
+                <a class="text-danger" href="{% url 'delete_image' i.id %}">Delete</a>
+            </small>
+        {% endif %}
     {% endfor %}
 
 {% endblock %}
