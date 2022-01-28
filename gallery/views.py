@@ -73,3 +73,16 @@ def edit_image(request, image_id):
     }
 
     return render(request, template, context)
+
+
+# @login_required
+def delete_image(request, image_id):
+    """ Delete an Image from the gallery """      
+    # if not request.user.is_superuser:
+    #     messages.error(request, 'Sorry, only only admin users can do that.')
+    #     return redirect(reverse('home'))
+
+    image = get_object_or_404(Gallery, pk=image_id)
+    image.delete()
+    messages.success(request, 'Image deleted!')
+    return redirect(reverse('gallery'))
