@@ -74,3 +74,16 @@ def edit_faq(request, faq_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_faq(request, faq_id):
+    """ Delete an faq from the faqs """      
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
+
+    faq = get_object_or_404(Faqs, pk=faq_id)
+    faq.delete()
+    messages.success(request, 'faq deleted!')
+    return redirect(reverse('faqs'))
