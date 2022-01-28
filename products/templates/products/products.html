@@ -90,18 +90,19 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col">
-                                <input type="submit" class="" value="Add to Basket">
-                            </div>
+                            {% if request.user.is_superuser %}
+                                <div class="row">
+                                    <a href="{% url 'edit_product' product.id %}" class="button">Edit</a>
+                                    <a class="button" href="{% url 'delete_product' product.id %}">Delete</a>
+                                </div>
+                            {% else %}
+                                <div class="col">
+                                    <input type="submit" class="" value="Add to Basket">
+                                </div>
+                            {% endif %}
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
                     </form>
-                    {% if request.user.is_superuser %}
-                        <small class="">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
-                    {% endif %}
                 </div>
                 </div>
             </div>
