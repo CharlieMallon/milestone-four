@@ -78,24 +78,30 @@
                                             </span>
                                         </button>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                            name="quantity" value="1" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}"
-                                            id="id_qty_{{ item.item_id }}">
+                                        name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ item.item_id }}"
+                                        id="id_qty_{{ item.item_id }}">
                                         <button class="increment-qty button"
-                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                            <span>
-                                                <img class="icon q-button"  src="{% static 'icons\add.svg' %}" alt="add">
-                                            </span>
-                                        </button>
-                                    </div>
+                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                        <span>
+                                            <img class="icon q-button"  src="{% static 'icons\add.svg' %}" alt="add">
+                                        </span>
+                                    </button>
                                 </div>
-                                <div class="col">
-                                    <input type="submit" class="" value="Add to Basket">
-                                </div>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
-                        </form>
-                    </div>
+                            <div class="col">
+                                <input type="submit" class="" value="Add to Basket">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                    {% if request.user.is_superuser %}
+                        <small class="">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                </div>
                 </div>
             </div>
         {% endfor %}
