@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container col">
+    <div class="w-100">
+        <h3 class="">Add Product</h3>
+    </div>
+    <div class="card-content W-100 col">
+        <form action="POST" actions="{% url 'add_products' %}" enctype="multipart/form-data">
+            {% csrf_token%}
+            {{ form}}
+            <div class="col">
+                <a href="{% url 'products' %}" class="">
+                    <span class="">Back</span>
+                </a>
+                <input type="submit" class="" value="Add Product">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+{% include 'includes/quantity_input_script.html' %}
+{% endblock %}
