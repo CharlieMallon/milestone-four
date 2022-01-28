@@ -44,3 +44,32 @@ def add_image(request):
     }
 
     return render(request, template, context)
+
+
+
+# @login_required
+def edit_image(request, image_id):
+    """ Edit a product in the store """
+    # if not request.user.is_superuser:
+    #     messages.error(request, 'Sorry, only only admin users can do that.')
+    #     return redirect(reverse('home'))
+
+    image = get_object_or_404(Gallery, pk=image_id)
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES, instance=image)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated!')
+            return redirect(reverse('gallery'))
+        else:
+            messages.error(request, 'Failed to update. Please ensure the form is valid.')
+    else:
+        form = ImageForm(instance=image)
+
+    template = 'gallery/edit_image.html'
+    context = {
+        'form': form,
+        'image': image,
+    }
+
+    return render(request, template, context)
