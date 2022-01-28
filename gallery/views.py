@@ -20,12 +20,12 @@ def gallery(request):
     return render(request, 'gallery/gallery.html', context)
 
 
-# @login_required
+@login_required
 def add_image(request):
     """ Add a image to the gallery """
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only admin users can do that.')
-    #     return redirect(reverse('home'))
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin users can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
@@ -47,12 +47,12 @@ def add_image(request):
 
 
 
-# @login_required
+@login_required
 def edit_image(request, image_id):
     """ Edit a product in the store """
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only only admin users can do that.')
-    #     return redirect(reverse('home'))
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
 
     image = get_object_or_404(Gallery, pk=image_id)
     if request.method == 'POST':
@@ -75,12 +75,12 @@ def edit_image(request, image_id):
     return render(request, template, context)
 
 
-# @login_required
+@login_required
 def delete_image(request, image_id):
     """ Delete an Image from the gallery """      
-    # if not request.user.is_superuser:
-    #     messages.error(request, 'Sorry, only only admin users can do that.')
-    #     return redirect(reverse('home'))
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
 
     image = get_object_or_404(Gallery, pk=image_id)
     image.delete()
