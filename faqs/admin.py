@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import faqs
+from .models import Faqs
 
 # Register your models here.
 class faqsAdmin(admin.ModelAdmin):
@@ -10,4 +10,4 @@ class faqsAdmin(admin.ModelAdmin):
 
     ordering = ('faq_title',)
 
-admin.site.register(faqs, faqsAdmin)
+admin.site.register(Faqs, faqsAdmin)

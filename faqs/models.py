@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class faqs(models.Model):
+class Faqs(models.Model):
     """ registering images for the gallery """
 
     class Meta:

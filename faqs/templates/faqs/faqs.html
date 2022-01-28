@@ -9,10 +9,15 @@
 {% include 'includes/search.html' %}
 
 <section>
-	{% for fact in faq %}
-		<div class="container w-100">
-			<h3>{{ fact.faq_title }}</h3>
-			<p>{{ fact.faq_content }}</p>
+
+	{% for fact in faqs %}
+		<div class="container w-100 col">
+			<div class="faq-header w-100">
+				<h3>{{ fact.faq_title }}</h3>
+			</div>
+			<div class="faq-content w-100">
+				<p>{{ fact.faq_content }}</p>
+			</div>
 		</div>
 	{% endfor %}
 </section>

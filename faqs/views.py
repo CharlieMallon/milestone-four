@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
-from .models import faqs
+from .models import Faqs
 
 # Create your views here.
 def faqs(request):
     """ A view to render the index page """
     
 
-    faq = faqs.objects.all()
+    faq = Faqs.objects.all()
 
     context = {
 
