@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Search Bar-->
+    {% include 'includes/search.html' %}
+    <h1>Add FAQ</h1>
+    <form method="POST" action="{% url 'add_faq' %}">
+        {% csrf_token%}
+        {{ form }}
+        <div class="col">
+            <a href="{% url 'faqs' %}" class="">
+                <span class="">Back</span>
+            </a>
+            <button type="submit">Add FAQ</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+{% endblock %}
