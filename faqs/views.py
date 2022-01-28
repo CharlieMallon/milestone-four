@@ -46,3 +46,31 @@ def add_faq(request):
 
     return render(request, template, context)
 
+
+
+@login_required
+def edit_faq(request, faq_id):
+    """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
+
+    faq = get_object_or_404(Faqs, pk=faq_id)
+    if request.method == 'POST':
+        form = FaqForm(request.POST, instance=faq)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated!')
+            return redirect(reverse('faqs'))
+        else:
+            messages.error(request, 'Failed to update. Please ensure the form is valid.')
+    else:
+        form = FaqForm(instance=faq)
+
+    template = 'faqs/edit_faq.html'
+    context = {
+        'form': form,
+        'faq': faq,
+    }
+
+    return render(request, template, context)
