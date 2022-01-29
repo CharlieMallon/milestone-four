@@ -20,8 +20,13 @@
                 {% csrf_token%}
                 {{ form }}
                 <div class="col">
-                    <input type="submit" class="" value="Edit category">
+                    <button type="submit" class="" value="Edit category">
+                        Edit category
+                    </button>
                 </div>
+                <a href="{% url 'delete_category' category.id %}">
+                    <button>Delete</button>
+                </a>
             </form>
         </div>
 	</div>

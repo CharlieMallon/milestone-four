@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -213,3 +214,15 @@ def edit_category(request, category_id):
     }
 
     return render(request, template, context)
+
+@login_required
+def delete_category(request, category_id):
+    """ Delete a category from the store """      
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
+
+    category = get_object_or_404(Category, pk=category_id)
+    category.delete()
+    messages.success(request, 'Category deleted!')
+    return redirect(reverse('categories'))
