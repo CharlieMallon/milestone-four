@@ -11,29 +11,28 @@
         <span class="">Back</span>
     </a>
 
-    <div class="Card">
+    <div class="Card w-100">
 		<div class="Card-header">
 			<h3>Category Management</h3>
 		</div>
 		<div class="Card-content">
 			{% for category in categories %}
-            <form method="POST" action="" enctype="multipart/form-data" class="row">
-                {% csrf_token%}
-                <div class="container">
-                    <img class="product-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
-                </div>
-                <div class="col">
-                    <div class="">
-                        <p>{{ category.friendly_name }}</p>
+                <div class="card row">
+                    <div class="container">
+                        <img class="product-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
                     </div>
-                    <div class="row">
-                        <input type="submit" class="" value="Edit category">
-                        <a href="">
-                            <button>Delete</button>
-                        </a>
+                    <div class="col">
+                        <div class="cat-title">
+                            <h5>{{ category.friendly_name }}</h5>
+                        </div>
+                        <div class="row">
+                            <input type="submit" class="" value="Edit category">
+                            <a href="">
+                                <button>Delete</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </form>
             {% endfor %}
 		</div>
 	</div>
@@ -43,9 +42,9 @@
 			<h3>Add Category</h3>
 		</div>
 		<div class="Card-content">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_category' %}" enctype="multipart/form-data">
                 {% csrf_token%}
-                {{ add_form }}
+                {{ form }}
                 <div class="col">
                     <input type="submit" class="" value="Add category">
                 </div>

@@ -141,14 +141,46 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def categories(request):
-
+    """ display and add a category in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
+    
     categories = Category.objects.all()
-    add_form = CategoryForm()
+    form = CategoryForm()
 
     context = {
         'categories': categories,
-        'add_form': add_form
+        'form': form
+    }
+
+    return render(request, 'products/categories.html', context)
+
+
+@login_required
+def add_category(request):
+    """ display and add a category in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only only admin users can do that.')
+        return redirect(reverse('home'))
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added category!')
+            return redirect(reverse('categories'))
+        else:
+            messages.error(request, 'Failed to add category. Please ensure the form is valid.')
+    else:
+        form = CategoryForm()
+
+    context = {
+        'categories': categories,
+        'form': form
     }
 
     return render(request, 'products/categories.html', context)

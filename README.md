@@ -227,7 +227,7 @@ This section will detail the interesting Issues and Bugs that I came across whil
 
 | Issue/Bug | Comments | Final Fix |
 | --------- | -------- | --------- |
-|           |          |           |
+| image not fully deleting | When a product is deleted the image is left in the database, this could cause storage and coding issues in the future | Installed django cleanup. deletes the image completely from the database. https://pypi.org/project/django-cleanup/0.1.9/ |
 
 **During Testing**
 
