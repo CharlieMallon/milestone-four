@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'profiles',
     'gallery',
     'faqs',
+    #clean up app, keep at bottom
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
