@@ -1,3 +1,5 @@
+{% load static %}
+
 <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
     {% csrf_token %}
     <div class="form-group">
