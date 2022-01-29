@@ -11,11 +11,11 @@ def faqs(request):
     """ A view to render the faqs page """
 
     faq = Faqs.objects.all()
+    form = FaqForm()
 
     context = {
-
         'faqs': faq,
-
+        'form': form,
     }
 
     return render(request, 'faqs/faqs.html', context=context)
@@ -39,7 +39,7 @@ def add_faq(request):
     else:
         form = FaqForm()
         
-    template = 'faqs/add_faq.html'
+    template = 'faqs/faqs.html'
     context = {
         'form': form,
     }
