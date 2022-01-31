@@ -33,10 +33,11 @@
         </div>
         {% for product in products %}
             <div class="card w-100 col">
-                <div class="card-title w-100">
+                <div class="card-title w-100 row">
                     <a href="{% url 'product_detail' product.id %}">
                         <h3 class="product-title">{{ product.name }}</h3>
                     </a>
+                    <p class="category">{{ product.category }}</p>
                 </div>
                 <div class="card-content W-100 row">
                     <div class="product-img w-50">

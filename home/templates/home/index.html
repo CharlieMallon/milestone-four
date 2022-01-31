@@ -11,12 +11,12 @@
 <section>
 	<div class="container w-100 cta cta-large">
 		<!--Aspire for this image to be set by the site owner-->
-		<img class="cta-img" src="media\pexels-sơn-bờm-1773181.jpg" alt="" />
+		<img class="cta-img" src="media\header.jpg" alt="" />
 		<div class="cta-text">
 			<h3>Beautiful Cakes for all Occations</h3>
-			<a class="button cta-button" href="{% url 'products' %}?sort=name&direction=asc"
-				>Shop Now</a
-			>
+			<a class="button cta-button" href="{% url 'products' %}?sort=name&direction=asc">
+				Shop Now
+			</a>
 		</div>
 	</div>
 
@@ -26,8 +26,9 @@
 		<div class="cta-text">
 			<h3>{{ category.friendly_name }}</h3>
 			<a class="button cta-button"
-				href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc"
-				>Shop Now</a>
+				href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">
+				Shop Now
+			</a>
 		</div>
 	</div>
 	{% endfor %}
