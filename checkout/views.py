@@ -27,10 +27,6 @@ def checkout(request):
         automatic_payment_methods={"enabled": True},
     )
 
-    # print(stripe.api_key)
-    # print(intent.client_secret)
-    print(intent)
-
     order_form = OrderForm()
     template = 'checkout/checkout.html'
     context = {

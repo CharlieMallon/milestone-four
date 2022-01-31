@@ -288,3 +288,10 @@ img{
 .tag{
     text-align: center;
 }
+
+/*---------- stripe ----------*/
+
+.stripe-element{
+    padding: 10px;
+}
+
