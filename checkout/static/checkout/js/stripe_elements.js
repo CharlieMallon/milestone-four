@@ -1,11 +1,23 @@
-var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
-var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
+let stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+let clientSecret = $('#id_client_secret').text().slice(1, -1);
+let stripe = Stripe(stripePublicKey);
 let elements = stripe.elements({clientSecret});
-var paymentElement = elements.create('payment');
+let paymentElement = elements.create('payment');
 paymentElement.mount('#payment-element');
 
-var form = document.getElementById('payment-form');
+function setLoading(Loading){
+    if (Loading){
+        document.getElementById('spinner').classList.remove('hidden')
+        document.getElementById('button-text').classList.add('hidden')
+        document.getElementById('submit').disabled = true
+    } else {
+        document.getElementById('spinner').classList.add('hidden')
+        document.getElementById('button-text').classList.remove('hidden')
+        document.getElementById('submit').disabled = false
+    }
+}
+
+let form = document.getElementById('payment-form');
 
 checkStatus()
 
@@ -15,7 +27,7 @@ form.addEventListener('submit', function(ev) {
 });
 
 async function handleSubmit() {
-    // setLoading(true);
+    setLoading(true);
 
     const { error } = await stripe.confirmPayment({
         elements,
@@ -36,7 +48,7 @@ async function handleSubmit() {
         showMessage("An unexpected error occurred.");
     }
 
-    // setLoading(false);
+    setLoading(false);
 }
 
 // Fetches the payment intent status after payment submission
