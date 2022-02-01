@@ -36,3 +36,9 @@ def checkout(request):
     }
 
     return render(request, template, context)
+
+
+def checkout_success(request):
+    """ A view to render the success page """
+    
+    return render(request, 'checkout/checkout_success.html')
