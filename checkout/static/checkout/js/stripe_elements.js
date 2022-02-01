@@ -17,6 +17,13 @@ function setLoading(Loading){
     }
 }
 
+function showMessage(messageText) {
+    const messageContainer = document.querySelector("#payment-message");
+
+    messageContainer.classList.remove("hidden");
+    messageContainer.textContent = messageText;
+}
+
 let form = document.getElementById('payment-form');
 
 checkStatus()
