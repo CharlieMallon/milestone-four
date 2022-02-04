@@ -8,22 +8,27 @@ from .forms import FaqForm
 
 # Create your views here.
 def faqs(request):
-    """ A view to render the faqs page """
+    """
+    A view to render the faqs page
+    """
 
     faq = Faqs.objects.all()
     form = FaqForm()
 
+    template = 'faqs/faqs.html'
     context = {
         'faqs': faq,
         'form': form,
     }
 
-    return render(request, 'faqs/faqs.html', context=context)
+    return render(request, template, context=context)
 
 
 @login_required
 def add_faq(request):
-    """ Add a faq to the faqs """
+    """
+    Add a faq to the faqs
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only admin users can do that.')
         return redirect(reverse('home'))
@@ -50,7 +55,9 @@ def add_faq(request):
 
 @login_required
 def edit_faq(request, faq_id):
-    """ Edit a product in the store """
+    """
+    Edit a product in the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))
@@ -78,7 +85,9 @@ def edit_faq(request, faq_id):
 
 @login_required
 def delete_faq(request, faq_id):
-    """ Delete an faq from the faqs """      
+    """
+    Delete an faq from the faqs
+    """      
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))

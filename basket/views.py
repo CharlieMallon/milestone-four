@@ -1,23 +1,27 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from products.models import Product, Category
+from products.models import Product
 
 # Create your views here.
 
 def view_basket(request):
-    """ A view to render the basket and items """
+    """
+    A view to render the basket and items
+    """
     
-
+    template = 'basket/basket.html'
     context = {
 
     }
 
-    return render(request, 'basket/basket.html', context)
+    return render(request, template, context)
 
 
 def add_to_basket(request, item_id):
-    """ Add a quantity of the specified product to the shopping basket """
+    """
+    Add a quantity of the specified product to the shopping basket
+    """
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -53,7 +57,9 @@ def adjust_basket(request, item_id):
 
 
 def remove_from_basket(request, item_id):
-    """ Remove the specified product in the shopping basket """
+    """
+    Remove the specified product in the shopping basket
+    """
     try:
         product = get_object_or_404(Product, pk=item_id)
         

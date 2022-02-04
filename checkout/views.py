@@ -14,6 +14,10 @@ import json
 
 # Create your views here.
 def checkout(request):
+    """
+    Loads the checkout page, puts users default information in
+    if available, processes payment and creates the order
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     basket = request.session.get('basket', {})
