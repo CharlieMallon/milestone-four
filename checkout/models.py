@@ -9,11 +9,13 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 
+import datetime
 
 # Database Schema - me telling the computer what the table headers 
 # should be and the value types it takes
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    order_status = models.CharField(max_length=32, null=True, blank=True)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -27,11 +29,13 @@ class Order(models.Model):
     county = CountryField(blank_label='Country *', null=False, blank=False, default='GBR')
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    delivery_date = models.DateTimeField(null=True, blank=True, default=(datetime.datetime.now()+datetime.timedelta(days=3)))
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     # makes Order Unique
     original_bag = models.TextField(null=False, blank=False, default='None')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='None')
+    order_comments = models.TextField(null=True, blank=True, editable=True)
 
     def _generate_order_number(self):
         """
