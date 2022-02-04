@@ -22,7 +22,33 @@
     <div class="orders">
         <p class="">Order History</p>
         {% if orders%}
-        {{ orders }}
+        <table>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Date</th>
+                    <th>Due Date?</th>
+                    <th>Order Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'order_history' order.order_number %}"
+                            title="{{ order.order_number }}">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>
+                            delivery/collection on date?
+                        </td>
+                        <td>${{ order.grand_total }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         {% else %}
         <p>No orders yet</p>
         <a href="{% url 'products' %}" class="button">Continue Shopping</a>
@@ -31,4 +57,5 @@
 {% endblock %}
 
 {% block post_load_js %}
+
 {% endblock %}
