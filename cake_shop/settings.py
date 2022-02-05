@@ -105,6 +105,7 @@ SITE_ID = 1
 
 # this just means that the emails go to the console - change for main site
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'cakes@cakeshop.com'
 
 # allows users to log in with email or username
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
