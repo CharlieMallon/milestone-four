@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'profiles',
     'gallery',
     'faqs',
+    'contact',
     #clean up app, keep at bottom
     'django_cleanup',
 ]

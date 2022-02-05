@@ -10,5 +10,4 @@ class Contact(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        string = self.subject + self.date
-        return string
+        return self.subject

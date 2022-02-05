@@ -24,7 +24,8 @@ def contact(request):
                 'subject': request.POST['subject'],
                 'message_text': request.POST['message_text'],
             }
-            _send_contact_email(message)
+            print(message)
+            # _send_contact_email(message)
             return redirect(reverse('contact'))
         else:
             messages.error(request, 'Failed to contact us. Please ensure the form is valid.')

@@ -9,32 +9,15 @@
 {% include 'includes/search.html' %}
 
 <section>
-	{% for fact in faqs %}
-		<div class="container w-100 col">
-			<div class="faq-header w-100">
-				<h3>{{ fact.faq_title }}</h3>
-			</div>
-			<div class="faq-content w-100">
-				<p>{{ fact.faq_content }}</p>
-			</div>
-			{% if request.user.is_superuser %}
-				<div class="row">
-					<a href="{% url 'edit_faq' fact.id %}" class="button">Edit</a>
-					<a class="button" href="{% url 'delete_faq' fact.id %}">Delete</a>
-				</div>
-        {% endif %}
-		</div>
-	{% endfor %}
-
-	<h2>Add FAQ</h2>
-    <form method="POST" action="{% url 'add_faq' %}">
+	<h2>Contact Us</h2>
+    <form method="POST" action="{% url 'contact' %}">
         {% csrf_token%}
         {{ form }}
         <div class="col">
-            <a href="{% url 'faqs' %}" class="">
+            <a href="{% url 'home' %}" class="">
                 <span class="">Back</span>
             </a>
-            <button type="submit">Add FAQ</button>
+            <button type="submit">Send Message</button>
         </div>
     </form>
 </section>
