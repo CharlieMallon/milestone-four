@@ -40,9 +40,9 @@
     <header class='container header sticky'>
         <div class="logo">
             <a href="{% url 'home' %}">
-                <h2>
+                <h1>
                     Cake Shop
-                </h2>
+                </h1>
             </a>
         </div>
         <div class="container nav-buttons">
@@ -93,21 +93,73 @@
         </div>
     </header>
 
-    {% if messages %}
-        <div class='message-container'>
-        {% for message in messages %}
-            <div class="message">
-                {{message}}
-            </div>    
-        {% endfor %}
+    <div class="page-content">
+        <section class="messages">
+            {% if messages %}
+                <div class='message-container'>
+                {% for message in messages %}
+                    <div class="message">
+                        {{message}}
+                    </div>    
+                {% endfor %}
+                </div>
+            {%  endif %}
+        </section>
+    
+        <section class="page-header">
+            {% block page_header %}
+            {% endblock %}
+        </section>
+    
+        <section class="content">
+            {% block content%}
+            {% endblock %}
+        </section>
+    </div>
+
+    <footer >
+        <div class="col w-100">
+            <div class="col text-center">
+                <p>Do you have a Special Request?</p>
+                <a class="link" href="">Contact Us</a>
+            </div>
+            <div class="row">
+                <div class="socials col w-50">
+                    <p>Socials</p>
+                    <div class="links row">
+                        <a href="https://www.instagram.com/" target="_blank">
+                            <img class="icon social-icon" src="{% static '\icons\instagram.svg' %}" alt="instagram logo">
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img class="icon social-icon" src="{% static '\icons\facebook.svg' %}" alt="facebook logo">
+                        </a>
+                        <a href="https://www.twitter.com/" target="_blank">
+                            <img class="icon social-icon" src="{% static '\icons\twitter.svg' %}" alt="twitter logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="links col w-50">
+                    <p>Links</p>
+                    <a class="link" href="{% url 'faqs' %}">Dietary Requiremnts</a>
+                    <a class="link" href="{% url 'faqs' %}">FAQ's</a>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="row w-50 creator">
+                    <p>Created by </p>
+                    <a href="https://github.com/CharlieMallon" target="_blank">
+                        Charlie Mallon <img class="icon small-icon" src="{% static '\icons\github.svg' %}" alt="github logo">
+                    </a>
+                </div>
+                <div class="row w-50 copyright">
+                    <p>Images Copyright  </p>
+                    <a class="link" href="https://www.facebook.com/cantelotreats" target="_blank">
+                        Cantelo Treats
+                    </a>
+                </div>
+            </div>
         </div>
-    {%  endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content%}
-    {% endblock %}
+    </footer>
 
     <!-- https://www.w3schools.com/howto/howto_js_sidenav.asp -->
     <script>
@@ -118,7 +170,7 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-        </script>
+    </script>
 
     {% block postload_js %}
     {% endblock %}   

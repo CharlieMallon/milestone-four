@@ -5,11 +5,22 @@
     font-family: 'Dongle', sans-serif;
 }
 
-body{
-    padding: 10px;
+/* ---------- Colours ---------- */
+/* CSS HEX */
+:root {
+    --gold: #EDAA01;
+    --black: #16191D;
+    --white: #FFFFFF;
+    --light-gray: #D1D1D1;
+    --gray: #A7A7A7;
+    --dark-gray: #636363;
 }
 
 /* ---------- standard classes ---------- */
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--black);
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -32,12 +43,13 @@ body{
     border: 1px solid black;
 
 }
+
 .icon{
-    display: block;
+    display: inline-block;
     padding: 5px;
     justify-content: center;
     align-items: center;
-    min-height: 35px;
+    height: 35px;
 }
 
 .col{
@@ -56,7 +68,7 @@ body{
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 
 
@@ -82,14 +94,40 @@ img{
     display: inline;
 }
 
+.link{
+    text-decoration: underline;
+    color: blue
+}
+
+.social-icon{
+    height: 35px;
+    width: 35px;
+}
+
+.small-icon{
+    height: 18px;
+    width: 18px;
+    padding: 2px;
+}
+
 /* ---------- Base ---------- */
 .header {
     top: 0px;
-    background-color: aliceblue;
+    background-color: var(--gray);
     justify-content: space-between;
     align-items: center;
     z-index: 1;
+    height: 45px;
 }
+
+.logo{
+    padding-left: 5px;
+}
+
+.nav-buttons{
+    align-items: center;
+}
+
 
 /* navBar */
 /* https://www.w3schools.com/howto/howto_js_sidenav.asp */
@@ -102,7 +140,7 @@ img{
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: white; /* Black*/
+    background-color: var(--gray); /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -113,14 +151,14 @@ img{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: var(--black);
     display: block;
     transition: 0.3s;
 }
 
   /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: var(--gold);
 }
 
   /* Position and style the close button (top right corner) */
@@ -136,6 +174,22 @@ img{
 
 .indent{
     margin-left: 30px;
+}
+
+.page-content{
+    min-height: calc(100vh - (45px + 168px));
+}
+
+/* footer */
+
+footer{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--gray);
+}
+
+.creator{
+    align-items: baseline;
 }
 
 /* ---------- home ---------- */
@@ -173,7 +227,7 @@ img{
 
 .cta-text {
     position: absolute;
-    background-color: #818181CC;
+    background-color: var(--light-gray);
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -281,7 +335,7 @@ img{
 }
 
 .gray{
-    color: red;
+    color: var(--gray);
 }
 
 /* --------- Gallery ---------- */
