@@ -1,79 +1,98 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="container col">
-    <div class="w-100">
-        <h3 class="product-title">{{ product.name }}</h3>
-        <p>{{ product.category }}</p>
-    </div>
-    <div class="card-content W-100 col">
-        {% if product.image %}
-            <a href="{% url 'product_detail' product.id %}">
-                <img class="" src="{{ product.image.url }}" alt=""/>
-            </a>
-            {% else %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
-            {% endif %}
-        <div class="product-info col">
-            <strong>
-                <p class="product-price">£{{ product.price }}</p>
-            </strong>
-            <p class="product-text">{{ product.description }}</p>
-            {% if product.gluten_free_option %}
-                <div class="button">GF Avalible</div>
-            {% endif %}
-            <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col">
-                        <p class=""><strong>Quantity:</strong></p>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <button class="decrement-qty button" 
-                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                <span>
-                                    <img class="icon" src="{{ STATIC_URL }}icons/remove.svg" alt="search">
-                                </span>
-                            </button>
-                            <input class="form-control form-control-sm qty_input" type="number"
-                                name="quantity" value="1" min="1" max="99"
-                                data-item_id="{{ item.item_id }}"
-                                id="id_qty_{{ item.item_id }}">
-                            <button class="increment-qty button"
-                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                <span>
-                                    <img class="icon" src="{{ STATIC_URL }}icons/add.svg" alt="search">
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'products' %}" class="">
-                            <span class="">Keep Shopping</span>
-                        </a>
-                        <input type="submit" class="" value="Add to Basket">
-                    </div>
-                    {% if request.user.is_superuser %}
-                        <small class="">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                        </small>
-                    {% endif %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </div>
-            </form>
-        </div>
-    </div>
+	<div class="w-100">
+		<h3 class="product-title">{{ product.name }}</h3>
+		<p>{{ product.category }}</p>
+	</div>
+	<div class="card-content W-100 col">
+		{% if product.image %}
+		<a href="{% url 'product_detail' product.id %}">
+			<img class="" src="{{ product.image.url }}" alt="" />
+		</a>
+		{% else %}
+		<a href="{% url 'product_detail' product.id %}">
+			<img
+				class="card-img-top img-fluid"
+				src="{{ MEDIA_URL }}noimage.png"
+				alt="{{ product.name }}"
+			/>
+		</a>
+		{% endif %}
+		<div class="product-info col">
+			<strong>
+				<p class="product-price">£{{ product.price }}</p>
+			</strong>
+			<p class="product-text">{{ product.description }}</p>
+			{% if product.gluten_free_option %}
+			<div class="button">GF Avalible</div>
+			{% endif %}
+			<form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
+				{% csrf_token %}
+				<div class="form-row">
+					<div class="col">
+						<p class=""><strong>Quantity:</strong></p>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<button
+								class="decrement-qty button"
+								data-item_id="{{ item.item_id }}"
+								id="decrement-qty_{{ item.item_id }}"
+							>
+								<span>
+									<img
+										class="icon"
+										src="{{ MEDIA_URL }}icons/remove.svg"
+										alt="search"
+									/>
+								</span>
+							</button>
+							<input
+								class="form-control form-control-sm qty_input"
+								type="number"
+								name="quantity"
+								value="1"
+								min="1"
+								max="99"
+								data-item_id="{{ item.item_id }}"
+								id="id_qty_{{ item.item_id }}"
+							/>
+							<button
+								class="increment-qty button"
+								data-item_id="{{ item.item_id }}"
+								id="increment-qty_{{ item.item_id }}"
+							>
+								<span>
+									<img
+										class="icon"
+										src="{{ MEDIA_URL }}icons/add.svg"
+										alt="search"
+									/>
+								</span>
+							</button>
+						</div>
+					</div>
+					<div class="col">
+						<a href="{% url 'products' %}" class="">
+							<span class="">Keep Shopping</span>
+						</a>
+						<input type="submit" class="" value="Add to Basket" />
+					</div>
+					{% if request.user.is_superuser %}
+					<small class="">
+						<a href="{% url 'edit_product' product.id %}">Edit</a> |
+						<a class="text-danger" href="{% url 'delete_product' product.id %}"
+							>Delete</a
+						>
+					</small>
+					{% endif %}
+					<input type="hidden" name="redirect_url" value="{{ request.path }}" />
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 
-{% endblock %}
-
-{% block postload_js %}
-{{ block.super }}
-{% include 'includes/quantity_input_script.html' %}
-{% endblock %}
+{% endblock %} {% block postload_js %} {{ block.super }} {% include
+'includes/quantity_input_script.html' %} {% endblock %}
