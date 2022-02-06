@@ -37,7 +37,7 @@
                             <button class="decrement-qty button" 
                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                 <span>
-                                    <img class="icon" src="{% static 'icons\remove.svg' %}" alt="search">
+                                    <img class="icon" src="{{ STATIC_URL }}icons\remove.svg" alt="search">
                                 </span>
                             </button>
                             <input class="form-control form-control-sm qty_input" type="number"
@@ -47,7 +47,7 @@
                             <button class="increment-qty button"
                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                 <span>
-                                    <img class="icon" src="{% static 'icons\add.svg' %}" alt="search">
+                                    <img class="icon" src="{{ STATIC_URL }}icons\add.svg" alt="search">
                                 </span>
                             </button>
                         </div>
