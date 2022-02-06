@@ -48,7 +48,7 @@
         <div class="container nav-buttons">
             <div class="basket">
                 <a href="{% url 'view_basket' %}">
-                    <img class="icon"  src="{% static 'icons\shopping_basket.svg' %}" alt="basket">
+                    <img class="icon"  src="{{ STATIC_URL }}icons\shopping_basket.svg" alt="basket">
                 </a>
             </div>
             <div class="count">
@@ -88,7 +88,7 @@
                         {% endif %}
                     </a>
                 </div>
-                <img onclick="openNav()" class="icon" src="{% static '\icons\menu.svg' %}" alt="menu">
+                {% comment %} <img onclick="openNav()" class="icon" src="{% static '\icons\menu.svg' %}" alt="menu"> {% endcomment %}
             </div>
         </div>
     </header>
@@ -128,13 +128,13 @@
                     <p>Socials</p>
                     <div class="links row">
                         <a href="https://www.instagram.com/" target="_blank">
-                            <img class="icon social-icon" src="{% static '\icons\instagram.svg' %}" alt="instagram logo">
+                            {% comment %} <img class="icon social-icon" src="{% static '\icons\instagram.svg' %}" alt="instagram logo"> {% endcomment %}
                         </a>
                         <a href="https://www.facebook.com/" target="_blank">
-                            <img class="icon social-icon" src="{% static '\icons\facebook.svg' %}" alt="facebook logo">
+                            {% comment %} <img class="icon social-icon" src="{% static '\icons\facebook.svg' %}" alt="facebook logo"> {% endcomment %}
                         </a>
                         <a href="https://www.twitter.com/" target="_blank">
-                            <img class="icon social-icon" src="{% static '\icons\twitter.svg' %}" alt="twitter logo">
+                            {% comment %} <img class="icon social-icon" src="{% static '\icons\twitter.svg' %}" alt="twitter logo"> {% endcomment %}
                         </a>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                 <div class="row w-50 creator">
                     <p>Created by </p>
                     <a href="https://github.com/CharlieMallon" target="_blank">
-                        Charlie Mallon <img class="icon small-icon" src="{% static '\icons\github.svg' %}" alt="github logo">
+                        {% comment %} Charlie Mallon <img class="icon small-icon" src="{% static '\icons\github.svg' %}" alt="github logo"> {% endcomment %}
                     </a>
                 </div>
                 <div class="row w-50 copyright">
