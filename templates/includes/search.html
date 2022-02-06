@@ -1,14 +1,14 @@
 {% load static %}
 
 <div class="container search">
-    <form methord="GET" action="{% url 'products' %}" class="container w-100 search">
-        <div class="w-100">
-            <input class="w-100 search-bar" type="text" name="q" placeholder="Search">
-        </div>
-        <div>
-            <button type="submit">
-                <img class="icon" src="{{ STATIC_URL }}icons\search_black.svg" alt="search">
-            </button>
-        </div>
-    </form>
+	<form methord="GET" action="{% url 'products' %}" class="container w-100 search">
+		<div class="w-100">
+			<input class="w-100 search-bar" type="text" name="q" placeholder="Search" />
+		</div>
+		<div>
+			<button type="submit">
+				<img class="icon" src="{{ STATIC_URL }}icons/search_black.svg" alt="search" />
+			</button>
+		</div>
+	</form>
 </div>
