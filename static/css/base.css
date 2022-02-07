@@ -110,6 +110,25 @@ img{
     padding: 2px;
 }
 
+/* forms */
+
+button {
+    border: solid 1px var(--black);
+    color: var(--black);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+input {
+    border: solid 1px var(--black);
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px;
+}
+
 /* ---------- Base ---------- */
 .header {
     top: 0px;
@@ -117,7 +136,7 @@ img{
     justify-content: space-between;
     align-items: center;
     z-index: 1;
-    height: 45px;
+    height: 35px;
 }
 
 .logo{
@@ -126,6 +145,15 @@ img{
 
 .nav-buttons{
     align-items: center;
+    height: 35px;
+}
+
+.basket-icon{
+    height: 35px;
+}
+
+.nav{
+    height: 35px;
 }
 
 
@@ -192,9 +220,10 @@ footer{
     align-items: baseline;
 }
 
-/* ---------- home ---------- */
+/* ---------- Search bar ---------- */
 .search{
     justify-content: space-between;
+    height: 35px;
 }
 
 .search-bar{
@@ -203,7 +232,11 @@ footer{
     padding: 5px;
 }
 
+.search-btn{
+    height: 35px;
+}
 
+/* ---------- home ---------- */
 .cta{
     position: relative;
     display: flex;

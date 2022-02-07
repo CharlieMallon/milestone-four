@@ -3,11 +3,11 @@
 <div class="container search">
 	<form methord="GET" action="{% url 'products' %}" class="container w-100 search">
 		<div class="w-100">
-			<input class="w-100 search-bar" type="text" name="q" placeholder="Search" />
+			<input class="w-100 search-bar" type="text" name="q" placeholder="Search"/>
 		</div>
-		<div>
-			<button type="submit">
-				<img class="icon" src="{% static 'icons/search_black.svg' %}" alt="search" />
+		<div class="search">
+			<button class="search-btn" type="submit">
+				<img class="icon" src="{{ MEDIA_URL }}icons/search_black.svg" alt="search"/>
 			</button>
 		</div>
 	</form>
