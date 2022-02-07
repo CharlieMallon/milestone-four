@@ -40,7 +40,7 @@
         </div>
         {% for product in products %}
             <div class="card w-100 col">
-                <div class="card-title w-100 row">
+                <div class="card-header w-100 row">
                     <a href="{% url 'product_detail' product.id %}">
                         <h3 class="product-title">{{ product.name }}</h3>
                     </a>

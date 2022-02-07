@@ -74,7 +74,7 @@
                     <a href="{% url 'contact' %}">Contact</a>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                            <a href="{% url 'manage_shop' %}">Admin</a>
+                            <a href="{% url 'manage_shop' %}">Manage Shop</a>
                         {% endif %}
                             <a href="{% url 'profile' %}">Account</a>
                             <a href="{% url 'account_logout' %}">Log Out</a>

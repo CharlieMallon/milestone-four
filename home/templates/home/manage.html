@@ -11,32 +11,67 @@
 
 {% block content%}
 
-<section>
-	<div class="Card">
-		<div class="Card-header">
+<section class="w-100">
+	<div class="card top-card">
+		<div class="card-header">
 			<h3>Site Management</h3>
 		</div>
-		<div class="Card-content">
-			<a href="{% url 'products' %}" class="button">Product Management</a>
-			<a href="{% url 'gallery' %}" class="button">Gallery Management</a>
-			<a href="{% url 'categories' %}" class="button">Category Management</a>
-			<a href="{% url 'faqs' %}" class="button">Information Management</a>
+		<div class="card-content site-buttons">
+			<button class="management-btn">
+				<a href="{% url 'products' %}">Product Management</a>
+			</button>
+			<button class="management-btn">
+				<a href="{% url 'gallery' %}">Gallery Management</a>
+			</button>
+			<button class="management-btn">
+				<a href="{% url 'categories' %}">Category Management</a>
+			</button>
+			<button class="management-btn">
+				<a href="{% url 'faqs' %}">Information Management</a>
+			</button>
 		</div>
 	</div>
-	<div class="Card">
-		<div class="Card-header">
+	<div class="card">
+		<div class="card-header">
 			<h3>Orders</h3>
 		</div>
-		<div class="Card-content">
+		<div class="card-content">
 			{% include 'includes/search.html' %}
 			{% for order in orders %}
 				<div class="card">
-					<a href="{% url 'order_history' order.order_number %}"
-					title="{{ order.order_number }}">
-						{{ order.order_number|truncatechars:6 }}
-					</a>
-					{{ order.date }}
-					£{{ order.grand_total }}
+					<div class="card-header row">
+						<a href="{% url 'order_history' order.order_number %}"
+						title="{{ order.order_number }}">
+							Order No: <strong>{{ order.order_number }} </strong>
+						</a>
+						{{ order.date|date:"d M Y" }}
+					</div>
+					<div class="card-content">
+						<div class="order-content row">
+							<div class="order-details w-50 col">
+								<p>Name: <strong>{{order.full_name}}</strong></p>
+								<p>Delivery Date: <strong>{{order.delivery_date|date:"d M Y"}}</strong></p>
+								<p>Total Amount: <strong>£{{ order.grand_total }}</strong></p>
+							</div>
+							<div class="order-comments w-50">
+								<p><strong>Order Comments</strong></p>
+								{% if order.order_comments%}
+									<p>{{order.order_comments|truncatechars:200 }}</p>
+								{% else %}
+									<p class="comment">No Comments</p>
+								{% endif %}
+							</div>
+						</div>
+						<div class="order-footer">
+							<button class="details-button">
+								<a href="{% url 'order_history' order.order_number %}"
+								title="{{ order.order_number }}">
+								Details
+								</a>
+							</button>
+							<p>{{order.status}}</p>
+						</div>
+					</div>
 				</div>
 			{% endfor %}
 		</div>
