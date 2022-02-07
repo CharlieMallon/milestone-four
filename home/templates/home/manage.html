@@ -12,7 +12,7 @@
 {% block content%}
 
 <section class="w-100">
-	<div class="card top-card">
+	<div class="card">
 		<div class="card-header">
 			<h3>Site Management</h3>
 		</div>
@@ -36,7 +36,9 @@
 			<h3>Orders</h3>
 		</div>
 		<div class="card-content">
-			{% include 'includes/search.html' %}
+			<div class="order-search">
+				{% include 'includes/search.html' %}
+			</div>
 			{% for order in orders %}
 				<div class="card">
 					<div class="card-header row">

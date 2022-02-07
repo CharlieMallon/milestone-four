@@ -5,13 +5,11 @@
 	<div class="form-group">
 		<div class="input-group">
 			<button
-				class="decrement-qty button"
+				class="decrement-qty qty-btn"
 				data-item_id="{{ item.item_id }}"
 				id="decrement-qty_{{ item.item_id }}"
 			>
-				<span>
-					<img class="icon" src="{{ MEDIA_URL }}icons/remove.svg" alt="search" />
-				</span>
+			<img class="icon small-icon" src="{{ MEDIA_URL }}icons/remove.svg" alt="search" />
 			</button>
 			<input
 				class="form-control form-control-sm qty_input"
@@ -24,13 +22,11 @@
 				id="id_qty_{{ item.item_id }}"
 			/>
 			<button
-				class="increment-qty button"
+				class="increment-qty qty-btn"
 				data-item_id="{{ item.item_id }}"
 				id="increment-qty_{{ item.item_id }}"
 			>
-				<span>
-					<img class="icon" src="{{ MEDIA_URL }}icons/add.svg" alt="search" />
-				</span>
+			<img class="icon small-icon" src="{{ MEDIA_URL }}icons/add.svg" alt="search" />
 			</button>
 		</div>
 	</div>
