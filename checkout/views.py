@@ -17,9 +17,16 @@ import json
 # Create your views here.
 def checkout(request):
     """
-    Loads the checkout page, puts users default information in
-    if available, processes payment and creates the order
+    Loads the checkout page if minimum order quantity is met,
+    puts users default information in if available, 
+    processes payment and creates the order
     """
+    current_basket = basket_contents(request)
+    checkout = current_basket['checkout']
+    if not checkout:
+        messages.error(request, 'Minimum Order Quantity not met, please add more cakes')
+        return redirect(reverse('view_basket'))
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     basket = request.session.get('basket', {})
@@ -73,7 +80,6 @@ def checkout(request):
             messages.error(request, "There is nothing here!")
             return redirect(reverse('products'))
 
-        current_basket = basket_contents(request)
         total = current_basket['grand_total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key

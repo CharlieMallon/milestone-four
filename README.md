@@ -320,7 +320,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Content
 -   All content was written by the developer.
--   insperation https://github.com/mitchdavenport88/hop_shop/blob/main/README.md
+-   inspiration https://github.com/mitchdavenport88/hop_shop/blob/main/README.md
 - https://simpleicons.org/ - social media imgs from here
 
 ### Media
