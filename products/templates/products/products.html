@@ -13,7 +13,7 @@
         <div class="w-100 col products-header">
             <div class="row products-filters">
                 {% if request.user.is_superuser %}
-                <button>
+                <button class="super-user-button">
                     <a href="{% url 'add_product' %}">Add Products</a>
                 </button>
                 {% endif %}
@@ -44,7 +44,7 @@
         </div>
         <div class="w-100 col">
             {% for product in products %}
-            <div class="card row">
+            <div class="card col">
                 <div class="card-content w-100 product-card-content row">
                     <div class="product-img w-50">
                         {% if product.image %}
@@ -72,8 +72,8 @@
                                 </strong>
                             </div>
                         </div>
-                        <div class="product-card-details col">
-                            <p class="product-text">
+                        <div class="product-text col">
+                            <p>
                                 {{ product.description }}
                             </p>
                         </div>
@@ -82,11 +82,13 @@
                                 {% csrf_token %}
                                 <div class="form-row">
                                     <div class="w-100 col">
-                                        <div class="gf-box">
-                                            <label for="FG">Make Mine Gluten Free!
-                                                <input type="checkbox" id="GF" class="checkbox">
-                                            </label>
-                                        </div>
+                                        {% if product.gluten_free_option %}
+                                            <div class="gf-box">
+                                                <label for="FG">Make Mine Gluten Free!
+                                                    <input type="checkbox" id="GF" class="checkbox">
+                                                </label>
+                                            </div>
+                                        {% endif %}
                                         <div class="col qty-row w-100 buy-row">
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -112,15 +114,23 @@
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
                             </form>
-                            {% comment %} {% if request.user.is_superuser %}
-                                <div class="row">
-                                    <a href="{% url 'edit_product' product.id %}" class="button">Edit</a>
-                                    <a class="button" href="{% url 'delete_product' product.id %}">Delete</a>
-                                </div>
-                            {% endif %} {% endcomment %}
                         </div>
                     </div>
                 </div>
+                {% if request.user.is_superuser %}
+                    <div class="row super-user-button-row">
+                        <a href="{% url 'edit_product' product.id %}">
+                            <button class="super-user-button">
+                                Edit
+                            </button>   
+                        </a>
+                        <a href="{% url 'delete_product' product.id %}">
+                            <button class="super-user-button">
+                                Delete
+                            </button>   
+                        </a>
+                    </div>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
