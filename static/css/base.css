@@ -168,15 +168,15 @@ input {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: var(--gray); /* Black*/
+    background-color: var(--gray);
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    padding-top: 35px;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding-left: 15px;
     text-decoration: none;
     font-size: 25px;
     color: var(--black);
@@ -192,10 +192,9 @@ input {
   /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: 0px;
+    right: 0px;
     font-size: 36px;
-    margin-left: 50px;
 }
 
 /* end */
