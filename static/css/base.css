@@ -397,11 +397,6 @@ footer{
     height: 50px;
 }
 
-.gf-box{
-    display: flex;
-    justify-content: center;
-}
-
 .buy-row{
     padding: 0px;
 }
@@ -437,10 +432,6 @@ footer{
 
 .each{
     padding-left: 5px;
-}
-
-.gf-product{
-    justify-content: flex-end;
 }
 
 .product-basket-btn{

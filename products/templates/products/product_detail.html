@@ -30,7 +30,7 @@
 		</a>
 		{% endif %}
 	</div>
-	<div class="card-content col">
+	<div class="card-content w-100 col">
 		<div class="row product-details">
 			<div class="product-category">
 				<a class="category"
@@ -56,13 +56,6 @@
 			{% csrf_token %}
 			<div class="form-row">
 				<div class="w-100 col">
-					{% if product.gluten_free_option %}
-						<div class="gf-box gf-product">
-							<label for="FG">Make Mine Gluten Free!
-								<input type="checkbox" id="GF" class="checkbox">
-							</label>
-						</div>
-					{% endif %}
 					<div class="qty-row w-100 buy-row">
 						<button class='product-basket-btn'>
 							<a href="{% url 'products' %}">
