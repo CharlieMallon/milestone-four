@@ -2,16 +2,18 @@
 {% load static %}
 
 {% block page_header %}
-{% endblock %}
-
-{% block content%}
 <!-- Search Bar-->
 {% include 'includes/search.html' %}
 
+<div class="page-title">
+    <h2>Basket</h2>
+</div>
+
+{% endblock %}
+
+{% block content%}
+
     <section class="">
-        <div class="page-title">
-            <h4>Basket</h4>
-        </div>
         {% if basket_items %}
             <div class="">
                 {% if checkout %}

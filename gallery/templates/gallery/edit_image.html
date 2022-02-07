@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+<div class="page-title">
+    <h2>Edit Image</h2>
+</div>
+
+{% endblock %}
+
 {% block content %}
-    <!-- Search Bar-->
-    {% include 'includes/search.html' %}
-    <h1>Edit Image</h1>
     <form method="POST" action="{% url 'edit_image' image.id %}" enctype="multipart/form-data">
         {% csrf_token%}
         {{ form }}

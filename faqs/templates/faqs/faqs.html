@@ -2,11 +2,16 @@
 {% load static %}
 
 {% block page_header %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+<div class="page-title">
+    <h2>Frequently Asked Questions</h2>
+</div>
+
 {% endblock %}
 
 {% block content%}
-<!-- Search Bar-->
-{% include 'includes/search.html' %}
 
 <section>
 	{% for fact in faqs %}
@@ -25,18 +30,20 @@
         {% endif %}
 		</div>
 	{% endfor %}
-
-	<h2>Add FAQ</h2>
-    <form method="POST" action="{% url 'add_faq' %}">
-        {% csrf_token%}
-        {{ form }}
-        <div class="col">
-            <a href="{% url 'faqs' %}" class="">
-                <span class="">Back</span>
-            </a>
-            <button type="submit">Add FAQ</button>
-        </div>
-    </form>
+	
+	{% if request.user.is_superuser %}
+		<h3>Add FAQ</h3>
+		<form method="POST" action="{% url 'add_faq' %}">
+			{% csrf_token%}
+			{{ form }}
+			<div class="col">
+				<a href="{% url 'faqs' %}" class="">
+					<span class="">Back</span>
+				</a>
+				<button type="submit">Add FAQ</button>
+			</div>
+		</form>
+	{% endif %}
 </section>
 
 {% endblock %} 

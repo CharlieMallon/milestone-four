@@ -1,8 +1,19 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_header %}
+
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+{% endblock %}
+
+{% block content %}
 
 <div class="container col">
 	<div class="w-100">
-		<h3 class="product-title">{{ product.name }}</h3>
+		<h2 class="product-title">{{ product.name }}</h2>
 		<p>{{ product.category }}</p>
 	</div>
 	<div class="card-content W-100 col">
@@ -94,5 +105,9 @@
 	</div>
 </div>
 
-{% endblock %} {% block postload_js %} {{ block.super }} {% include
-'includes/quantity_input_script.html' %} {% endblock %}
+{% endblock %}
+
+{% block postload_js %}
+	{{ block.super }}
+	{% include 'includes/quantity_input_script.html' %}
+{% endblock %}

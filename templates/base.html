@@ -69,7 +69,7 @@
                     {% endfor %}
                     <a href="{% url 'gallery' %}">Gallery</a>
                     <a href="{% url 'faqs' %}">FAQ's</a>
-                    <a href="">Contact</a>
+                    <a href="{% url 'contact' %}">Contact</a>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a href="{% url 'manage_shop' %}">Admin</a>
