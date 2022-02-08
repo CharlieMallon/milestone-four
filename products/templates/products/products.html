@@ -38,11 +38,14 @@
                     </div>
                 </div>
             </div>
+            {% if products %}
             <p class="product-num">
                 {{ products|length }} Products
             </p>
+            {% endif %}
         </div>
         <div class="w-100 col">
+        {% if products %}
             {% for product in products %}
             <div class="card col">
                 <div class="card-content w-100 product-card-content row">
@@ -63,7 +66,7 @@
                                 <h3 class="product-title">{{ product.name }}</h3>
                             </a>
                             <div class="row product-details">
-                                <a class="category"
+                                <a class="category link"
                                     href="{% url 'products' %}?category={{ product.category.name }}&sort=name&direction=asc">
                                     {{ product.category.friendly_name }}
                                 </a>
@@ -74,7 +77,7 @@
                         </div>
                         <div class="product-text col">
                             <p>
-                                {{ product.description }}
+                                {{ product.description|truncatechars:67 }}
                             </p>
                         </div>
                         <div class="product-card-buttons row">
@@ -83,13 +86,13 @@
                                 <div class="form-row">
                                     <div class="w-100 col">
                                         <div class="col qty-row w-100 buy-row">
-                                            <div class="form-group">
+                                            <div class="form-group col">
                                                 <div class="input-group">
                                                     <button class="decrement-qty qty-btn" 
                                                         data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                             <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/remove.svg" alt="remove">
                                                     </button>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
+                                                    <input class="form-control form-control-sm qty-prod-card qty_input" type="number"
                                                         name="quantity" value="1" min="1" max="99"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
@@ -126,6 +129,10 @@
                 {% endif %}
             </div>
             {% endfor %}
+        {% else %}
+            <p>Sorry someone bought all the cakes!</p>
+
+        {% endif %}
         </div>
     </div>
 {% endblock %}

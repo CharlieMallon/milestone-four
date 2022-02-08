@@ -361,8 +361,8 @@ footer{
 
 /* product card */
 .product-title{
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 28px;
+    line-height: 28px;
 }
 
 .product-card-content{
@@ -392,15 +392,16 @@ footer{
 }
 
 .product-price{
-    font-size: 25px;
-    line-height: 25px;
+    font-size: 23px;
+    line-height: 23px;
 }
 
 .product-text{
     line-height: 0.8;
     text-align: center;
     justify-content: center;
-    height: 50px;
+    height: 46px;
+    overflow: hidden;
 }
 
 .buy-row{
@@ -408,7 +409,13 @@ footer{
 }
 
 .add-basket-btn{
-    height: 20px;
+    margin-top: 5px;
+    height: 28px;
+    min-width: 86px;
+}
+
+.qty-prod-card{
+    width: 46px;
 }
 
 .super-user-button-row{
