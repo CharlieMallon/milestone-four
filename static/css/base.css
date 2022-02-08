@@ -88,7 +88,8 @@ img{
 .link{
     text-decoration: underline;
     color: blue;
-    padding-left: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .social-icon{
@@ -547,6 +548,7 @@ footer{
     margin-bottom: 10px
 }
 
+.password_reset p,
 .signup-form p,
 .login-form p{
     display: flex;
@@ -555,6 +557,7 @@ footer{
     margin-bottom: 0px;
 }
 
+.password_reset p input,
 .login-form p input {
     padding-left: 5px;
     margin-left: 5px;
@@ -591,6 +594,20 @@ footer{
 
 .password-link{
     font-size: small;
+}
+
+.errorlist{
+    text-align: center;
+    background-color: var(--gold);
+}
+
+.allauth-text{
+    text-align: center;
+}
+
+.sign-out{
+    display: flex;
+    justify-content: space-around;
 }
 
 /*------- Overrides ----------*/

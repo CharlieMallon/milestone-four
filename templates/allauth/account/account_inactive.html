@@ -5,7 +5,9 @@
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
-
-<p>{% trans "This account is inactive." %}</p>
+<h1 class="allauth-head">{% trans "Account Inactive" %}</h1>
+<div class="allauth-body">
+    <p>{% trans "This account is inactive." %}</p>
+    <p class="account">{% blocktrans %}<a class="link" href="{{ login_url }}">Back to Signin</a>{% endblocktrans %}</p>
+</div>
 {% endblock %}
