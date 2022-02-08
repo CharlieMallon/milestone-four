@@ -18,53 +18,97 @@
 {% block content %}
     <div class="row container w-100">
         <div class="col w-100">
-            <p class="">Please fill out the form below to complete your order</p>
+            <p class="checkout-comment">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="col">
-                    <legend class="">Details</legend>
-                    {{ order_form.full_name}}
-                    {{ order_form.email}}
-                </fieldset>
-                <fieldset class="col">
-                    <legend class="">Delivery</legend>
-                    {{ order_form.phone_number}}
-                    {{ order_form.street_address1}}
-                    {{ order_form.street_address2}}
-                    {{ order_form.town_or_city}}
-                    {{ order_form.county}}
-                    {{ order_form.postcode}}
-                    {{ order_form.country}}
-                    {{ order_form.delivery_date}}
-                    {{ order_form.order_comments}}
-                    <div class="">
-                        {% if user.is_authenticated %}
-                            <label class="" for="id-save-info">Save this delivery information to my profile</label>
-                            <input class="checkbox" type="checkbox" id="id-save-info" name="save-info" checked>
-                        {% else %}
-                            <label class="" for="id-save-info">
-                                <a class="" href="">Create an account</a> or 
-                                <a class="" href="">login</a> to save this information
-                            </label>
-                        {% endif %}
+                <div class="card details">
+                    <div class="card-header row pay-card-header">
+                        <large>Your Contact Details</large>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
-                </fieldset>
-                <fieldset class="container">
-                    <legend class="">Payment</legend>
-                    <div id="payment-element">
-                    <!--Stripe.js injects the Payment Element-->
+                    <div class="card-content col">
+                        {{ order_form.full_name}}
+                        {{ order_form.email}}
+                        {{ order_form.phone_number}}
                     </div>
-                    <div id="payment-message" class="hidden"></div>
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                </fieldset>
-                <div class="submit-button">                    
-                    <a href="{% url 'view_basket' %}" class="button">
-                        <span class="font-weight-bold">Adjust basket</span>
-                    </a>
-                    <button id="btn-submit">
-                        <div class="spinner hidden" id="spinner"> loading </div>
-                        <span id="button-text">Pay now</span>
-                    </button>
+                    <div class="card-buttons">
+                        <a href="{% url 'view_basket' %}" class="button">
+                            <span class="font-weight-bold">Back to Basket</span>
+                        </a>
+                        <a href="" class="button">Next</a>
+                    </div>
+                </div>
+                <div class="card delivery-address">
+                    <div class="card-header row pay-card-header">
+                        <large>Delivery Address</large>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+                    </div>
+                    <div class="card-content col">
+                        {{ order_form.street_address1}}
+                        {{ order_form.street_address2}}
+                        {{ order_form.town_or_city}}
+                        {{ order_form.county}}
+                        {{ order_form.postcode}}
+                        {{ order_form.country}}
+                        <div class="row">
+                            {% if user.is_authenticated %}
+                                <label class="" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="checkbox" type="checkbox" id="id-save-info" name="save-info" checked>
+                            {% else %}
+                                <label class="" for="id-save-info">
+                                    <a class="link" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="link" href="{% url 'account_login' %}">login</a> to save your information
+                                </label>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-buttons">
+                        <a href="{% url 'view_basket' %}" class="button">
+                            <span class="font-weight-bold">Back to Basket</span>
+                        </a>
+                        <a href="" class="button">Next</a>
+                    </div>
+                </div>
+                <div class="card delivery-date">
+                    <div class="card-header row pay-card-header">
+                        <large>Final Details</large>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+                    </div>
+                    <div class="card-content col">
+                        {{ order_form.delivery_date}}
+                        {{ order_form.order_comments}}
+                    </div>
+                    <div class="card-buttons">
+                        <a href="{% url 'view_basket' %}" class="button">
+                            <span class="font-weight-bold">Back to Basket</span>
+                        </a>
+                        <a href="" class="button">Next</a>
+                    </div>
+                </div>
+                <div class="card payment">
+                    <div class="card-header row pay-card-header">
+                        <large>Payment Details</large>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+                    </div>
+                    <div class="card-content col">
+                        <div id="payment-element">
+                        <!--Stripe.js injects the Payment Element-->
+                        </div>
+                        <div id="payment-message" class="hidden"></div>
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </div>
+                    <div class="card-buttons col">
+                        <div class="card-buttons row">
+                            <a href="{% url 'view_basket' %}" class="button">
+                                <span class="font-weight-bold">Back to Basket</span>
+                            </a>
+                            <button id="btn-submit">
+                                <div class="spinner hidden" id="spinner"> loading </div>
+                                <span id="button-text">Pay now</span>
+                            </button>
+                        </div>
+                        <p class="checkout-amount">Your card will be charged £{{ grand_total }}</p>
+                    </div>
                 </div>
             </form>
         </div>

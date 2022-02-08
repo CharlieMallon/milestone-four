@@ -666,6 +666,31 @@ footer{
     justify-content: center;
 }
 
+/* --------- Checkout --------- */
+
+.pay-card-header{
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.checkout-comment{
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.card-buttons{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.checkout-amount{
+    text-align: right;
+    color: var(--gold);
+    line-height: 0.8;
+    padding-right: 5px;
+}
+
 /*------- Overrides ----------*/
 
 .hidden{
