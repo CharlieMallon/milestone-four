@@ -4,82 +4,105 @@
 {% block page_header %}
 <!-- Search Bar-->
 {% include 'includes/search.html' %}
-
-<div class="page-title">
-    <h2>Basket</h2>
-</div>
-
 {% endblock %}
 
 {% block content%}
 
-    <section class="">
-        {% if basket_items %}
-            <div class="">
-                {% if checkout %}
-                    <a href="{% url 'checkout' %}">
-                        <button class="button">
-                            Buy Now
-                        </button>
-                    </a>
-                {% else %}
-                    <button class="button gray">
-                        Buy Now
-                    </button>
-                {% endif %}
+<div class="container w-100 col">
+    {% if basket_items %}
+        <div class="w-100 col basket-header">
+            <div class="basket-top w-100 col">
+                <div class="total w-100 row">
+                    <h2>Basket Total</h2>
+                    <h3><strong>£{{ grand_total }}</strong></h3>
+                </div>
+                <div class="checkout-btn">
+                    {% if checkout %}
+                        <a class="button" href="{% url 'checkout' %}">
+                            Proceed to checkout
+                        </a>
+                    {% else %}
+                        <p class="button">
+                            Miniumum quantity not met
+                        </p>
+                    {% endif %}
+                </div>
             </div>
-        {% endif %}
-        <div class="basket">
-            {% if basket_items %}
-                {% for item in basket_items %}
-                    <div class="card col">
-                        <div class="card-content W-100 row">
-                            <div class="product-img w-50">
-                                {% if item.product.image %}
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        <img class="" src="{{ item.product.image.url }}" alt=""/>
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    </a>
-                                {% endif %}
+        </div>
+        <hr class="basket-hr">
+        <div class="w-100 col basket-contents">
+            {% for item in basket_items %}
+                <div class="card col">
+                    <div class="card-content basket-card-content row">
+                        <div class="product-img basket-image">
+                            {% if item.product.image %}
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img src="{{ item.product.image.url }}" alt=""/>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="product-info-basket col">
+                            <div class="product-title w-100">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <h3 class="product-title">{{ item.product.name }}</h3>
+                                </a>
                             </div>
-                            <div class="product-info col w-50">
-                                <div class="card-title w-100">
-                                    <a href="{% url 'product_detail' item.product.id %}">
-                                        <h3 class="product-title">{{ item.product.name }}</h3>
+                            <div class="row product-details">
+                                <div class="product-category">
+                                    <a class="category link"
+                                        href="{% url 'products' %}?category={{ item.product.category.name }}&sort=name&direction=asc">
+                                        {{ item.product.category.friendly_name }}
                                     </a>
                                 </div>
-                                <div class="w-100 row basket-info">
-                                    <div class="w-50 col info-text">
-                                        <p>Colour: {{items.product.colour}}</p>
-                                        <p>Dietry Req: {{ item.product.diet }}</p>
-                                    </div>
-                                    <strong>
-                                        <p class="product-price">£{{ item.product.price }}</p>
-                                    </strong>
+                                <div class="price row">
+                                    <p class="product-price">
+                                        <strong>
+                                            £{{ item.product.price }}
+                                        </strong> 
+                                    </p>
+                                    <p class="each">
+                                        <small>each</small>
+                                    </p>
                                 </div>
+                            </div>
+                            <div class="basket-button-row row">
                                 <!-- update price form-->
                                 {% include "basket\quantity-from.html" %}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-                <div class="basket-totals">
-                    <p><strong>Basket Total: £{{ total }}</strong></p>
-                    <p>Delivery: £{{ delivery}}</p>
-                    <p><strong>Grand Total: £{{ grand_total}}</strong></p>
-                    {% if not checkout %}
-                        <p>Miniumum Order Quantity 6, add {{ delta }} more yummy cake to Checkout</p>
-                    {% endif %}
                 </div>
-            {% else %}
-                <p>Your Basket is Empty</p>
-                <a href="{% url 'products' %}" class="button">Continue Shopping</a>
+            {% endfor %}
+        </div>
+        <hr class="basket-hr">
+        <div class="w-100 col basket-totals">
+            <div class="total row">
+                <p>Basket Total</p>
+                <p><strong>£{{ total }}</strong></p>
+            </div>
+            <div class="total row">
+                <p>Delivery Fee</p>
+                <p><strong>£{{ delivery }}</strong></p>
+            </div>
+            <div class="total row">
+                <p>Grand Total</p>
+                <p><strong>£{{ grand_total }}</strong></p>
+            </div>
+            {% if not checkout %}
+                <p class="min-order" >Miniumum Order Quantity 6, add {{ delta }} more yummy cake(s) to Checkout</p>
             {% endif %}
         </div>
-    </section>
+    {% else %}
+        <div class="no-basket col">
+            <p class="no-basket">Your Basket is Empty, go get some yummy Cakes!</p>
+            <a class="button" href="{% url 'products' %}">Continue Shopping</a>
+        </div>
+    {% endif %}
+</div>
 
 {% endblock %} 
 

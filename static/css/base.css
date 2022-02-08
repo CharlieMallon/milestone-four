@@ -43,10 +43,6 @@ p {
     position: sticky;
 }
 
-.button {
-    border: 1px solid black;
-}
-
 .icon{
     display: inline-block;
     padding: 5px;
@@ -122,7 +118,8 @@ img{
 
 /* forms */
 
-button {
+button,
+.button {
     border: solid 1px var(--black);
     color: var(--black);
     text-align: center;
@@ -130,6 +127,8 @@ button {
     display: inline-block;
     padding: 0px 5px;
     font-size: 18px;
+    background-color: var(--light-gray);
+    width: fit-content;
 }
 
 input {
@@ -258,7 +257,7 @@ input {
 
 /* content */
 .page-content{
-    min-height: calc(100vh - (35px + 200px)); /* vh - (header + footer) */
+    min-height: calc(100vh - (35px + 170px)); /* vh - (header + footer) */
 }
 
 /* messages */
@@ -464,23 +463,64 @@ footer{
 
 /* ---------- basket ---------- */
 
-.basket{
-    text-align: center;
+.basket-header{
+    display: flex;
+    align-items: center;
 }
 
-.basket-info{
+.basket-top{
+    align-items: center;
+    padding: 10px;
+}
+
+.total{
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.basket-hr{
+    margin: 5px 0px;
+    border: 1px solid var(--gold);
+    width: 33%;
+    margin-bottom: 15px;
+    ;
+}
+
+.basket-card-content{
+    height: 100px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
 }
 
-.info-text{
-    text-align: left;
+.basket-image{
+    height: 90px;
+    width: 90px;
+    padding: 0px;
+}
+
+.product-info-basket{
+    width: 190px;
+}
+
+.basket-button-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket-totals{
+    padding: 10px;
+}
+
+.min-order{
+    padding: 10px;
+    text-align: center;
     line-height: 0.8;
+    color: var(--gold);
 }
 
-.gray{
-    color: var(--gray);
+.no-basket{
+    align-items: center;
+    padding: 20px 0px;
 }
 
 /* --------- Gallery ---------- */
