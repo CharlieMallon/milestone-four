@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6, p {
     color: var(--black);
 }
 
+p {
+    font-size: 18px;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -83,7 +87,8 @@ img{
 
 .link{
     text-decoration: underline;
-    color: blue
+    color: blue;
+    padding-left: 5px;
 }
 
 .social-icon{
@@ -123,6 +128,7 @@ button {
     text-decoration: none;
     display: inline-block;
     padding: 0px 5px;
+    font-size: 18px;
 }
 
 input {
@@ -165,7 +171,6 @@ input {
     align-self: flex-start;
     border-left-color: var(--white);
     border-right-color: var(--white);
-
 }
 
 .qty-btn{
@@ -252,7 +257,7 @@ input {
 
 /* content */
 .page-content{
-    min-height: calc(100vh - (35px + 168px)); /* vh - (header + footer) */
+    min-height: calc(100vh - (35px + 200px)); /* vh - (header + footer) */
 }
 
 /* messages */
@@ -515,6 +520,77 @@ footer{
 
 .stripe-element{
     padding: 10px;
+}
+
+/* ---------- Allauth --------- */
+.allauth-head{
+    margin-left: 5px;
+}
+
+.allauth-body{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.allauth-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form{
+    margin-bottom: 10px
+}
+
+.signup-form p,
+.login-form p{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px;
+    margin-bottom: 0px;
+}
+
+.login-form p input {
+    padding-left: 5px;
+    margin-left: 5px;
+    width: 80%;
+}
+
+.signup-form p input {
+    padding-left: 5px;
+    margin-left: 5px;
+    width: 65%;
+}
+
+#id_remember{
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    margin-top: 5px;
+}
+
+.allauth-btn-row{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.sign-btn{
+    width: 70px;
+}
+
+.account{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.password-link{
+    font-size: small;
 }
 
 /*------- Overrides ----------*/
