@@ -37,8 +37,6 @@ def basket_contents(request):
 
     grand_total = total + delivery
 
-    print(basket_items)
-
     context = {
         'basket_items': basket_items,
         'product_count': product_count,
