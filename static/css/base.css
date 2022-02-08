@@ -610,6 +610,11 @@ footer{
     justify-content: space-around;
 }
 
+.allauth-confirm-btn{
+    display: flex;
+    justify-content: center;
+}
+
 /*------- Overrides ----------*/
 
 .hidden{

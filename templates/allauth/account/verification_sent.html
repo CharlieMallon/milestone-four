@@ -5,8 +5,13 @@
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block content %}
+
     <h1 class="allauth-head">{% trans "Verify Your E-mail Address" %}</h1>
 
-    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+    <div class="allauth-body">
+        <p class="allauth-text">We have sent an e-mail to you for verification. 
+            Follow the link provided to finalize the signup process.</p>
+        <p class="allauth-text">Please <a class="link" href="{% url 'contact' %}">Contact us</a> if you do not receive the email.</p>
+    </div>
 
 {% endblock %}
