@@ -17,18 +17,10 @@
 			<h3>Site Management</h3>
 		</div>
 		<div class="card-content site-buttons">
-			<button class="management-btn">
-				<a href="{% url 'products' %}">Product Management</a>
-			</button>
-			<button class="management-btn">
-				<a href="{% url 'gallery' %}">Gallery Management</a>
-			</button>
-			<button class="management-btn">
-				<a href="{% url 'categories' %}">Category Management</a>
-			</button>
-			<button class="management-btn">
-				<a href="{% url 'faqs' %}">Information Management</a>
-			</button>
+			<a class=" button management-btn" href="{% url 'products' %}">Product Management</a>
+			<a class=" button management-btn" href="{% url 'gallery' %}">Gallery Management</a>
+			<a class=" button management-btn" href="{% url 'categories' %}">Category Management</a>
+			<a class=" button management-btn" href="{% url 'faqs' %}">Information Management</a>
 		</div>
 	</div>
 	<div class="card">
@@ -65,12 +57,10 @@
 							</div>
 						</div>
 						<div class="order-footer">
-							<button class="details-button">
-								<a href="{% url 'order_history' order.order_number %}"
+								<a class="button details-button" href="{% url 'order_history' order.order_number %}"
 								title="{{ order.order_number }}">
 								Details
 								</a>
-							</button>
 							<p>{{order.status}}</p>
 						</div>
 					</div>

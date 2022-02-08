@@ -13,9 +13,7 @@
         <div class="w-100 col products-header">
             <div class="row products-filters">
                 {% if request.user.is_superuser %}
-                <button class="super-user-button">
-                    <a href="{% url 'add_product' %}">Add Products</a>
-                </button>
+                    <a class="button super-user-button" href="{% url 'add_product' %}">Add Products</a>
                 {% endif %}
                 <div class="curent-filters">
                     {% for category in current_categories %}
@@ -115,15 +113,11 @@
                 </div>
                 {% if request.user.is_superuser %}
                     <div class="row super-user-button-row">
-                        <a href="{% url 'edit_product' product.id %}">
-                            <button class="super-user-button">
-                                Edit
-                            </button>   
+                        <a class="button super-user-button" href="{% url 'edit_product' product.id %}">
+                            Edit  
                         </a>
-                        <a href="{% url 'delete_product' product.id %}">
-                            <button class="super-user-button">
-                                Delete
-                            </button>   
+                        <a class="button super-user-button" href="{% url 'delete_product' product.id %}">
+                            Delete 
                         </a>
                     </div>
                 {% endif %}

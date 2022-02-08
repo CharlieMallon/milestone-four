@@ -26,11 +26,11 @@
                             <h5>{{ category.friendly_name }}</h5>
                         </div>
                         <div class="row">
-                            <a href="{% url 'edit_category' category.id %}">
-                                <button>Edit</button>
+                            <a class="button" href="{% url 'edit_category' category.id %}">
+                                Edit
                             </a>
-                            <a href="{% url 'delete_category' category.id %}">
-                                <button>Delete</button>
+                            <a class="button" href="{% url 'delete_category' category.id %}">
+                                Delete
                             </a>
                         </div>
                     </div>
