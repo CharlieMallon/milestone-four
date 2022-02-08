@@ -86,7 +86,11 @@
             </div>
             <div class="total row">
                 <p>Delivery Fee</p>
-                <p><strong>£{{ delivery }}</strong></p>
+                {% if delivery > 0 %}
+                    <p><strong>£{{ delivery }}.00</strong></p>
+                {% else %}
+                    <p><strong class="line-through">£{{ DELIVERY_COST }}.00</strong> FREE</p>
+                {% endif %}
             </div>
             <div class="total row">
                 <p>Grand Total</p>

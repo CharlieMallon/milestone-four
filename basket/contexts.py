@@ -44,6 +44,8 @@ def basket_contents(request):
         'product_count': product_count,
         'delta': delta,
         'delivery': delivery,
+        'DELIVERY_COST': settings.DELIVERY_COST,
+        'FREE_DELIVERY_THRESHOLD': settings.FREE_DELIVERY_THRESHOLD,
         'total': total,
         'grand_total': grand_total,
         'checkout': checkout,

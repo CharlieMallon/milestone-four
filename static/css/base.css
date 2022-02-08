@@ -511,6 +511,10 @@ footer{
     padding: 10px;
 }
 
+.line-through{
+    text-decoration: line-through;
+}
+
 .min-order{
     padding: 10px;
     text-align: center;
