@@ -628,6 +628,10 @@ footer{
 }
 
 /* ---------- Categories ---------- */
+.cat-card{
+    width: 90%;
+}
+
 .cat-image{
     width: 60px;
     height: 60px;
@@ -644,6 +648,18 @@ footer{
     display: flex;
     justify-content: space-between;
     width: 100px;
+}
+
+.new-category .label{
+    width: 30%;
+}
+
+.new-category .input{
+    width: 70%;
+}
+
+.new-category input{
+    width: 100%;
 }
 
 /* ---------- Allauth --------- */
