@@ -12,10 +12,12 @@ def gallery(request):
     """
 
     images = Gallery.objects.all()
+    form = ImageForm()
     template = 'gallery/gallery.html'
     context = {
 
         'images': images,
+        'form': form,
 
     }
 
@@ -41,13 +43,8 @@ def add_image(request):
             messages.error(request, 'Failed to add image. Please ensure the form is valid.')
     else:
         form = ImageForm()
-        
-    template = 'gallery/add_image.html'
-    context = {
-        'form': form,
-    }
 
-    return render(request, template, context)
+    return render(request)
 
 
 

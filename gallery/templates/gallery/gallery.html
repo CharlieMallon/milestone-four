@@ -20,6 +20,52 @@
 {% endblock %}
 
 {% block content %}
+
+    {% if request.user.is_superuser %}
+        <div class="card">
+            <div class="card-header">
+                <p class="big-text">Add an Image</p>
+            </div>
+            <div class="card-content">
+                <form method="POST" action="{% url 'add_image' %}" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    <div class="gallery-form col">
+                        <div class="row gallery-form-row">
+                            <p class="label">
+                                Label:
+                            </p>
+                            <p class="input">
+                                {{ form.tag_line }}
+                            </p>
+                        </div>
+                        <div class="row gallery-form-row">
+                            <p class="label">
+                                Alt Tag:
+                            </p>
+                            <p class="input">
+                                {{ form.alt }}
+                            </p>
+                        </div>
+                        <div class="image-picker col">
+                            <p class="label">
+                                Image:
+                            </p>
+                            <p class="input">
+                            {{ form.image }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <a href="{% url 'gallery' %}" class="button">
+                            Back
+                        </a>
+                        <button type="submit">Add Image</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
     {% for i in images %}
         <div class="image-card">
             <div class="image">
