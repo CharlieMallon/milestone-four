@@ -18,20 +18,18 @@
 {% block content%}
 
 <form method="POST" action="{% url 'edit_category' category.id %}" enctype="multipart/form-data">
-<div class="card container col">
+<div class="card container">
     <div class="card-content">
             {% csrf_token%}
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <div class="col">
-                            <p class="label">
-                                Curent Image:
-                            </p>
-                            <p class="input">
-                                <img class="cat-image" src="{{ category.image.url }}" alt="{{ category.name }}" />
-                            </p>
-                        </div>
+                        <p class="label">
+                            Curent Image:
+                        </p>
+                        <p class="input">
+                            <img class="cat-image" src="{{ category.image.url }}" alt="{{ category.name }}" />
+                        </p>
                     </div>
                     <div class="col">
                         <div class="col">
@@ -52,14 +50,14 @@
                         </div>
                     </div>
                 </div>
-                {% comment %} <div class="row">
+                <div class="image-picker col">
                     <p class="label">
-                        Image:
+                        Image is 
                     </p>
                     <p class="input">
-                        {{ form.image }}
+                    {{ form.image }}
                     </p>
-                </div> {% endcomment %}
+                </div>
             </div>
             <div class="button-row">
                 <button type="submit" class="" value="Edit category">

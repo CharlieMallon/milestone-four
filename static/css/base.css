@@ -192,6 +192,23 @@ input {
     justify-content: center;
 }
 
+.image-picker{
+    margin: 5px;
+}
+
+.image-picker .input{
+    min-width: 270px;
+}
+
+#id_image{
+    width: 100%;
+    padding: 5px;
+}
+
+.image-picker .input a{
+    display: none;
+}
+
 /* ---------- Base ---------- */
 /* header */
 .header {
