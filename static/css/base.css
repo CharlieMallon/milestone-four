@@ -975,6 +975,15 @@ footer{
     width: 100%;
 }
 
+.image-card{
+    border: solid 2px var(--gold);
+    margin: 5px;
+}
+
+.image-text{
+    line-height: 0.8;
+}
+
 /*------- Overrides ----------*/
 
 .hidden{

@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block page_header %}
+    <!-- Search Bar-->
     {% include 'includes/search.html' %}
-    <div class="row">
+    <div class="row  header-row">
         <h2 class="page-title">Gallery</h2>
         {% if request.user.is_superuser%}
             <a href="{% url 'add_image' %}" class="button">Add Image</a>
@@ -12,18 +13,19 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Search Bar-->
     {% for i in images %}
         <div class="image-card">
-            <img src="{{ i.image.url }}" alt="{{ i.alt }}">
-            <p class="text-center">{{ i.tag_line }}</p>
-        </div>
-        {% if request.user.is_superuser %}
-            <div class="row">
-                <a href="{% url 'edit_image' i.id %}" class="button">Edit</a>
-                <a class="button" href="{% url 'delete_image' i.id %}">Delete</a>
+            <div class="image">
+                <img src="{{ i.image.url }}" alt="{{ i.alt }}">
+                <p class="image-text text-center">{{ i.tag_line }}</p>
             </div>
-        {% endif %}
+            {% if request.user.is_superuser %}
+                <div class="super-user-button-row">
+                    <a href="{% url 'edit_image' i.id %}" class="button">Edit</a>
+                    <a class="button" href="{% url 'delete_image' i.id %}">Delete</a>
+                </div>
+            {% endif %}
+        </div>
     {% endfor %}
 
 {% endblock %}
