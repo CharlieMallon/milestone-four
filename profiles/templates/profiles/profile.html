@@ -5,55 +5,109 @@
 {% endblock %}
 
 {% block page_header %}
+<h2 class="">My Profile</h2>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h2 class="">My Profile</h2>
+<div class="w-100">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="">Personal Information</h3>
+        </div>
+        <div class="card-contents">
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                <div class="card">
+                    <div class="card-header row">
+                        <p><strong>Contact Information</strong></p>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+                    </div>
+                    <div class="card-content profile-contact">
+                        {{ form.user }}
+                        <p>
+                            Phone Number:
+                            {{ form.default_phone_number }}
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header row">
+                        <p><strong>Address</strong></p>
+                        <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+                    </div>
+                    <div class="card-content profile-address">
+                        <p>
+                            Street Address (1):
+                            {{ form.default_street_address1 }}
+                        </p>
+                        <p>
+                            Street Address (2):
+                            {{ form.default_street_address2 }}
+                        </p>
+                        <p>
+                            Town or City:
+                            {{ form.default_town_or_city }}
+                        </p>
+                        <p>
+                            County:
+                            {{ form.default_county }}
+                        </p>
+                        <p>
+                            Postcode:
+                        {{ form.default_postcode }}
+                        </p>
+                        <p>
+                            Country:
+                            {{ form.default_country }}
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-button-row">
+                    <button class="button">Update Information</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="details">
-        <p class="">Default Delivery Information</p>
-        <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-            {% csrf_token %}
-            {{ form }}
-            <button class="button">Update Information</button>
-        </form>
-    </div>
-    <div class="orders">
-        <p class="">Order History</p>
-        {% if orders%}
-        <table>
-            <thead>
-                <tr>
-                    <th>Order Number</th>
-                    <th>Date</th>
-                    <th>Due Date?</th>
-                    <th>Order Total</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="card">
+		<div class="card-header">
+			<h3>Order History</h3>
+		</div>
+		<div class="card-content">
+            {% if order %}
                 {% for order in orders %}
-                    <tr>
-                        <td>
+                    <div class="card order-card">
+                        <div class="card-header row">
                             <a href="{% url 'order_history' order.order_number %}"
                             title="{{ order.order_number }}">
-                                {{ order.order_number|truncatechars:6 }}
+                                Order No: <strong>{{ order.order_number|truncatechars:20 }} </strong>
                             </a>
-                        </td>
-                        <td>{{ order.date }}</td>
-                        <td>
-                            delivery/collection on date?
-                        </td>
-                        <td>£{{ order.grand_total }}</td>
-                    </tr>
+                            {{ order.date|date:"d M Y" }}
+                        </div>
+                        <div class="card-content order-history">
+                            <p>Delivery Date: <strong>{{order.delivery_date|date:"d M Y"}}</strong></p>
+                            <p>Total Paid: <strong>£{{ order.grand_total }}</strong></p>
+                        </div>
+                        <div class="order-footer order-history-footer">
+                                <a class="button details-button" href="{% url 'order_history' order.order_number %}"
+                                title="{{ order.order_number }}">
+                                Details
+                                </a>
+                            <p class="order-status">
+                                {{order.order_status}}
+                            </p>
+                        </div>
+                    </div>
                 {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No orders yet</p>
-        <a href="{% url 'products' %}" class="button">Continue Shopping</a>
-        {% endif %}
-    </div>
+            {% else %}
+            <div class="no-order-box col">
+                <p class="text-center no-order">No orders yet</p>
+                    <a href="{% url 'products' %}" class="button">Continue Shopping</a>
+                </div>
+            {% endif %}
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block post_load_js %}

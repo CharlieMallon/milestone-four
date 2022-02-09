@@ -11,7 +11,7 @@
     {% for i in images %}
         <div class="image-card">
             <img src="{{ i.image.url }}" alt="{{ i.alt }}">
-            <p class="tag">{{ i.tag_line }}</p>
+            <p class="text-center">{{ i.tag_line }}</p>
         </div>
         {% if request.user.is_superuser %}
             <div class="row">

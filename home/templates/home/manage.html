@@ -32,7 +32,7 @@
 				{% include 'includes/search.html' %}
 			</div>
 			{% for order in orders %}
-				<div class="card">
+				<div class="card order-card">
 					<div class="card-header row">
 						<a href="{% url 'order_history' order.order_number %}"
 						title="{{ order.order_number }}">
@@ -61,7 +61,7 @@
 								title="{{ order.order_number }}">
 								Details
 								</a>
-							<p>{{order.status}}</p>
+							<p>{{order.order_status}}</p>
 						</div>
 					</div>
 				</div>
