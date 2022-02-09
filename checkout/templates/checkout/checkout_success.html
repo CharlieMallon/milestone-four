@@ -5,10 +5,40 @@
 {% endblock %}
 
 {% block page_header %}
+<h2 class="page-title">Order Success</h2>
 {% endblock %}
 
 {% block content %}
-<h2>sucess</h2>
+
+<div class="container w-100 col">
+    <div class="container order-summary col">
+        <p>
+            Your order number is:
+        </p>
+        <p class="big-text">{{ order.order_number }}</p>
+        <p>
+            it will be Delivered on:
+        </p>
+        <p class="big-text">{{ order.delivery_date|date:"d M Y" }}</p>
+    </div>
+
+    <div class="card order-confirmation-card">
+        <p>Payment of</p>
+        <p class="big-text text-center">£{{ order.grand_total }}</p>
+        <p class="text-right">was taken form your account</p>
+    </div>
+
+    <div class="container col">
+        <p class="email-confirm text-center">A confimation email has been sent to {{ order.email }}</p>
+        {% if user.is_authenticated %}
+            <a class="button" href="{% url 'profile' %}">Track your order here</a>
+        {% else %}
+            <p>Want to track your order?</p>
+            <a class="button" href="{% url 'account_signup' %}">Create an Account</a>
+        {% endif %}
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postload_js %}

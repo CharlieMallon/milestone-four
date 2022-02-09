@@ -6,7 +6,7 @@ Over the last year or so, Jane has changed a hobby into a growing business. In o
 
 ## Demo
 
-[View the live website here](#)
+[View the live website here](https://cm-cake-shop-ms4.herokuapp.com/)
 
 <!-- ![mockUp](readme-docs/mockup.jpg) -->
 

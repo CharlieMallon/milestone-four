@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block page_header %}
+<h2 class="page-title">Order History</h2>
+{% endblock %}
+
+{% block content %}
+
+{{ order }}
+
+<div class="container w-100 col">
+        <div class="w-100 col basket-header">
+        <hr class="basket-hr">
+        <div class="w-100 col basket-contents">
+            {% for item in basket_items %}
+                <div class="card col">
+                    <div class="card-content basket-card-content row">
+                        <div class="product-img basket-image">
+                            {% if item.product.image %}
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img src="{{ item.product.image.url }}" alt=""/>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="product-info-basket col">
+                            <div class="product-title w-100">
+                                <a href="{% url 'product_detail' item.product.id %}">
+                                    <h3 class="product-title">{{ item.product.name }}</h3>
+                                </a>
+                            </div>
+                            <div class="row product-details">
+                                <div class="product-category">
+                                    <a class="category link"
+                                        href="{% url 'products' %}?category={{ item.product.category.name }}&sort=name&direction=asc">
+                                        {{ item.product.category.friendly_name }}
+                                    </a>
+                                </div>
+                                <div class="price row">
+                                    <p class="product-price">
+                                        <strong>
+                                            £{{ item.product.price }}
+                                        </strong> 
+                                    </p>
+                                    <p class="each">
+                                        <small>each</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr class="basket-hr">
+        <div class="w-100 col basket-totals">
+            <div class="total row">
+                <p>Basket Total</p>
+                <p><strong>£{{ total }}</strong></p>
+            </div>
+            <div class="total row">
+                <p>Delivery Fee</p>
+                {% if delivery > 0 %}
+                    <p><strong>£{{ delivery }}.00</strong></p>
+                {% else %}
+                    <p>Free <strong class="line-through">£{{ DELIVERY_COST }}.00</strong></p>
+                {% endif %}
+            </div>
+            <div class="total row">
+                <p>Grand Total</p>
+                <p><strong>£{{ grand_total }}</strong></p>
+            </div>
+        </div>
+</div>
+{% endblock %}
+
+{% block postload_js %}
+
+{% endblock %}
