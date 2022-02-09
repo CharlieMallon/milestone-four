@@ -14,20 +14,22 @@
 {% block content%}
 
 <section>
+
 	{% for fact in faqs %}
-		<div class="container w-100 col">
-			<div class="faq-header w-100">
+		<div class="card">
+			<div class="card-header faq-header row collapsible">
 				<h3>{{ fact.faq_title }}</h3>
+				<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
 			</div>
-			<div class="faq-content w-100">
+			<div class="content">
 				<p>{{ fact.faq_content }}</p>
+				{% if request.user.is_superuser %}
+					<div class="super-user-button-row row">
+						<a href="{% url 'edit_faq' fact.id %}" class="button">Edit</a>
+						<a class="button" href="{% url 'delete_faq' fact.id %}">Delete</a>
+					</div>
+				{% endif %}
 			</div>
-			{% if request.user.is_superuser %}
-				<div class="row">
-					<a href="{% url 'edit_faq' fact.id %}" class="button">Edit</a>
-					<a class="button" href="{% url 'delete_faq' fact.id %}">Delete</a>
-				</div>
-        {% endif %}
 		</div>
 	{% endfor %}
 	
@@ -49,4 +51,5 @@
 {% endblock %} 
 
 {% block postload_js %}
+	{% include 'includes/collapsible_script.html' %}
 {% endblock %}

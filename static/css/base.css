@@ -209,6 +209,30 @@ input {
     display: none;
 }
 
+/* collabsable */
+/* base code https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate */
+.collapsible {
+    background-color: var(--gray);
+    color: var(--white);
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: var(--gold);
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: var(--light-gray);
+}
+
 /* ---------- Base ---------- */
 /* header */
 .header {
