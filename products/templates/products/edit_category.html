@@ -4,40 +4,74 @@
 {% block page_header %}
 <!-- Search Bar-->
 {% include 'includes/search.html' %}
-
-<h2 class="page-header">Edit {{ }} Category</h2>
+<div class="card-header row">
+    <h2 class="big-text">Editing {{ category.friendly_name }} Category</h2>
+    <div>
+        <a href="{% url 'categories' %}" class="button">
+            Back
+        </a>
+    </div>
+</div>
 
 {% endblock %}
 
 {% block content%}
 
-<div class="container col">
-    <div class="w-100">
-    </div>
-    <a href="{% url 'categories' %}" class="button">
-        <span class="">Back</span>
-    </a>
-
-    <div class="Card">
-		<div class="Card-header">
-			<h3>Edit Category</h3>
-		</div>
-		<div class="Card-content">
-            <form method="POST" action="{% url 'edit_category' category.id %}" enctype="multipart/form-data">
-                {% csrf_token%}
-                {{ form }}
-                <div class="col">
-                    <button type="submit" class="" value="Edit category">
-                        Edit category
-                    </button>
+<form method="POST" action="{% url 'edit_category' category.id %}" enctype="multipart/form-data">
+<div class="card container col">
+    <div class="card-content">
+            {% csrf_token%}
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="col">
+                            <p class="label">
+                                Curent Image:
+                            </p>
+                            <p class="input">
+                                <img class="cat-image" src="{{ category.image.url }}" alt="{{ category.name }}" />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="col">
+                            <p class="label">
+                                Category:
+                            </p>
+                            <p class="input">
+                                {{ form.name }}
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p class="label">
+                                Display Name:
+                            </p>
+                            <p class="input">
+                                {{ form.friendly_name }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
+                {% comment %} <div class="row">
+                    <p class="label">
+                        Image:
+                    </p>
+                    <p class="input">
+                        {{ form.image }}
+                    </p>
+                </div> {% endcomment %}
+            </div>
+            <div class="button-row">
+                <button type="submit" class="" value="Edit category">
+                    Edit category
+                </button>
                 <a class="button" href="{% url 'delete_category' category.id %}">
                     Delete
                 </a>
-            </form>
+            </div>
         </div>
-	</div>
-</div>
+    </div>
+</form>
 
 {% endblock %}
 
