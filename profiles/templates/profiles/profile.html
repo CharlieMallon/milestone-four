@@ -23,7 +23,10 @@
                         <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
                     <div class="card-content profile">
-                        {{ form.user }}
+                        <p>
+                            Username:
+                            {{ user }}
+                        </p>
                         <p>
                             Phone Number:
                             {{ form.default_phone_number }}
@@ -73,7 +76,7 @@
 			<h3>Order History</h3>
 		</div>
 		<div class="card-content">
-            {% if order %}
+            {% if orders %}
                 {% for order in orders %}
                     <div class="card order-card">
                         <div class="card-header row">

@@ -778,7 +778,6 @@ footer{
     margin-bottom: 5px;
 }
 
-
 .profile-button-row{
     display: flex;
     justify-content: space-around;
@@ -815,6 +814,7 @@ footer{
     align-items: center;
     padding-bottom: 10px;
 }
+
 
 /*------- Overrides ----------*/
 
