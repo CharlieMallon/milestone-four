@@ -6,12 +6,12 @@
 
 {% block page_header %}
 
-<!-- Search Bar-->
-{% include 'includes/search.html' %}
+    <!-- Search Bar-->
+    {% include 'includes/search.html' %}
 
-<div class="page-title">
-    <h2>Checkout</h2>
-</div>
+    <div class="page-title">
+        <h2>Checkout</h2>
+    </div>
 
 {% endblock %}
 
@@ -26,10 +26,10 @@
                         <large>Your Contact Details</large>
                         <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
-                    <div class="card-content col">
-                        {{ order_form.full_name}}
-                        {{ order_form.email}}
-                        {{ order_form.phone_number}}
+                    <div class="card-content checkout col">
+                        <p>Full Name: {{ order_form.full_name}}</p>
+                        <p>Email: {{ order_form.email}}</p>
+                        <p>Phone Number: {{ order_form.phone_number}}</p>
                     </div>
                     <div class="card-buttons">
                         <a href="{% url 'view_basket' %}" class="button">
@@ -43,13 +43,13 @@
                         <large>Delivery Address</large>
                         <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
-                    <div class="card-content col">
-                        {{ order_form.street_address1}}
-                        {{ order_form.street_address2}}
-                        {{ order_form.town_or_city}}
-                        {{ order_form.county}}
-                        {{ order_form.postcode}}
-                        {{ order_form.country}}
+                    <div class="card-content checkout col">
+                        <p>Street Address (1): {{ order_form.street_address1}}</p>
+                        <p>Street Address (2): {{ order_form.street_address2}}</p>
+                        <p>Town or City: {{ order_form.town_or_city}}</p>
+                        <p>County: {{ order_form.county}}</p>
+                        <p>Postcode: {{ order_form.postcode}}</p>
+                        <p>Country: {{ order_form.country}}</p>
                         <div class="row">
                             {% if user.is_authenticated %}
                                 <label class="" for="id-save-info">Save this delivery information to my profile</label>
@@ -74,9 +74,12 @@
                         <large>Final Details</large>
                         <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
-                    <div class="card-content col">
-                        {{ order_form.delivery_date}}
-                        {{ order_form.order_comments}}
+                    <div class="card-content checkout col">
+                        <p>Order Delivery Date:{{ order_form.delivery_date}}</p>
+                        <div class="comments col">
+                            <p id="order_comments_label" >Order Comments:</p>
+                            <p>{{ order_form.order_comments}}</p>
+                        </div>
                     </div>
                     <div class="card-buttons">
                         <a href="{% url 'view_basket' %}" class="button">

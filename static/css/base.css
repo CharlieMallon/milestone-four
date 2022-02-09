@@ -145,7 +145,7 @@ input {
     vertical-align: middle;
 }
 
-.stripe-style-input{
+.form-input{
     font-size: 18px;
     border: solid 1px var(--black);
 }
@@ -173,6 +173,8 @@ input {
 .form-control-sm{
     display: inline-block;
     height: 20px;
+    width: 20px;
+    padding: 0px;
     text-align: center;
     align-self: flex-start;
     border-left-color: var(--white);
@@ -598,6 +600,7 @@ footer{
     margin-bottom: 10px
 }
 
+.form-input p,
 .contact-form p,
 .password_reset p,
 .signup-form p,
@@ -674,11 +677,6 @@ footer{
     font-size: 20px;
 }
 
-.checkout-comment{
-    text-align: center;
-    padding-bottom: 5px;
-}
-
 .card-buttons{
     display: flex;
     justify-content: space-between;
@@ -690,6 +688,35 @@ footer{
     color: var(--gold);
     line-height: 0.8;
     padding-right: 5px;
+}
+
+#order_comments_label{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    width: 100%;
+    line-height: 0.8;
+}
+
+#id_order_comments{
+    width: 100%;
+    padding-left: 5px;
+    margin: 0px;
+    height: 40px;
+}
+
+/* Stripe */
+.Label{
+    color: var(--black);
+}
+
+.Input{
+    border: solid 1px var(--black);
+    border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    -o-border-radius: 1px;
 }
 
 /* ---------- Contact Us ---------- */
@@ -707,23 +734,17 @@ footer{
 }
 
 /* ---------- Profile Page ---------- */
-.profile-contact,
-.profile-address{
+.profile{
     padding-top: 0px;
 }
 
-.profile-contact p,
-.profile-address p{
+.checkout p,
+.profile p{
     display: flex;
     justify-content: flex-end;
     margin-bottom: 5px;
 }
 
-.profile-contact p input,
-.profile-address p input{
-    width: 60%;
-    margin-left: 5px;
-}
 
 .profile-button-row{
     display: flex;
@@ -731,7 +752,8 @@ footer{
     padding-bottom: 10px;
 }
 
-.profile-address .stripe-style-input{
+.checkout .form-input,
+.profile .form-input{
     width: 60%;
     margin-left: 5px;
 }
