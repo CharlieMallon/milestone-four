@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block page_header %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+<h2 class="page-header">Edit {{ }} Category</h2>
+
+{% endblock %}
+
+{% block content%}
 
 <div class="container col">
     <div class="w-100">
-        <h2 class="">Categories</h2>
     </div>
     <a href="{% url 'categories' %}" class="button">
         <span class="">Back</span>

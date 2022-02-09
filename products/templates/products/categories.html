@@ -1,54 +1,82 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+{% endblock %}
+
 {% block content %}
 
 <div class="container col">
     <div class="w-100">
-        <h2 class="">Categories</h2>
-    </div>
-    <a href="{% url 'manage_shop' %}" class="button">
-        <span class="">Back</span>
-    </a>
-
-    <div class="Card w-100">
-		<div class="Card-header">
-			<h3>Category Management</h3>
+        <div class="card-header row">
+            <h3 class="big-text">Category Management</h3>
+            <div>
+                <a href="{% url 'manage_shop' %}" class="button">
+                    Back
+                </a>
+            </div>
 		</div>
-		<div class="Card-content">
+		<div class="card-content">
 			{% for category in categories %}
-                <div class="card row">
+                <div class="card cat-row">
                     <div class="container">
-                        <img class="product-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
+                        <img class="product-img cat-image" src="{{ category.image.url }}" alt="{{ category.name }}" />
                     </div>
-                    <div class="col">
-                        <div class="cat-title">
-                            <h5>{{ category.friendly_name }}</h5>
-                        </div>
-                        <div class="row">
-                            <a class="button" href="{% url 'edit_category' category.id %}">
-                                Edit
-                            </a>
-                            <a class="button" href="{% url 'delete_category' category.id %}">
-                                Delete
-                            </a>
-                        </div>
+                    <div class="big-text">
+                        <p>{{ category.friendly_name }}</p>
+                    </div>
+                    <div class="button-row cat-buttons">
+                        <a class="button" href="{% url 'edit_category' category.id %}">
+                            Edit
+                        </a>
+                        <a class="button" href="{% url 'delete_category' category.id %}">
+                            Delete
+                        </a>
                     </div>
                 </div>
             {% endfor %}
 		</div>
 	</div>
-
-    <div class="Card">
-		<div class="Card-header">
+    <div class="card">
+		<div class="card-header">
 			<h3>Add Category</h3>
 		</div>
-		<div class="Card-content">
+		<div class="card-content">
             <form method="POST" action="{% url 'add_category' %}" enctype="multipart/form-data">
                 {% csrf_token%}
-                {{ form }}
-                <div class="col">
-                    <input type="submit" class="" value="Add category">
+                <div class="col new-category">
+                    <div class="row">
+                        <p class="label">
+                            Category:
+                        </p>
+                        <p class="input">
+                            {{ form.name }}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="label">
+                            Display Name:
+                        </p>
+                        <p class="input">
+                            {{ form.friendly_name }}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="label">
+                            Image:
+                        </p>
+                        <p class="input">
+                            {{ form.image }}
+                        </p>
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button type="submit">
+                        Add category
+                    </button>
                 </div>
             </form>
         </div>

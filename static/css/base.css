@@ -119,6 +119,7 @@ img{
 /* forms */
 button,
 .button {
+    height: 28px;
     border: solid 1px var(--black);
     color: var(--black);
     text-align: center;
@@ -518,6 +519,7 @@ footer{
     justify-content: space-between;
 }
 
+.new-category .label,
 .info-row .label{
     width: 100px;
     padding: 5px 0px;
@@ -622,6 +624,25 @@ footer{
 
 .details-button{
     padding: 0px 5px;
+}
+
+/* ---------- Categories ---------- */
+.cat-image{
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+}
+
+.cat-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
 }
 
 /* ---------- Allauth --------- */
