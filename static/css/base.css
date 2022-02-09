@@ -735,6 +735,7 @@ footer{
     font-weight: bold;
 }
 
+.order-info,
 .order-confirmation-card{
     width: 75%;
     padding: 5px;
@@ -750,6 +751,38 @@ footer{
 
 .text-right{
     text-align: right;
+}
+
+/* ---------- Order History ---------- */
+
+.order-info{
+    width: 95%;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.order-summary{
+    margin: 0px;
+    padding: 5px;
+}
+
+.label{
+    width: 90px;
+}
+
+.order-history-content{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 5px;
+}
+
+.category-link{
+    padding-left: 5px;
+}
+
+.price{
+    display: flex;
+    justify-content: space-between;
 }
 
 /* ---------- Contact Us ---------- */

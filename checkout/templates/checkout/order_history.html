@@ -10,74 +10,114 @@
 
 {% block content %}
 
-{{ order }}
-
 <div class="container w-100 col">
-        <div class="w-100 col basket-header">
-        <hr class="basket-hr">
-        <div class="w-100 col basket-contents">
-            {% for item in basket_items %}
-                <div class="card col">
-                    <div class="card-content basket-card-content row">
-                        <div class="product-img basket-image">
-                            {% if item.product.image %}
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    <img src="{{ item.product.image.url }}" alt=""/>
+    {% if request.user.is_superuser %}
+        <div class="card order-info">
+            <div class="card-header">
+                <p><strong>Customer Information</strong></p>
+            </div>
+            <div class="card-content">
+                <div class="row">
+                    <p class="label">Name:</p>
+                    <p class="info">{{ order.full_name }}</p>
+                </div>
+                <div class="row">
+                    <p class="label">Phone Number:</p>
+                    <p class="info">{{ order.phone_number }}</p>
+                </div>
+                <div class="row">
+                    <p class="label">Email Address:</p>
+                    <p class="info">{{ order.email }}</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="order-info order-summary">
+        <div class="order col">
+            <div class="row">
+                <p class="label">Order No:</p>
+                <p class="info">{{ order.order_number }}</p>
+            </div>
+            <div class="row">
+                <p class="label">Delivery Date:</p>
+                <p class="info">{{ order.delivery_date|date:"d M Y" }}</p>
+            </div>
+            <div class="row">
+                <p class="label">Status:</p>
+                <p class="info">{{ order.order_status }}</p>
+            </div>
+        </div>
+    </div>
+    <hr class="basket-hr">
+    <div class="w-100 col">
+        {% for item in order.lineitems.all %}
+            <div class="card col">
+                <div class="card-content row">
+                    <div class="product-img basket-image">
+                        {% if item.product.image %}
+                            <a href="{% url 'product_detail' item.product.id %}">
+                                <img src="{{ item.product.image.url }}" alt=""/>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'product_detail' item.product.id %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="order-history-content col">
+                        <div class="row">
+                            <a href="{% url 'product_detail' item.product.id %}">
+                                <p class="product-title">{{ item.quantity }} x {{ item.product.name }}</p>
+                            </a>
+                            <a class="category-link"
+                                    href="{% url 'products' %}?category={{ item.product.category.name }}&sort=name&direction=asc">
+                                    <p class="product-title">{{ item.product.category.friendly_name }}</p>
                                 </a>
-                            {% else %}
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                </a>
-                            {% endif %}
                         </div>
-                        <div class="product-info-basket col">
-                            <div class="product-title w-100">
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    <h3 class="product-title">{{ item.product.name }}</h3>
-                                </a>
+                        <div class="col w-100">
+                            <div class="price row">
+                                <p>Price per item:</p>
+                                <p class="product-price">
+                                    £{{ item.product.price }}
+                                </p>
                             </div>
-                            <div class="row product-details">
-                                <div class="product-category">
-                                    <a class="category link"
-                                        href="{% url 'products' %}?category={{ item.product.category.name }}&sort=name&direction=asc">
-                                        {{ item.product.category.friendly_name }}
-                                    </a>
-                                </div>
-                                <div class="price row">
-                                    <p class="product-price">
-                                        <strong>
-                                            £{{ item.product.price }}
-                                        </strong> 
-                                    </p>
-                                    <p class="each">
-                                        <small>each</small>
-                                    </p>
-                                </div>
+                            <div class="price row">
+                                <p>Line Item Total:</p>
+                                <p class="product-price">
+                                    <strong>
+                                        £{{ item.lineitem_total }}
+                                    </strong> 
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="basket-hr">
+    <div class="w-100 col basket-totals">
+        <div class="total row">
+            <p>Sub Total</p>
+            <p><strong>£{{ order.order_total }}</strong></p>
         </div>
-        <hr class="basket-hr">
-        <div class="w-100 col basket-totals">
-            <div class="total row">
-                <p>Basket Total</p>
-                <p><strong>£{{ total }}</strong></p>
-            </div>
-            <div class="total row">
-                <p>Delivery Fee</p>
-                {% if delivery > 0 %}
-                    <p><strong>£{{ delivery }}.00</strong></p>
-                {% else %}
-                    <p>Free <strong class="line-through">£{{ DELIVERY_COST }}.00</strong></p>
-                {% endif %}
-            </div>
-            <div class="total row">
-                <p>Grand Total</p>
-                <p><strong>£{{ grand_total }}</strong></p>
-            </div>
+        <div class="total row">
+            <p>Delivery Fee</p>
+            {% if order.delivery_cost > 0 %}
+                <p><strong>£{{ order.delivery_cost }}</strong></p>
+            {% else %}
+                <p>Free <strong class="line-through">£{{ DELIVERY_COST }}.00</strong></p>
+            {% endif %}
         </div>
+        <div class="total row">
+            <p>Grand Total</p>
+            <p><strong>£{{ order.grand_total }}</strong></p>
+        </div>
+    </div>
+    <hr class="basket-hr">
+    <div class="email-confirm text-center">
+        An confirmation email for this order was sent to {{ order.email }} on the {{ order.date|date:"d M Y" }}.
+    </div>
 </div>
 {% endblock %}
 
