@@ -1,20 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+    {% include 'includes/search.html' %}
+    <div class="row header-row">
+        <h2 class="page-title">Add Image</h2>
+        <a href="{% url 'gallery' %}" class="button">Back</a>
+    </div>
+{% endblock %}
+
 {% block content %}
     <!-- Search Bar-->
-    {% include 'includes/search.html' %}
-    <h1>Add Image</h1>
-    <form method="POST" action="{% url 'add_image' %}" enctype="multipart/form-data">
-        {% csrf_token%}
-        {{ form }}
-        <div class="col">
-            <a href="{% url 'gallery' %}" class="">
-                <span class="">Back</span>
-            </a>
-            <button type="submit">Add Image</button>
-        </div>
-    </form>
+    {% if request.user.is_superuser %}
+        <form method="POST" action="{% url 'add_image' %}" enctype="multipart/form-data">
+            {% csrf_token%}
+            <div class="gallery-form col">
+                <div class="row gallery-form-row">
+                    <p class="label">
+                        Label:
+                    </p>
+                    <p class="input">
+                        {{ form.tag_line }}
+                    </p>
+                </div>
+                <div class="row gallery-form-row">
+                    <p class="label">
+                        Alt Tag:
+                    </p>
+                    <p class="input">
+                        {{ form.alt }}
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="label">
+                        Image:
+                    </p>
+                    <p class="input">
+                        {{ form.image }}
+                    </p>
+                </div>
+            </div>
+            <div class="button-row">
+                <a href="{% url 'gallery' %}" class="button">
+                    Back
+                </a>
+                <button type="submit">Add Image</button>
+            </div>
+        </form>
+    {% endif %}
 {% endblock %}
 
 {% block postload_js %}

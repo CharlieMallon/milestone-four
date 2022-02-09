@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+    {% include 'includes/search.html' %}
+    <div class="row">
+        <h2 class="page-title">Gallery</h2>
+        {% if request.user.is_superuser%}
+            <a href="{% url 'add_image' %}" class="button">Add Image</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
 {% block content %}
     <!-- Search Bar-->
-    {% include 'includes/search.html' %}
-    <h1>Gallery</h1>
-    {% if request.user.is_superuser %}
-        <a href="{% url 'add_image' %}" class="button">Add Image</a>
-    {% endif %}
     {% for i in images %}
         <div class="image-card">
             <img src="{{ i.image.url }}" alt="{{ i.alt }}">
