@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block page_header %}
-<h2 class="page-title">Order History</h2>
+<h2 class="page-title">Order Summary</h2>
 {% endblock %}
 
 {% block content %}
@@ -52,7 +52,7 @@
     <div class="w-100 col">
         {% for item in order.lineitems.all %}
             <div class="card col">
-                <div class="card-content row">
+                <div class="card-content order-history-card row">
                     <div class="product-img basket-image">
                         {% if item.product.image %}
                             <a href="{% url 'product_detail' item.product.id %}">
@@ -65,13 +65,15 @@
                         {% endif %}
                     </div>
                     <div class="order-history-content col">
-                        <div class="row">
+                        <div class="col">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 <p class="product-title">{{ item.quantity }} x {{ item.product.name }}</p>
                             </a>
                             <a class="category-link"
                                     href="{% url 'products' %}?category={{ item.product.category.name }}&sort=name&direction=asc">
-                                    <p class="product-title">{{ item.product.category.friendly_name }}</p>
+                                    <small>
+                                        <p class="text-right link">{{ item.product.category.friendly_name }}</p>
+                                    </small>
                                 </a>
                         </div>
                         <div class="col w-100">
