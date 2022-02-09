@@ -690,6 +690,10 @@ footer{
     padding-right: 5px;
 }
 
+#id_delivery_date{
+    width: 52%;
+}
+
 #order_comments_label{
     display: flex;
     justify-content: flex-start;

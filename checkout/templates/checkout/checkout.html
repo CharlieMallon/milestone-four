@@ -18,7 +18,7 @@
 {% block content %}
     <div class="row container w-100">
         <div class="col w-100">
-            <p class="checkout-comment">Please fill out the form below to complete your order</p>
+            <p class="text-center">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <div class="card details">
@@ -55,7 +55,7 @@
                                 <label class="" for="id-save-info">Save this delivery information to my profile</label>
                                 <input class="checkbox" type="checkbox" id="id-save-info" name="save-info" checked>
                             {% else %}
-                                <label class="" for="id-save-info">
+                                <label class="text-center w-100" for="id-save-info">
                                     <a class="link" href="{% url 'account_signup' %}">Create an account</a> or 
                                     <a class="link" href="{% url 'account_login' %}">login</a> to save your information
                                 </label>
@@ -75,7 +75,7 @@
                         <img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
                     </div>
                     <div class="card-content checkout col">
-                        <p>Order Delivery Date:{{ order_form.delivery_date}}</p>
+                        <p>Requested Delivery Date:{{ order_form.delivery_date}}</p>
                         <div class="comments col">
                             <p id="order_comments_label" >Order Comments:</p>
                             <p>{{ order_form.order_comments}}</p>
