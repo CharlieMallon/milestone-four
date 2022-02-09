@@ -1,21 +1,97 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+<h2 class="page-title">Editing {{ product.name }}</h2>
+{% endblock %}
+
 {% block content %}
 
 <div class="container col">
-    <div class="w-100">
-        <h3 class="">Edit Product</h3>
-    </div>
-    <div class="card-content W-100 col">
+    <div class="product-form">
         <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
             {% csrf_token%}
-            {{ form }}
-            <div class="col">
-                <a href="{% url 'products' %}" class="">
+                <div class="text-center">
+                    <h2 class="product-name">Product Name: {{ form.name }}</h2>
+                </div>
+                <div class="product-image">
+                    {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="" src="{{ product.image.url }}" alt="" />
+                    </a>
+                    {% else %}
+                        <img
+                            class="card-img-top img-fluid"
+                            src="{{ MEDIA_URL }}noimage.png"
+                            alt="{{ product.name }}"
+                        />
+                    {% endif %}
+                </div>
+                <div class="image-edit">
+                    {{ form.image }}
+                </div>
+                <div class="card-content col">
+                    <div class="row product-details">
+                        <div class="product-category">
+                            <p class="label">
+                                Category:
+                            </p>
+                            <p class="input">
+                            {{ form.category }}
+                            </p>
+                        </div>
+                        <div class="product-price col">
+                            <p class="label">
+                                Price:
+                            </p>
+                            <div class="row">
+                                <p class="input">
+                                    <strong>
+                                        £ {{ form.price }}
+                                    </strong> 
+                                </p>
+                                <p class="each">
+                                    <small>each</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col product-description">
+                        <p class="label">
+                            Description:
+                        </p>
+                        <p class="input">{{ form.description }}</p>
+                    </div>
+                    <div class="hidden-info card">
+                        <div class="card-header">
+                            <p>Admin Information</p>
+                        </div>
+                        <div class="card-content">
+                            <p class="text-center">This Information is not displayed to the user</p>
+                            <div class="row info-row">
+                                <p class="label">
+                                    SKU:
+                                </p>
+                                <p class="input">
+                                    {{ form.sku }}
+                                </p>
+                            </div>
+                            <div class="row info-row">
+                                <p class="label">
+                                    Number of cakes:
+                                </p>
+                                <p class="input">
+                                    {{ form.number_of_cakes }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="button-row">
+                <a href="{% url 'products' %}" class="button">
                     <span class="">Back</span>
                 </a>
-                <input type="submit" class="" value="Edit Product">
+                <button type="submit">Edit Product</button>
             </div>
         </form>
     </div>
