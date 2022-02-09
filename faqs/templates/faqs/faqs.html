@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block page_header %}
@@ -6,7 +7,7 @@
 {% include 'includes/search.html' %}
 
 <div class="page-title">
-    <h2>Frequently Asked Questions</h2>
+	<h2>Frequently Asked Questions</h2>
 </div>
 
 {% endblock %}
@@ -14,41 +15,65 @@
 {% block content%}
 
 <section>
+	{% if request.user.is_superuser %}
+		<div class="card">
+			<div class="card-header">
+				<p class="big-text">Add a FAQ</p>
+			</div>
+			<div class="card-content">
+				<form method="POST" action="{% url 'add_faq' %}">
+				{% csrf_token%}
+					<div class="form-content">
+						<div class="faq-form-col">
+							<p class="label">
+								Question:
+							</p>
+							<p class="input">
+								{{ form.faq_title }}
+							</p>
+						</div>
+						<div class="faq-form-col">
+							<p class="label">
+								Answer:
+							</p>
+							<p class="input">
+								{{ form.faq_content }}
+							</p>
+						</div>
+					</div>
+					<div class="button-row">
+						<a href="{% url 'faqs' %}" class="button">
+							Back
+						</a>
+						<button type="submit">Add FAQ</button>
+					</div>
+				</form>
+			</div>
+			</div>
+		</div>
+	{% endif %}
 
-	{% for fact in faqs %}
+	{% for question in faqs %}
 		<div class="card">
 			<div class="card-header faq-header row collapsible">
-				<h3>{{ fact.faq_title }}</h3>
-				<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/expand.svg" alt="expand">
+				<p class="big-text">{{ question.faq_title }}</p>
+				<img class="icon small-icon" src="{{ MEDIA_URL }}icons/expand.svg" alt="expand" />
 			</div>
 			<div class="content">
-				<p>{{ fact.faq_content }}</p>
+				<p>{{ question.faq_content }}</p>
 				{% if request.user.is_superuser %}
-					<div class="super-user-button-row row">
-						<a href="{% url 'edit_faq' fact.id %}" class="button">Edit</a>
-						<a class="button" href="{% url 'delete_faq' fact.id %}">Delete</a>
-					</div>
+				<div class="super-user-button-row row">
+					<a href="{% url 'edit_faq' question.id %}" class="button">Edit</a>
+					<a class="button" href="{% url 'delete_faq' question.id %}">Delete</a>
+				</div>
 				{% endif %}
 			</div>
 		</div>
 	{% endfor %}
-	
-	{% if request.user.is_superuser %}
-		<h3>Add FAQ</h3>
-		<form method="POST" action="{% url 'add_faq' %}">
-			{% csrf_token%}
-			{{ form }}
-			<div class="col">
-				<a href="{% url 'faqs' %}" class="">
-					<span class="">Back</span>
-				</a>
-				<button type="submit">Add FAQ</button>
-			</div>
-		</form>
-	{% endif %}
+
 </section>
 
-{% endblock %} 
+{% endblock %}
 
 {% block postload_js %}
 	{% include 'includes/collapsible_script.html' %}

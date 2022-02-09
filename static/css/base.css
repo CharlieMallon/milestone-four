@@ -1025,6 +1025,12 @@ footer{
     line-height: 0.8;
 }
 
+/* ---------- FQAs ---------- */
+
+.faq-form-col input{
+    width: 100%;
+}
+
 /*------- Overrides ----------*/
 
 .hidden{
