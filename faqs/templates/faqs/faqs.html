@@ -3,12 +3,21 @@
 {% load static %}
 
 {% block page_header %}
-<!-- Search Bar-->
-{% include 'includes/search.html' %}
-
-<div class="page-title">
-	<h2>Frequently Asked Questions</h2>
-</div>
+	<!-- Search Bar-->
+	{% include 'includes/search.html' %}
+	
+	{% if request.user.is_superuser %}
+		<div class="cat-header row">
+			<h2 class="page-title">Frequently Asked Questions</h2>
+			<div>
+				<a href="{% url 'manage_shop' %}" class="button">
+					Back
+				</a>
+			</div>
+		</div>
+	{% else %}
+		<h2 class="page-title">Frequently Asked Questions</h2>
+	{% endif %}
 
 {% endblock %}
 
@@ -22,7 +31,7 @@
 			</div>
 			<div class="card-content">
 				<form method="POST" action="{% url 'add_faq' %}">
-				{% csrf_token%}
+					{% csrf_token%}
 					<div class="form-content">
 						<div class="faq-form-col">
 							<p class="label">
@@ -49,7 +58,6 @@
 					</div>
 				</form>
 			</div>
-			</div>
 		</div>
 	{% endif %}
 
@@ -62,10 +70,10 @@
 			<div class="content">
 				<p>{{ question.faq_content }}</p>
 				{% if request.user.is_superuser %}
-				<div class="super-user-button-row row">
-					<a href="{% url 'edit_faq' question.id %}" class="button">Edit</a>
-					<a class="button" href="{% url 'delete_faq' question.id %}">Delete</a>
-				</div>
+					<div class="super-user-button-row row">
+						<a href="{% url 'edit_faq' question.id %}" class="button">Edit</a>
+						<a class="button" href="{% url 'delete_faq' question.id %}">Delete</a>
+					</div>
 				{% endif %}
 			</div>
 		</div>

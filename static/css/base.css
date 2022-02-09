@@ -669,6 +669,13 @@ footer{
 }
 
 /* ---------- Categories ---------- */
+.cat-header{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
 .cat-card{
     width: 90%;
 }

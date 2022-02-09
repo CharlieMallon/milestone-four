@@ -4,12 +4,19 @@
 {% block page_header %}
     <!-- Search Bar-->
     {% include 'includes/search.html' %}
-    <div class="row  header-row">
+    {% if request.user.is_superuser %}
+    <div class="cat-header row">
         <h2 class="page-title">Gallery</h2>
-        {% if request.user.is_superuser%}
+        <div>
+            <a href="{% url 'manage_shop' %}" class="button">
+                Back
+            </a>
             <a href="{% url 'add_image' %}" class="button">Add Image</a>
-        {% endif %}
+        </div>
     </div>
+    {% else %}
+        <h2 class="page-title">Gallery</h2>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
