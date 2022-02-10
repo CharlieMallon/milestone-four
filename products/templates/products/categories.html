@@ -74,9 +74,32 @@
                             <a class="button" href="{% url 'edit_category' category.id %}">
                                 Edit
                             </a>
-                            <a class="button" href="{% url 'delete_category' category.id %}">
-                                Delete
-                            </a>
+                            <div class="open-modal">
+                                <p class="delete click button">
+                                    Delete
+                                </p>
+                            </div>
+                            <!-- Delete Modal -->
+                            <div class="modal-background hidden" data-closer="close">
+                                <div class="modal">
+                                    <div class="modal-title">
+                                        <p>Delete Category?</p>
+                                        <img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/close.svg" alt="close" class="close" data-closer="close">
+                                    </div>
+                                    <div class="modal-content">
+                                        <div class="modal-par col">
+                                            <p>Are you sure you want to delete</p> 
+                                            <p>"{{ category.friendly_name }}"?</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-btns">
+                                        <div class="button no-btn" data-closer="close">
+                                            No, Keep it
+                                        </div>
+                                        <a class="button" href="{% url 'delete_category' category.id %}">Yes Delete</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
@@ -86,4 +109,5 @@
 {% endblock %}
 
 {% block postload_js %}
+{% include 'includes/modal_script.html' %}
 {% endblock %}
