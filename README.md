@@ -273,7 +273,7 @@ This section will detail the interesting Issues and Bugs that I came across whil
 
 | Issue/Bug | Comments | Final Fix |
 | --------- | -------- | --------- |
-|           |          |           |
+| Basket page not loading on server | I works on my local drive, seems to be an issue with the quantity-form includes. Routing is stringent on heroku the / is a \! |change the \ for a / |
 
 ## Deployment
 ### Project Creation

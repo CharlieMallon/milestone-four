@@ -36,7 +36,7 @@
                             <a href="{% url 'view_basket' %}" class="button">
                                 <span class="font-weight-bold">Back to Basket</span>
                             </a>
-                            <a href="" class="button">Next</a>
+                            <p class="button next-button" data-next="0">Next</p>
                         </div>
                     </div>
                 </div>
@@ -66,10 +66,8 @@
                             </div>
                         </div>
                         <div class="card-buttons">
-                            <a href="{% url 'view_basket' %}" class="button">
-                                <span class="font-weight-bold">Back to Basket</span>
-                            </a>
-                            <a href="" class="button">Next</a>
+                            <p class="button back-button" data-back="1">Back</p>
+                            <p class="button next-button" data-next="1">Next</p>
                         </div>
                     </div>
                 </div>
@@ -87,10 +85,8 @@
                             </div>
                         </div>
                         <div class="card-buttons">
-                            <a href="{% url 'view_basket' %}" class="button">
-                                <span class="font-weight-bold">Back to Basket</span>
-                            </a>
-                            <a href="" class="button">Next</a>
+                            <p class="button back-button" data-back="2">Back</p>
+                            <p class="button next-button" data-next="2">Next</p>
                         </div>
                     </div>
                 </div>
@@ -109,9 +105,7 @@
                         </div>
                         <div class="card-buttons col">
                             <div class="card-buttons row">
-                                <a href="{% url 'view_basket' %}" class="button">
-                                    <span class="font-weight-bold">Back to Basket</span>
-                                </a>
+                                <p class="button back-button" data-back="3">Back</p>
                                 <button id="btn-submit">
                                     <div class="spinner hidden" id="spinner"> loading </div>
                                     <span id="button-text">Pay now</span>

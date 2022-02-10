@@ -4,14 +4,51 @@
     var i;
 
     for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
+        coll[i].addEventListener("click", function(e) {
+            const collapse = e.target
+            collapse.classList.toggle("active");
+            var content = collapse.nextElementSibling;
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            } 
+        });
+    }
+
+    // next button opens next card and collapses the curent card
+    const nextButtons = document.getElementsByClassName("next-button")
+    let j;
+
+    for (j = 0; j < nextButtons.length; j++) {
+        nextButtons[j].addEventListener("click", function(e){
+            const curentButton = parseInt(e.target.dataset.next)
+            toggleColl(coll[curentButton])
+            toggleColl(coll[curentButton+1])
+        })
+    }
+
+    // back button opens previous card and collapses the curent card
+    const backButtons = document.getElementsByClassName("back-button")
+    let k;
+
+    for (k = 0; k < backButtons.length; k++) {
+        backButtons[k].addEventListener("click", function(e){
+            const curentButton = parseInt(e.target.dataset.back)
+            toggleColl(coll[curentButton])
+            toggleColl(coll[curentButton-1])
+        })
+    }
+
+    //toggles card open/closed
+    function toggleColl(collapse){
+        collapse.classList.toggle("active");
+        var content = collapse.nextElementSibling;
         if (content.style.maxHeight){
         content.style.maxHeight = null;
         } else {
         content.style.maxHeight = content.scrollHeight + "px";
-        } 
-    });
+        }
     }
+
 </script>
