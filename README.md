@@ -256,8 +256,86 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   [Balsamiq](https://balsamiq.com/wireframes/)
 -   [techsini](https://techsini.com/multi-mockup/)
 -   [dbdiagram](https://dbdiagram.io/)
-## Testing
-Full Testing is detailed in a separate file [here](testing.md).
+# Testing
+## User stories
+#### Shopper Story 1 -PASS
+-   As a Shopper, I want to browse products and add them to my basket.
+#### Acceptance Criteria
+-   Show a summary of all products on a page. - PASS
+-   Be able to filter by
+    -   product type - PASS
+    -   colour - Not Applicable to Issue 1
+    -   season - Not Applicable to Issue 1
+    -   dietary restriction - Not Applicable to Issue 1
+-   Be able to search the product list for key words. - PASS
+-   Show the detail of an individual product. - PASS
+-   Mechanism to add multiples of a product to the basket. - PASS
+-   Confirmation that the product has been added to the basket. - PASS
+#### Shopper Story 2 - PASS
+-   As a Shopper, I want to be able to view/edit my basket. - PASS
+#### Acceptance Criteria
+-   Show a summary of the basket items. - PASS
+-   Items have the ability to change quantity. - PASS
+-   Items can be deleted from the basket. - PASS
+#### Shopper Story 3
+-   As a Shopper, I would like to pay for my items.
+#### Acceptance Criteria - FAIL
+-   Inputs are clear and rational. - PASS
+-   Payments are confirmed on the site and via email. -FAIL - Emails not working
+-   Payment should be taken from the account. - PASS
+#### Shopper Story 4 - FAIL
+-   As a Shopper, I would like to navigate the site easily on any device.
+#### Acceptance Criteria
+-   Clear menu options. - PASS
+-   Responsive on all devices. - FAIL - not styled to Desktop or Tablet
+#### Shopper Story 5
+-   As a returning user, I would like to see my previous orders and edit my information.
+#### Acceptance Criteria
+-   There is a working Register page. - PASS
+-   The user can log in/out. - PASS
+-   The account page has a list of orders. - PASS
+-   The account contains;
+    -   Billing address - PASS
+    -   Name - PASS
+    -   Dietary requirement - Not Applicable to Issue 1
+#### Shopper Story 6 - FAIL
+-   As a returning user, I would like to re-set my password.
+#### Acceptance Criteria
+-   A forgotten my password link on the login page. - FAIL - Emails not working
+-   A forgotten my password form, that works. - FAIL - Emails not working
+-   The user can change the password on the account page. - Not Applicable to Issue 1
+#### Shopper Story 7 - FAIL
+-   As a user, I would like contact the store owner.
+#### Acceptance Criteria
+-   A Contact Us page exists. - PASS
+-   It contacts the store owner. - FAIL - catastrophically dies
+#### Shop Owner Story 1
+-   As a Shop Owner, I would like to manage products.
+#### Acceptance Criteria - PASS
+-   There is an add product page - PASS
+-   There is an edit products page - PASS
+-   There is a delete products button - PASS
+-   Deleting a product is easy - PASS
+-   There should be mechanisms in place to prevent accidental deletion - PASS
+#### Shop Owner Story 2
+-   As a Shop Owner, I would like to manage orders.
+#### Acceptance Criteria
+-   There is a way to view all orders - PASS
+-   Orders can be viewed in detail - PASS
+-   Status of the order can be changed - Not Applicable to Issue 1
+#### Shop Owner Story 3
+-   As a Shop Owner, I would like to manage the information my customers see.
+#### Acceptance Criteria
+-   The Owner can add, edit and delete
+    -   Frequently Asked Questions  - PASS
+    -   Gallery images  - PASS
+    -   Categories  - PASS
+#### Shop Owner Story 4
+-   As a Shop Owner, I would like my site to be secure.
+#### Acceptance Criteria
+-   Secure pages require a password to access.  - PASS
+### Testing Summary
+Site looks it best on Mobile, App is fairly well secured.  Removing the Contact Page as there is No time to fix before deployment, issue is due to trying to set up emails. One or two bugs picked up and fixed during texting see bug section for more information. Note - this code has not been through a validator.
 ### Interesting Bugs / Issues
 This section will detail the interesting Issues and Bugs that I came across whilst coding and the main ones that I found during testing.
 
@@ -274,6 +352,8 @@ This section will detail the interesting Issues and Bugs that I came across whil
 | Issue/Bug | Comments | Final Fix |
 | --------- | -------- | --------- |
 | Basket page not loading on server | I works on my local drive, seems to be an issue with the quantity-form includes. Routing is stringent on heroku the / is a \! |change the \ for a / |
+| Checkout next buttons just reloading the page| I had not added the js to do this. js added and now works| added the code to make it work|
+|Contact Page has catastrophic error with the table or model| Due to time constraints i don't have tie to fix this so i have removed the page, it is likely to do with the emails i tried to set up as i was setting them up in the contact section| remove link to the page temporarily|
 
 ## Deployment
 ### Project Creation
