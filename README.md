@@ -65,6 +65,11 @@ An Admin users should be able to add, edit and remove both products and images c
 -   A forgotten my password link on the login page.
 -   A forgotten my password form, that works.
 -   The user can change the password on the account page.
+#### Shopper Story 7
+-   As a user, I would like contact the store owner.
+#### Acceptance Criteria
+-   A Contact Us page exists.
+-   It contacts the store owner.
 #### Shop Owner Story 1
 -   As a Shop Owner, I would like to manage products.
 #### Acceptance Criteria
@@ -79,124 +84,155 @@ An Admin users should be able to add, edit and remove both products and images c
 -   There is a way to view all orders
 -   Orders can be viewed in detail
 -   Status of the order can be changed
+#### Shop Owner Story 3
+-   As a Shop Owner, I would like to manage the information my customers see.
+#### Acceptance Criteria
+-   The Owner can add, edit and delete
+    -   Frequently Asked Questions
+    -   Gallery images
+    -   Categories
+#### Shop Owner Story 4
+-   As a Shop Owner, I would like my site to be secure.
+#### Acceptance Criteria
+-   Secure pages require a password to access.
 ### Skeleton (wireframes)
 
 **Home page**
 <br/>
 Welcomes user to the site. Large image with a call to action button. Fixed navigation bar at the top of the page, which will be carried on to the rest of the site, with the logo, name, search bar and menu items.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Home.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Home.png)
 <br/>
 
 **All products page**
 <br/>
 The products will be shown in their own cards. Each card will contain an image, price and short description. search and filter products each product should link to its own product.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-All_Products) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-All_Products)
 </br>
 
 **Product page**
 <br/>
 This page will be a blown up version of the product card on the 'all products' page. The card will contain an image or two of the product, the price, a short description, colour selection dropdown (if applicable), diary requirements dropdown (if applicable), a quantity selector and a buy button.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Product.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Product.png)
 <br/>
 
 **Shopping Basket page**
 <br/>
 This will be a list of the products in the basket, each item in the basket will show a small image, product title, colour, dietary requirement, quantity and price. Items will be able to be edited or removed from the shopping basket. Subtotals will be shown at the end of each row with the Total for the order being shown at the bottom of the table. Checkout button will only be accessible when minimum order quality has been met.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Basket.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Basket.png)
 <br/>
 
 **Checkout page**
 <br/>
 This will contain all the necessary information to check out in a simple form. This form will contain; name, email address, delivery address, billing address (if different) and delivery date. There will also be a comments box that can be used to give any special requests/allergy's or dietary requirement. If the user is logged in fields will be pre-filled with name and delivery address. A brief summary of the charge to made on the account. Stripe will be used for the payment/card details section.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Checkout.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Checkout.png)
 <br/>
 
 **We will process your order page**
 <br/>
 This page confirms that the order has been received. It will confirm the delivery date and that a payment of £xx.xx has been taken, as well as wether any special requests/dietary requirements have been made. It will encourage users who don't have an account, to register for an account so they can track there order.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Order_Success.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Order_Success.png)
 <br/>
 
 **Register page**
 <br/>
 This page will allow the user to register for an account using a simple form. This form will contain; name, email address, billing address, password field, dietary requirements, comments box for allergies and confirm password field. If the user has come from the checkout page the form will be pre-filled with the details from the checkout form. This page is also contain a link to the log in page
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Register.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Register.png)
 <br/>
 
 **Login page**
 <br/>
 This page is a simple log in page, It will have a link to the register page and will prompt users if they don't use a registered email address.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-LogIn.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-LogIn.png)
 <br/>
 
 **Account page**
 <br/>
-user account
-log in/out
-register
-show personal information
+The user will be able to update their account information and see a summary of their previous orders. The account information will be able to be updated. When a order is selected the user will be able to see more details about the order. The User will be able to log in and out.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Account.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Account.png)
 <br/>
 
 **Gallery page**
 <br/>
-shows pictures of previous orders in a instagram style gallery
+This page is an opportunity for the shop owner to showcase their work. It shows pictures of previous orders in a instagram style gallery.  Admin users will be able to add, change and delete the photos in the Gallery.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Gallery.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Gallery.png)
 <br/>
 
 **Admin page**
 <br/>
-admin user
-CRUD functionality for products, images and orders
+This will only be accessible by an admin user, it will allow the user to navigate different areas of the site to manage the details there. It will also show a summary of all the orders, with the ability to search them and filter them.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Admin.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Admin.png)
 <br/>
 
 **Contact page**
 <br/>
-Contact Form
-Facebook option
+This will be a simple contact form to allow users to contact the shop owner.
 <br/>
-[Mobile](readme-docs/wireframes/phone/Mobile-Contact_Us.png) / [Tablet](#) / [Desktop](#)
+[Mobile](readme-docs/wireframes/phone/Mobile-Contact_Us.png)
 <br/>
 
 **Notifications**
 <br/>
 Notifications will be triggered when:
+-   Item is added or removed from the basket
+-   Item Quantity is changed in the basket
+-   A Product, Image, Category or FAQ is added, edited or deleted
+<br/>
+Notifications will be displayed in a Message Bar across the top of the site.
+<br/>
 
--   Item is added to basket
--   Item is removed from basket
--   [Mobile](#) / [Tablet](#) / [Desktop](#)
-    <br/>
-
-## Design Considerations
-This is where I say why I made some of my more controversial decisions.
-
-why checkout on top
+## Design Considerations and General Comments
+### Buy button location
+The 'checkout' button is at the top of the screen with a summary of how much it will cost to encourage users to checkout early, eventually this will 'stick' to the top of the page so it is always accessible to the user.
+### Webhooks
+I have left webhooks until Issue two as I can see the power of them but feel that I need to do some more research before implementing them.
+### Refactoring
+I have done limited re-factoring on this project, I would have liked to split the css file into multiple files however have been focusing more on adding functionality.
+### Wireframes
+I have fully embraced the mobile first philosophy, this means I have detailed mobile wireframes but no tablet or desktop wireframes.  It was a continuous decision to do mobile wireframes in great detail, as more users are on mobile devices and i wanted the Shop Owners to be able to do things when they had a moment rather than having to set time aside when they are on a computer.
+### Secret Key in Github Repo
+This was done in error, the Secret key is question was changed and moved to the env.py before full deployment.
+### Error Pages and Security
+I had hoped to include custom error pages for 404, 500 and 403 errors. Alas time got away with me (as it often does). I planned to have the header and footer displayed on the error page allowing the user to easily navigate to where they need to be.  until i have created theses pages however I have ensured that most Errors display to the user in the message bar. I believe I have covered most of the big security issues however would be very interested to know if you find any!
 ## Features
 I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is currently at the Issue one.
 -   ### Beta
     -   Register
     -   Log on/off
-    -   Make Responsive on all Devices.
+    -   CRUD on products
+    -   Add items and edit items in the Basket
+    -   Checkout functionality.
 -   ### Issue 1
-    -   some sort of user/customer blog
-        -   option to post to fb too?
+    -   CRUD on Gallery
+    -   user controlled CRUD on Categories
+    -   CRUD on FAQs
+    -   Confirm Delete item
+    -   Collapsible functionality given to relevant cards
 -   ### Issue 2
-    -   Track the users?
-    -   Add Filters to the products page?
+    -   Send real emails!
+    -   set up webhooks for stripe
+    -   Make Responsive on all Devices
+    -   Search terms being added to the search term bar (under the search bar)
+    -   'Harder' to delete items
+    -   Shop owner to control free delivery ect
+    -   User Profiles contain user information that can be updated
 -   ### Issue 3
-    -
+    -   Shop owner to be able to update the status of an order
+    -   Shop Owner can search and filter orders
+    -   Send email when someone has left things in there basket
+    -   A user/customer blog
+        -   option to post to social media sites
+    -   User can delete their profile
 ## Database
 ![Database](readme-docs/database-image.jpg)
 ## Technologies Used
@@ -227,7 +263,9 @@ This section will detail the interesting Issues and Bugs that I came across whil
 
 | Issue/Bug | Comments | Final Fix |
 | --------- | -------- | --------- |
-| image not fully deleting | When a product is deleted the image is left in the database, this could cause storage and coding issues in the future | Installed django cleanup. deletes the image completely from the database. https://pypi.org/project/django-cleanup/0.1.9/ |
+| image not fully deleting | When a product is deleted the image is left in the database, this could cause storage and coding issues in the future. Whilst this is not a 'bug' to ensure the expandability of the site I have excluded it here. | Installed django cleanup. deletes the image completely from the database. https://pypi.org/project/django-cleanup/0.1.9/ |
+|You can checkout with less than 6 cakes|I found that by changing the link to checkout in the address bar I could checkout with less than 6 cakes, which is the minimum order quantity.| Added an if statement to the check view to enure that this can no longer be done|
+| Real Emails not sending | I have tried two different companies to send real emails and looked at using an API to send emails. However I cannot seem to get it to work! For now I have turned off the Confirmation Email for the log on to allow users to use the site. Emails are logging fine to the console more investigation is required.| To be found - temporarily turned off email confirmation required.
 
 **During Testing**
 
@@ -238,10 +276,12 @@ This section will detail the interesting Issues and Bugs that I came across whil
 ## Deployment
 ### Project Creation
 I used VScode and git to produce this project.
+<br/>
 The following commands were used to keep version control
 -   `git add .` to stage files before committing
 -   `git commit -m "message explaining commit"` to commit the local repository
 -   `git push` to push all committed changes to the GitHub repository
+
 ### Deployment to Heroku
 
 **Create application:**
@@ -270,13 +310,115 @@ The following commands were used to keep version control
 1. Click on the settings tab
 2. Click the 'reveal config vars' button.
 3. Variables needed:
-    - IP
-    - MONGO_DBNAME
-    - MONGO_URI
-    - PORT
-    - SECRET_ACCESS_KEY
+    - SECRET_KEY
+<br/>my Variables for this project
+    - DATABASE_URL
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - AWS_ACCESS_KEY_ID (_CSV File_)
+    - AWS_SECRET_ACCESS_KEY (_CSV File_)
+    - USE_AWS = True
 
 _These variables change depending on your set up so I will not add mine here._
+### Hosting Static Files and Images
+I used aws to host my static and media files
+
+**Set up s3 bucket**
+
+1. Navigate to aws.amazon.com and login or sign up.
+2. Navigate to the console and S3 bucket
+3. Create a bucket using the create bucket button
+    -   Select a name for your bucket
+    -   Select a region, pick the one closet to you.
+    -   Un-tick "Block all public access" and acknowledge the warming
+    -   scroll to the bottom and press create bucket
+5. Turn on static hosting
+    -   Select your bucket and navigate to properties
+    -   Scroll to the bottom where you will find "static website hosting"
+    -   Click to edi
+    -   Enable it
+    -   Add default values for the index (index.html) and error (error.html) documents
+    -   Click 'save changes'
+6. Set CORS configuration
+    -   Navigate to permissions
+    -   Scroll to the bottom edit the CORS
+    -   Paste in the below and save
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+7. Create a policy for you bucket.
+    -   Select to edit the Bucket Policy
+    -   Click policy generator (_this will load in a new tab_)
+        - Select the 'S3 bucket policy' type
+        - Put a * in the principal input to select all
+        - select the 'get object' action
+        - Fill in the ARN and click 'add statement' (_you can find the ARN on the Edit Bucket Policy Tab_)
+        - Click 'generate policy'
+        - Copy Policy JSON
+    - Paste the Policy JSON into the input on the Bucket Policy Tab
+    - add /* to the end of the resource key to allow access to the whole bucket
+    - Click 'Save Changes'
+
+**Create a User and Group for your bucket**
+
+1. Navigate to IAM
+2. Create a Group
+    - Click 'User Groups' then 'Create group'
+    - Name your group
+    - click 'create group'
+3. Give the Group Access to the S3 bucket
+    - Click 'Policy' then 'Create policy'
+    - go to the JSON tab and 'import managed policy'
+    - Search for 'S3' and select the 'S3 full access policy'
+    - Import the policy
+    - Get the bucket ARN from the Bucket Policy Page in S3
+    - Change the "Resources" section to a list as below;
+    ```
+        "Resource": [
+            "bucket::ARN",
+            "bucket::ARN/*"
+        ]
+    ```
+    - Click through to 'Review Policy'
+    - Give it a name and a description
+    - Click 'Create Policy'
+    - Go to User Groups, click the group you created and select the permissions tab
+    - Go to 'Add permissions' and select 'Attach policies'
+    - Select the policy you just created
+    - Click Attach Policy at the bottom of the page
+4. Create a User
+    - Navigate to the User page
+    - Click add User
+    - Create a User with 'Programmatic access'
+    - Click Next
+    - Select the group you created and click through to the end
+    - Click 'Create User'
+    - **Download and Save the CSV File**, you will not be able to get this again
+
+** Attach the settings to heroku **
+1. Click on the settings tab
+2. Click the 'reveal config vars' button.
+3. Variables needed:
+    - AWS_ACCESS_KEY_ID (_CSV File_)
+    - AWS_SECRET_ACCESS_KEY (_CSV File_)
+    - USE_AWS = True
+
+NOTE: for this to work on other repos (if you are not cloning this one) you will need install boto3 and django-storages.
+<br/>
+NOTE: Keep you AWS access keys secret as they can be used to charge you money
 
 ### Making a Local Clone
 
@@ -316,137 +458,29 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 | Source | Comments |
 | ------ | -------- |
-|        |          |
+| [W3Schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal)  and [My Milestone Two Project](cm-ms3-to-did.herokuapp.com/)| For the Modal html, CSS, and JS         |
+| [W3Schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate) | For the basic animated collapsible cards |
+| [W3Schools](https://www.w3schools.com/howto/howto_js_sidenav.asp) | For the side Nav |
+| The Code Institute Boutique Ado mini-project | the whole project is based on it, where I haven't changed it at all I have put a comment to say its from the project |
+
 
 ### Content
+-   I was inspired by the beautiful cakes made by [Cantelo Treats](https://www.facebook.com/cantelotreats)
 -   All content was written by the developer.
--   inspiration https://github.com/mitchdavenport88/hop_shop/blob/main/README.md
-- https://simpleicons.org/ - social media imgs from here
+-   Readme inspiration taken from [mitchdavenport88](https://github.com/mitchdavenport88/hop_shop/blob/main/README.md)
 
 ### Media
 
--   Stock photos are from Pexels a [Cute Animal Collection](https://www.pexels.com/collections/cute-animals-17ey6em/)
+-   I used Stock photos from Pexels a [Cute Animal Collection](https://www.pexels.com/collections/cute-animals-17ey6em/) before adding the 'cake' images
+-   All Images are copyright [Cantelo Treats](https://www.facebook.com/cantelotreats)
+-   The social media icons svg's were supplied by [simple icons](https://simpleicons.org/ )
+
+
 
 
 ### Acknowledgements
 
 -   My Mentor Brian Macharia for some good guidance.
-
----
-
-## Notes
-
-Secret key - moved to the env.py before deployment.
-
-Cantelo Treats
-
-facebook - https://www.facebook.com/cantelotreats/?ref=page_internal
-
-## Minimum Requirements
-
--   Allows users to store and manipulate data records
--   The project must be a brand new Django project, composed of multiple apps
--   Create at least 2 custom django models beyond the examples shown on the course (changing the field names of the miniproject models is not customisation)
--   User can register, log in (and has a reason to do so) - stretch also can DELETE account
--   Shop owner has crud abilities
--   Use stripe for payments
--   Incorporate a main navigation menu and structured layout
--   The frontend should contain some JavaScript logic you have written to enhance the user experience
--   Write a README.md file for your project that explains what the project does and the value that it provides to its users
--   Use gitHub for version control
--   Attribute any code from external sources to its source via comments above the code and (for larger dependencies) in the README
--   Deploy to Heroku.
--   Ensure site is secure.
-
-## Project Idea
-
-Build a site to sell pretty cakes for Cantelo Treats
-
-### External user’s goal:
-
--   Buy cakes to celebrate.
-
-### Site owner's goal:
-
--   Sell cakes in their local area
-
-### Potential features to include:
-
--   Showcase previous work
--   Browse current available products
--   The site owner, logging in as a special user, can add/remove products and images
-
-### Advanced potential feature (nice-to-have):
-
--   The site owner can view and access their upcoming orders.
--   Messaging between site user and customer is done using facebook or emails (depending on user preference)
--   messaging on site between Customer and Shop owner
-
-## Assessment Criteria
-
-### Pass
-
-| LO1  | Design, develop and implement a full stack web application, with a relational database, using the Django/Python Full Stack MVC framework and related contemporary technologies.              |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.1  | Design a full stack web application to be built using the Django framework and to incorporate a relational database and multiple apps (an app for each potentially reusable component)       |
-| 1.2  | Design a front end for a full stack web application that meets accessibility guidelines, follows the principles of UX design, meets its given purpose and provide a set of user interactions |
-| 1.4  | Implement at least one form, with validation, that allows users to create and edit models in the backend                                                                                     |
-| 1.5  | Build a Django file structure that is consistent and logical, following the Django conventions.                                                                                              |
-| 1.6  | Write code that clearly demonstrates characteristics of ‘clean code’                                                                                                                         |
-| 1.7  | Define application URLs in a consistent manner                                                                                                                                               |
-| 1.8  | Incorporate a main navigation menu and structured layout                                                                                                                                     |
-| 1.9  | Demonstrate proficiency in the Python language by including sufficient custom logic in your project                                                                                          |
-| 1.10 | Write Python code that includes functions with compound statements such as if conditions and/or loops                                                                                        |
-| 1.11 | Design and implement manual, or automated test procedures to assess functionality, usability, responsiveness and data management within the full web application                             |
-
-| LO2 | Design and implement a relational data model, application features and business logic to manage, query and manipulate relational data to meet given needs in a particular real-world domain |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.1 | Design a relational database schema with clear relationships between entities                                                                                                               |
-| 2.2 | Create at least TWO original custom Django models.                                                                                                                                          |
-| 2.3 | Create at least one form with validation that will allow users to create records in the database (in addition to the authentication mechanism).                                             |
-| 2.4 | All CRUD (create, select/read, update, delete) functionality is implemented.                                                                                                                |
-
-| LO3 | Identify and apply authorisation, authentication and permission features in a full stack web application solution                                 |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3.1 | Implement an authentication mechanism, allowing a user to register and log in, addressing a clear reason as to why the users would need to do so. |
-| 3.2 | Implement login and registration pages that are only available to anonymous users.                                                                |
-| 3.3 | Implement functionality that prevents non-admin users from accessing the data store directly without going through the code                       |
-
-| LO4 | Design, develop and integrate an e-commerce payment system in a cloud-hosted, full stack web application           |
-| --- | ------------------------------------------------------------------------------------------------------------------ |
-| 4.2 | Implement a feedback system that reports successful and unsuccessful purchases to the user, with a helpful message |
-
-| LO5 | Document the development process through a git based version control system and deploy the full application to a cloud hosting platform                                                                                                     |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 5.1 | Deploy the final version of your code to a hosting platform and test that it matches the development version.                                                                                                                               |
-| 5.2 | Ensure that all final deployed code is free of commented out code and has no broken internal links                                                                                                                                          |
-| 5.3 | Ensure the security of the deployed version, making sure to not include any passwords in the git repository, that all secret keys are hidden in environment variables or in files that are in .gitignore, and that DEBUG mode is turned off |
-| 5.4 | Use a git-based version control system for the full application, generating documentation through regular commits and in the project README                                                                                                 |
-| 5.5 | Create a project README that is well-structured and written using a consistent markdown format                                                                                                                                              |
-| 5.6 | Document the full deployment procedure, including the database, and the testing procedure, in a README file that also explains the application’s purpose and the value that it provides to its users                                        |
-
-## Merit
-
-To evidence performance at Merit level, a learner will, in general, demonstrate characteristics of performance at Merit level as outlined below. The learner must achieve ALL Pass and Merit criteria for merit to be awarded.
-
-|          |                                                                                                                                                                                                                        |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.1      | Design and build a real-world full stack MVC application with a front end:                                                                                                                                             |
-| 1.1b     | that is easy to navigate and allows the user to find information and resources intuitively                                                                                                                             |
-| 1.1c     | where the user has full control of their interaction with the application                                                                                                                                              |
-| 1.1d     | where all data (CRUD) actions are immediately reflected in the user interface                                                                                                                                          |
-| 1.1e     | where the purpose is immediately evident to a new user                                                                                                                                                                 |
-| 1.1f     | which provides a good solution to the user’s demands and expectations                                                                                                                                                  |
-| 1.1g     | which has a clear, well-defined purpose addressing the needs of a particular target audience (or multiple related audiences)                                                                                           |
-| 1.2      | Produce a codebase that is fully robust                                                                                                                                                                                |
-| 1.3      | Follow a Test Driven Development (TDD) approach (for JavaScript and/or Python), demonstrated in the git commits.                                                                                                       |
-| 1.4      | Configure the project efficiently through well-kept Procfile, requirements.txt file, settings files, keep the data store configuration in a single location where it can be changed easily.                            |
-| 2.1      | Fully describe the data schema in the project README file                                                                                                                                                              |
-| 3.1, 4.1 | Demonstrate solid understanding of Django template syntax, logic and usage, placing Django logic in the component where it is best suited (e.g., data handling logic is in the models, business logic is in the views) |
-| 5.1      | Use version control software effectively to provide a record of the development process                                                                                                                                |
-
-Error pages
-
--   404 & 500. 403?
--   include in read me!
--   same error page different messages (in code? root?)
+-   Bim for the constant reminders that I can do this and nudges in the right direction.
+-   Daisy for the troubleshooting sessions when I really got stuck.
+-   The Code Institute community for all the moral and technical support.
