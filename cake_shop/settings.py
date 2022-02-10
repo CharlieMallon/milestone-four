@@ -107,9 +107,18 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-# this just means that the emails go to the console - change for main site
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'cakes@cakeshop.com'
+if 'DEVELOPMENT' in os.environ:
+    # this just means that the emails go to the console - change for main site
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'cakes@cakeshop.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 # allows users to log in with email or username
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
