@@ -74,7 +74,32 @@
             {% if request.user.is_superuser %}
                 <div class="super-user-button-row">
                     <a href="{% url 'edit_image' i.id %}" class="button">Edit</a>
-                    <a class="button" href="{% url 'delete_image' i.id %}">Delete</a>
+                    <div class="open-modal">
+                        <p class="delete click button">
+                            Delete
+                        </p>
+                    </div>
+                    <!-- Delete Modal -->
+                    <div class="modal-background hidden" data-closer="close">
+                        <div class="modal">
+                            <div class="modal-title">
+                                <p>Delete Image?</p>
+                                <img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/close.svg" alt="close" class="close" data-closer="close">
+                            </div>
+                            <div class="modal-content">
+                                <div class="modal-par col">
+                                    <p>Are you sure you want to delete</p> 
+                                    <p>"{{ i.tag_line }}"?</p>
+                                </div>
+                            </div>
+                            <div class="modal-btns">
+                                <div class="button no-btn" data-closer="close">
+                                    No, Keep it
+                                </div>
+                                <a class="button" href="{% url 'delete_image' i.id %}">Yes Delete</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             {% endif %}
         </div>
@@ -84,4 +109,5 @@
 
 {% block postload_js %}
     {{ block.super }}
+	{% include 'includes/modal_script.html' %}
 {% endblock %}
