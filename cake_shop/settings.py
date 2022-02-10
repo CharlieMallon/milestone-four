@@ -124,7 +124,8 @@ else:
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # email set up to ensure a 'real' email address is used and typos avoided
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# This really wants to be 'mandatory' but 'Real' emails don't work yet.
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 # sets parameters for username
 ACCOUNT_USERNAME_MIN_LENGTH = 3
