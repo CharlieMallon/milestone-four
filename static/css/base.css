@@ -728,12 +728,22 @@ footer{
     padding: 0px 20px;
 }
 
+.order-comments{
+    padding-left: 2px;
+}
+
 .comment{
-    padding-left: 5px;
+    border: solid 1px var(--light-gray);
+    min-height: 75px;
+    padding: 2px;
 }
 
 .details-button{
     padding: 0px 5px;
+}
+
+.status{
+    color: var(--gold);
 }
 
 /* ---------- Categories ---------- */

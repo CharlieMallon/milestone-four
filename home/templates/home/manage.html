@@ -17,7 +17,7 @@
 			<h3>Site Management</h3>
 		</div>
 		<div class="card-content site-buttons">
-			<a class=" button management-btn" href="{% url 'products' %}&sort=name&direction=asc">Product Management</a>
+			<a class=" button management-btn" href="{% url 'products' %}?sort=name&direction=asc">Product Management</a>
 			<a class=" button management-btn" href="{% url 'gallery' %}">Gallery Management</a>
 			<a class=" button management-btn" href="{% url 'categories' %}">Category Management</a>
 			<a class=" button management-btn" href="{% url 'faqs' %}">Information Management</a>
@@ -36,7 +36,7 @@
 					<div class="card-header row">
 						<a href="{% url 'order_history' order.order_number %}"
 						title="{{ order.order_number }}">
-							Order No: <strong>{{ order.order_number }} </strong>
+							Order No: <strong>{{ order.order_number|truncatechars:20 }} </strong>
 						</a>
 						{{ order.date|date:"d M Y" }}
 					</div>
@@ -44,13 +44,14 @@
 						<div class="order-content row">
 							<div class="order-details w-50 col">
 								<p>Name: <strong>{{order.full_name}}</strong></p>
-								<p>Delivery Date: <strong>{{order.delivery_date|date:"d M Y"}}</strong></p>
+								<p>Delivery Date:</p>
+								<p class="text-center"><strong>{{order.delivery_date|date:"d M Y"}}</strong></p>
 								<p>Total Amount: <strong>£{{ order.grand_total }}</strong></p>
 							</div>
 							<div class="order-comments w-50">
 								<p><strong>Order Comments</strong></p>
 								{% if order.order_comments%}
-									<p>{{order.order_comments|truncatechars:200 }}</p>
+									<p class="comment">{{order.order_comments|truncatechars:200 }}</p>
 								{% else %}
 									<p class="comment">No Comments</p>
 								{% endif %}
@@ -61,7 +62,7 @@
 								title="{{ order.order_number }}">
 								Details
 								</a>
-							<p>{{order.order_status}}</p>
+							<p class="status">{{order.order_status}}</p>
 						</div>
 					</div>
 				</div>
