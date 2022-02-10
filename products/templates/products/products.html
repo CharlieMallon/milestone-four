@@ -17,9 +17,10 @@
                 {% endif %}
                 <div class="curent-filters">
                     {% for category in current_categories %}
-                        <div class="button filter-button">
-                            <a href="">{{category.friendly_name}} &#10006;</a>
-                        </div>
+                        <a class="button filter-button" href="{% url 'products' %}?sort=name&direction=asc">
+                            {{category.friendly_name}}
+                            <img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/close.svg" alt="close">
+                        </a>
                     {% endfor %}
                 </div>
                 <div class="col">

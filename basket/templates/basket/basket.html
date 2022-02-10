@@ -103,7 +103,7 @@
     {% else %}
         <div class="no-basket col">
             <p class="no-basket">Your Basket is Empty, go get some yummy Cakes!</p>
-            <a class="button" href="{% url 'products' %}">Continue Shopping</a>
+            <a class="button" href="{% url 'products' %}?sort=name&direction=asc">Continue Shopping</a>
         </div>
     {% endif %}
 </div>

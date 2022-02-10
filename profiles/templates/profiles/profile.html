@@ -104,7 +104,7 @@
             {% else %}
             <div class="no-order-box col">
                 <p class="text-center no-order">No orders yet</p>
-                    <a href="{% url 'products' %}" class="button">Continue Shopping</a>
+                    <a href="{% url 'products' %}?sort=name&direction=asc" class="button">Continue Shopping</a>
                 </div>
             {% endif %}
 		</div>

@@ -65,7 +65,7 @@
                     </a>
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'products' %}?sort=name&direction=asc">Products</a>
-                    <a class="indent" href="{% url 'products' %}">All Products</a>
+                    <a class="indent" href="{% url 'products' %}?sort=name&direction=asc">All Products</a>
                     {% for category in categories %}
                         <a class="indent" href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">{{ category.friendly_name }}</a>
                     {% endfor %}
@@ -121,14 +121,18 @@
 
     <footer >
         <div class="col w-100">
-            <div class="col text-center">
+            <div class="row base-footer-center">
                 <p>Do you have a Special Request?</p>
-                <a class="link" href="">Contact Us</a>
+                <a class="link" href="{% url 'contact' %}">Contact Us</a>
             </div>
-            <div class="row">
-                <div class="socials col w-50">
+            <div class="row base-footer-center">
+                <p>Have Questions? Check out our</p>
+                <a class="link" href="{% url 'faqs' %}">FQAs</a>
+            </div>
+            <div class="row base-footer-space">
+                <div class="col socials">
                     <p>Socials</p>
-                    <div class="links row">
+                    <div class="social-links row">
                         <a href="https://www.instagram.com/" target="_blank">
                             <img class="icon social-icon" src="{{ MEDIA_URL }}icons/instagram.svg" alt="instagram logo">
                         </a>
@@ -140,24 +144,19 @@
                         </a>
                     </div>
                 </div>
-                <div class="links col w-50">
-                    <p>Links</p>
-                    <a class="link" href="{% url 'faqs' %}">Dietary Requiremnts</a>
-                    <a class="link" href="{% url 'faqs' %}">FAQ's</a>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="row w-50 creator">
-                    <p>Created by </p>
-                    <a href="https://github.com/CharlieMallon" target="_blank">
-                        Charlie Mallon <img class="icon small-icon github" src="{{ MEDIA_URL }}icons/github.svg" alt="github logo">
-                    </a>
-                </div>
-                <div class="row w-50 copyright">
-                    <p>Images Copyright  </p>
-                    <a class="link" href="https://www.facebook.com/cantelotreats" target="_blank">
-                        Cantelo Treats
-                    </a>
+                <div class="col credits">
+                    <div class="row">
+                        <p>Created by </p>
+                        <a class="link" href="https://github.com/CharlieMallon" target="_blank">
+                            Charlie Mallon<img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/github.svg" alt="github logo">
+                        </a>
+                    </div>
+                    <div class="row">
+                        <p>Images Copyright</p>
+                        <a class="link" href="https://www.facebook.com/cantelotreats" target="_blank">
+                            Cantelo Treats
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -309,7 +309,7 @@ input {
 
 /* content */
 .page-content{
-    min-height: calc(100vh - (35px + 170px)); /* vh - (header + footer) */
+    min-height: calc(100vh - (35px + 133px)); /* vh - (header + footer) */
 }
 
 /* messages */
@@ -326,11 +326,30 @@ footer{
     background-color: var(--gray);
 }
 
+.base-footer-center{
+    display: flex;
+    justify-content: center;
+}
+
+.base-footer-space{
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-links{
+    height: 35px;
+}
+
+.credits{
+    display: flex;
+    justify-content: center;
+}
+
 .creator{
     align-items: baseline;
 }
 
-.github{
+.inline-img{
     vertical-align: middle;
 }
 
@@ -403,11 +422,16 @@ footer{
 
 .sort-select-wrapper{
     align-self: flex-start;
+    font-size: 18px;
 }
 
 .product-num{
     align-self: flex-end;
     font-size: smaller;
+}
+
+.filter-button{
+
 }
 
 /* product card */

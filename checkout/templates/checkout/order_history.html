@@ -5,7 +5,23 @@
 {% endblock %}
 
 {% block page_header %}
-<h2 class="page-title">Order Summary</h2>
+    {% if request.user.is_superuser %}
+    <div class="cat-header row">
+        <h2 class="page-title">Order Summary</h2>
+        <div>
+            <a href="{% url 'manage_shop' %}" class="button">
+                Back
+            </a>
+        </div>
+    </div>
+    {% else %}
+        <h2 class="page-title">Order Summary</h2>
+        <div>
+            <a href="{% url 'profile' %}" class="button">
+                Back
+            </a>
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block content %}
