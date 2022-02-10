@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.conf import settings
 
 from .forms import ContactForm
+from .models import Contact
 from profiles.models import UserProfile
 
 
@@ -16,16 +18,20 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully contacted us!')
-            message = {
-                'full_name': request.POST['full_name'],
-                'email': request.POST['email'],
-                'subject': request.POST['subject'],
-                'message_text': request.POST['message_text'],
-            }
+            message = form.save(commit=False)
             print(message)
-            # _send_contact_email(message)
+            try:
+                _send_contact_email(message)
+            except:
+                messages.error(request, 'Something went wrong, please try again later')
+                message.message_status = 'submitted but not sent'
+                message.save()
+            else:
+                messages.success(request, 'Successfully contacted us!')
+                message.message_status = 'submitted and sent'
+                message.save()
+
+
             return redirect(reverse('contact'))
         else:
             messages.error(request, 'Failed to contact us. Please ensure the form is valid.')
@@ -54,11 +60,13 @@ def _send_contact_email(message):
         """Send the user a confirmation email"""
         cust_email = message.email
         subject = message.subject
-        body = message.message_text
+        body = render_to_string(
+            'contact/contact_emails/contact_email_body.txt',
+            {'message': message})
         
         send_mail(
             subject,
             body,
-            [cust_email],
-            settings.DEFAULT_FROM_EMAIL
+            cust_email,
+            [settings.DEFAULT_FROM_EMAIL]
         )

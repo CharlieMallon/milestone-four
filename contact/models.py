@@ -8,6 +8,7 @@ class Contact(models.Model):
     subject = models.CharField(max_length=254, null=True, blank=True, editable=True)
     message_text = models.TextField(null=True, blank=True, editable=True)
     date = models.DateTimeField(auto_now_add=True)
+    message_status = models.CharField(max_length=10, null=True, blank=True, default="Not Sent")
 
     def __str__(self):
         return self.subject
