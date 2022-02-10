@@ -101,6 +101,7 @@ img{
 
 /* Cards */
 .card{
+    max-width: 330px;
     margin: 10px;
     margin-top: 0px;
     border: solid 1px black;
@@ -1119,6 +1120,36 @@ footer{
 
 .faq-form-col input{
     width: 100%;
+}
+
+/* -------------------- Media Queries -------------------- */
+/* ---------- Medium devices ---------- Tablets, 768px and Up ---------- */
+@media (min-width: 768px) {
+    .product-cards,
+    .section-content{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+	.image-card,
+    .card{
+        width: 320px;
+    }
+}
+
+/* ---------- Large devices ---------- Desktops, 992px and Up ---------- */
+
+@media (min-width: 992px) {
+
+
+}
+
+/* ---------- Extra large devices ---------- Large desktops, 1200px and Up ---------- */
+@media (min-width: 1200px) {
+
+
 }
 
 /*------- Overrides ----------*/

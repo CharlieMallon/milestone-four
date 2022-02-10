@@ -204,6 +204,8 @@ I have fully embraced the mobile first philosophy, this means I have detailed mo
 This was done in error, the Secret key is question was changed and moved to the env.py before full deployment.
 ### Error Pages and Security
 I had hoped to include custom error pages for 404, 500 and 403 errors. Alas time got away with me (as it often does). I planned to have the header and footer displayed on the error page allowing the user to easily navigate to where they need to be.  until i have created theses pages however I have ensured that most Errors display to the user in the message bar. I believe I have covered most of the big security issues however would be very interested to know if you find any!
+### Comments
+There are a greater than average comments in this code, this is because it is still quite a work in progress, I would usually try to remove more of these comments however I have run out of time.
 ## Features
 I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is currently at the Issue one.
 -   ### Beta
