@@ -71,7 +71,9 @@
                             <a class="indent" href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">{{ category.friendly_name }}</a>
                         {% endfor %}
                     {% endif%}
+                    {% if images %}
                     <a href="{% url 'gallery' %}">Gallery</a>
+                    {% endif %}
                     <a href="{% url 'faqs' %}">FAQ's</a>
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
