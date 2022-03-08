@@ -74,7 +74,9 @@
                     {% if images %}
                     <a href="{% url 'gallery' %}">Gallery</a>
                     {% endif %}
+                    {% if faqs %}
                     <a href="{% url 'faqs' %}">FAQ's</a>
+                    {% endif %}
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a href="{% url 'manage_shop' %}">Manage Shop</a>
@@ -131,10 +133,12 @@
                 <p>Do you have a Special Request?</p>
                 <a class="link" href="https://www.facebook.com/messages/t/100590915463218">Contact us on Facebook</a>
             </div>
-            <div class="row base-footer-center">
-                <p>Have Questions? Check out our</p>
-                <a class="link" href="{% url 'faqs' %}">FQAs</a>
-            </div>
+            {% if faqs %}
+                <div class="row base-footer-center">
+                    <p>Have Questions? Check out our</p>
+                    <a class="link" href="{% url 'faqs' %}">FQAs</a>
+                </div>
+            {% endif %}
             <div class="row base-footer-space">
                 <div class="col socials">
                     <p>Socials</p>
