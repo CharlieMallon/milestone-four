@@ -258,7 +258,7 @@ input {
 }
 
 
-/* collabsable */
+/* collapsible */
 /* base code https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate */
 .collapsible {
     background-color: var(--gray);
@@ -1095,7 +1095,7 @@ footer{
     line-height: 0.8;
 }
 
-/* ---------- FQAs ---------- */
+/* ---------- FAQs ---------- */
 
 .faq-form-col input{
     width: 100%;
