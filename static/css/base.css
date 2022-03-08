@@ -328,6 +328,7 @@ input {
 }
 
 /* The navigation menu links */
+.sidenav p,
 .sidenav a {
     padding-left: 15px;
     text-decoration: none;
