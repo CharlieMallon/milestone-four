@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'profiles',
     'gallery',
     'faqs',
-    'contact',
     #other
     'storages',
     #clean up app, keep at bottom
