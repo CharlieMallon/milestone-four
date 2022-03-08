@@ -1116,6 +1116,11 @@ footer{
     .card{
         width: 320px;
     }
+
+    .manage-shop-card{
+        width: unset;
+        max-width: unset;
+    }
 }
 
 /* ---------- Large devices ---------- Desktops, 992px and Up ---------- */
