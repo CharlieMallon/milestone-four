@@ -27,10 +27,7 @@
 		<div class="card-header">
 			<h3>Orders</h3>
 		</div>
-		<div class="card-content">
-			<div class="order-search">
-				{% include 'includes/search.html' %}
-			</div>
+		<div class="card-content order-container">
 			{% for order in orders %}
 				<div class="card order-card">
 					<div class="card-header row">
@@ -67,6 +64,8 @@
 					</div>
 				</div>
 			{% endfor %}
+			<div class="card order-card placeholder-card">
+			</div>
 		</div>
 	</div>
 </section>

@@ -1101,9 +1101,19 @@ footer{
     width: 100%;
 }
 
+.placeholder-card{
+    display: none;
+}
+
 /* -------------------- Media Queries -------------------- */
 /* ---------- Medium devices ---------- Tablets, 768px and Up ---------- */
 @media (min-width: 768px) {
+    .placeholder-card{
+        display: flex;
+        height: 0px;
+        border: 0px;
+    }
+    
     .product-cards,
     .section-content{
         display: flex;
@@ -1120,6 +1130,14 @@ footer{
     .manage-shop-card{
         width: unset;
         max-width: unset;
+    }
+
+    .order-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px 20px;
     }
 }
 
