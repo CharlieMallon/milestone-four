@@ -80,33 +80,33 @@ def checkout(request):
             messages.error(request, "There is nothing here!")
             return redirect(reverse('products'))
 
-        total = current_basket['grand_total']
-        stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-            automatic_payment_methods={"enabled": True},
-        )
+    total = current_basket['grand_total']
+    stripe_total = round(total * 100)
+    stripe.api_key = stripe_secret_key
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+        automatic_payment_methods={"enabled": True},
+    )
 
-        if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,
-                    'phone_number': profile.default_phone_number,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'town_or_city': profile.default_town_or_city,
-                    'county': profile.default_county,
-                    'postcode': profile.default_postcode,
-                    'country': profile.default_country,
-                })
-            except UserProfile.DoesNotExist:
-                order_form = OrderForm()
-        else:
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            order_form = OrderForm(initial={
+                'full_name': profile.user.get_full_name(),
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number,
+                'street_address1': profile.default_street_address1,
+                'street_address2': profile.default_street_address2,
+                'town_or_city': profile.default_town_or_city,
+                'county': profile.default_county,
+                'postcode': profile.default_postcode,
+                'country': profile.default_country,
+            })
+        except UserProfile.DoesNotExist:
             order_form = OrderForm()
+    else:
+        order_form = OrderForm()
         
     template = 'checkout/checkout.html'
     context = {
