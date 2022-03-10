@@ -1225,6 +1225,50 @@ footer{
     #payment-form{
         margin: 0 auto;
     }
+
+    /* ---------- checkout sucess ---------- */
+    .summary{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: calc(100% - 20px);
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    .summary .order-info{
+        width: 45%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .order-contents{
+        display: flex;
+        align-items: center;
+    }
+
+    .order-contents .order-card{
+        width: 95%;
+        max-width: unset;
+    }
+
+    .order-contents .order-history-title{
+        text-align: center;
+    }
+
+    .order-contents .price-summary{
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .order-contents .price{
+        justify-content: flex-end;
+        width: 50%;
+    }
+
+    .order-contents .product-price{
+        padding-left: 10px;
+    }
 }
 
 /* ---------- Large devices ---------- Desktops, 992px and Up ---------- */

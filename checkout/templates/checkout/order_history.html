@@ -27,47 +27,50 @@
 {% block content %}
 
 <div class="container w-100 col">
-    {% if request.user.is_superuser %}
-        <div class="card order-info">
-            <div class="card-header">
-                <p><strong>Customer Information</strong></p>
+    <div class="summary">
+        {% if request.user.is_superuser %}
+            <div class="card order-info">
+                <div class="card-header">
+                    <p><strong>Customer Information</strong></p>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <p class="label">Name:</p>
+                        <p class="info">{{ order.full_name }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="label">Phone Number:</p>
+                        <p class="info">{{ order.phone_number }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="label">Email Address:</p>
+                        <p class="info">{{ order.email }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="card-content">
+        {% endif %}
+        <div class="order-info order-summary">
+            <div class="order col">
                 <div class="row">
-                    <p class="label">Name:</p>
-                    <p class="info">{{ order.full_name }}</p>
+                    <p class="label">Order No:</p>
+                    <p class="info">{{ order.order_number }}</p>
                 </div>
                 <div class="row">
-                    <p class="label">Phone Number:</p>
-                    <p class="info">{{ order.phone_number }}</p>
+                    <p class="label">Delivery Date:</p>
+                    <p class="info">{{ order.delivery_date|date:"d M Y" }}</p>
                 </div>
                 <div class="row">
-                    <p class="label">Email Address:</p>
-                    <p class="info">{{ order.email }}</p>
+                    <p class="label">Status:</p>
+                    <p class="info">{{ order.order_status }}</p>
                 </div>
-            </div>
-        </div>
-    {% endif %}
-    <div class="order-info order-summary">
-        <div class="order col">
-            <div class="row">
-                <p class="label">Order No:</p>
-                <p class="info">{{ order.order_number }}</p>
-            </div>
-            <div class="row">
-                <p class="label">Delivery Date:</p>
-                <p class="info">{{ order.delivery_date|date:"d M Y" }}</p>
-            </div>
-            <div class="row">
-                <p class="label">Status:</p>
-                <p class="info">{{ order.order_status }}</p>
             </div>
         </div>
     </div>
+
     <hr class="basket-hr">
-    <div class="w-100 col">
+    <div class="w-100 col order-contents">
         {% for item in order.lineitems.all %}
-            <div class="card col">
+            <div class="card order-card col">
                 <div class="card-content order-history-card row">
                     <div class="product-img basket-image">
                         {% if item.product.image %}
@@ -81,7 +84,7 @@
                         {% endif %}
                     </div>
                     <div class="order-history-content col">
-                        <div class="col">
+                        <div class="col order-history-title">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 <p class="product-title">{{ item.quantity }} x {{ item.product.name }}</p>
                             </a>
@@ -92,7 +95,7 @@
                                     </small>
                                 </a>
                         </div>
-                        <div class="col w-100">
+                        <div class="col w-100 price-summary">
                             <div class="price row">
                                 <p>Price per item:</p>
                                 <p class="product-price">
