@@ -1269,6 +1269,27 @@ footer{
     .order-contents .product-price{
         padding-left: 10px;
     }
+
+    /* ---------- profile ---------- */
+    .profile-section{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .profile-card{
+        width: 50%;
+        max-width: unset;
+    }
+
+    .profile-card .card{
+        width: calc(100% - 10px);
+        margin: 5px;
+        max-width: unset;
+    }
+
+    .profile-card .card-contents{
+        padding: 5px;
+    }
 }
 
 /* ---------- Large devices ---------- Desktops, 992px and Up ---------- */
