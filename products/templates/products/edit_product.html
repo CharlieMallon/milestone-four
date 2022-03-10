@@ -2,7 +2,7 @@
 <h2 class="page-title">Editing {{ product.name }}</h2>
 {% endblock %} {% block content %}
 
-<div class="container col">
+<div class="container col w-100">
 	<div class="product-form">
 		<form
 			method="POST"
@@ -13,62 +13,68 @@
 			<div class="text-center">
 				<h2 class="product-name">Product Name: {{ form.name }}</h2>
 			</div>
-			<div class="product-image">
-				{% if product.image %}
-				<a href="{% url 'product_detail' product.id %}">
-					<img class="" src="{{ product.image.url }}" alt="" />
-				</a>
-				{% else %}
-				<img
-					class="card-img-top img-fluid"
-					src="{{ MEDIA_URL }}noimage.png"
-					alt="{{ product.name }}"
-				/>
-				{% endif %}
-			</div>
-			<div class="image-picker col">
-				<p class="label">
-					Image is 
-				</p>
-				<p class="input">
-				{{ form.image }}
-				</p>
-			</div>
-			<div class="card-content col">
-				<div class="row product-details">
-					<div class="product-category">
-						<p class="label">Category:</p>
-						<p class="input">{{ form.category }}</p>
+			<div class="form-details w-100">
+				<div class="image-and-picker">
+					<div class="product-image">
+						{% if product.image %}
+						<a href="{% url 'product_detail' product.id %}">
+							<img class="" src="{{ product.image.url }}" alt="" />
+						</a>
+						{% else %}
+						<img
+							class="card-img-top img-fluid"
+							src="{{ MEDIA_URL }}noimage.png"
+							alt="{{ product.name }}"
+						/>
+						{% endif %}
 					</div>
-					<div class="product-price col">
-						<p class="label">Price:</p>
-						<div class="row">
-							<p class="input">
-								<strong> £ {{ form.price }} </strong>
-							</p>
-							<p class="each">
-								<small>each</small>
-							</p>
-						</div>
+					<div class="image-picker col">
+						<p class="label">
+							Image is 
+						</p>
+						<p class="input">
+						{{ form.image }}
+						</p>
 					</div>
 				</div>
-				<div class="col product-description">
-					<p class="label">Description:</p>
-					<p class="input">{{ form.description }}</p>
-				</div>
-				<div class="hidden-info card">
-					<div class="card-header">
-						<p>Admin Information</p>
-					</div>
-					<div class="card-content">
-						<p class="text-center">This Information is not displayed to the user</p>
-						<div class="row info-row">
-							<p class="label">SKU:</p>
-							<p class="input">{{ form.sku }}</p>
+				<div class="form-details-all">
+					<div class="card-content col">
+						<div class="row product-details">
+							<div class="product-category">
+								<p class="label">Category:</p>
+								<p class="input">{{ form.category }}</p>
+							</div>
+							<div class="product-price col">
+								<p class="label">Price:</p>
+								<div class="row">
+									<p class="input">
+										<strong> £ {{ form.price }} </strong>
+									</p>
+									<p class="each">
+										<small>each</small>
+									</p>
+								</div>
+							</div>
 						</div>
-						<div class="row info-row">
-							<p class="label">Number of cakes:</p>
-							<p class="input">{{ form.number_of_cakes }}</p>
+						<div class="col product-description">
+							<p class="label">Description:</p>
+							<p class="input">{{ form.description }}</p>
+						</div>
+						<div class="hidden-info">
+							<div class="card-header">
+								<p>Admin Information</p>
+							</div>
+							<div class="card-content">
+								<p class="text-center">This Information is not displayed to the user</p>
+								<div class="row info-row">
+									<p class="label">SKU:</p>
+									<p class="input">{{ form.sku }}</p>
+								</div>
+								<div class="row info-row">
+									<p class="label">Number of cakes:</p>
+									<p class="input">{{ form.number_of_cakes }}</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

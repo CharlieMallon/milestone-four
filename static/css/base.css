@@ -617,6 +617,7 @@ footer{
 .hidden-info{
     width: 100%;
     margin: 0px;
+    border: solid 1px black;
 }
 
 .hidden-info p.text-center{
@@ -1141,6 +1142,29 @@ footer{
 
     .card-content{
         justify-content: space-between;
+    }
+
+    /* ---------- Edit Products Page --------- */
+    .product-form{
+        width: 100%;
+    }
+
+    .form-details{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .image-and-picker,
+    .form-details-all{
+        width: 50%;
+    }
+
+    .form-details-all .card-content{
+        height: 100%;
+    }
+
+    #id_name{
+        width: 50%;
     }
 
     /* ---------- Manage Shop ---------- */
