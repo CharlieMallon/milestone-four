@@ -11,9 +11,10 @@
     <div class="product-form">
         <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
             {% csrf_token%}
-                <div class="text-center">
-                    <h2 class="product-name">Product Name: {{ form.name }}</h2>
-                </div>
+            <div class="text-center">
+                <h2 class="product-name">Product Name: {{ form.name }}</h2>
+            </div>
+            <div class="form-details">
                 <div class="image-picker col">
                     <p class="label">
                         Image:
@@ -79,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+            </div> 
             <div class="button-row">
                 <a href="{% url 'products' %}?sort=name&direction=asc" class="button">
                     <span class="">Back</span>
