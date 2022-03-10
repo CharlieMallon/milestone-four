@@ -3,6 +3,7 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    delivery_date = forms.CharField(widget=forms.TextInput(attrs={'type':'date'}))
     class Meta:
         model = Order
         fields = ('full_name', 'email', 'phone_number',

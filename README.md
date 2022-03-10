@@ -346,6 +346,7 @@ This section will detail the interesting Issues and Bugs that I came across whil
 | image not fully deleting | When a product is deleted the image is left in the database, this could cause storage and coding issues in the future. Whilst this is not a 'bug' to ensure the expandability of the site I have excluded it here. | Installed django cleanup. deletes the image completely from the database. https://pypi.org/project/django-cleanup/0.1.9/ |
 |You can checkout with less than 6 cakes|I found that by changing the link to checkout in the address bar I could checkout with less than 6 cakes, which is the minimum order quantity.| Added an if statement to the check view to enure that this can no longer be done|
 | Real Emails not sending | I have tried two different companies to send real emails and looked at using an API to send emails. However I cannot seem to get it to work! For now I have turned off the Confirmation Email for the log on to allow users to use the site. Emails are logging fine to the console more investigation is required.| To be found - temporarily turned off email confirmation required.
+| Date picker wasn't showing | This is a 'expected' error but was causing issues when submitting the form | https://stackoverflow.com/questions/60389224/datetimeinput-is-being-rendered-as-simple-text-input-in-django
 
 **During Testing**
 
