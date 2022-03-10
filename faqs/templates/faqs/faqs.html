@@ -23,9 +23,9 @@
 
 {% block content%}
 
-<section>
+<section class="w-100">
 	{% if request.user.is_superuser %}
-		<div class="card">
+		<div class="card add-faq-card">
 			<div class="card-header">
 				<p class="big-text">Add a FAQ</p>
 			</div>
@@ -59,13 +59,13 @@
 	{% endif %}
 
 	{% for question in faqs %}
-		<div class="card">
+		<div class="card faq-card">
 			<div class="card-header faq-header row collapsible">
 				<p class="big-text">{{ question.faq_title }}</p>
 				<img class="icon small-icon" src="{{ MEDIA_URL }}icons/expand.svg" alt="expand" />
 			</div>
 			<div class="content">
-				<p>{{ question.faq_content }}</p>
+				<p class="question">{{ question.faq_content }}</p>
 				{% if request.user.is_superuser %}
 					<div class="super-user-button-row row">
 						<a href="{% url 'edit_faq' question.id %}" class="button">Edit</a>

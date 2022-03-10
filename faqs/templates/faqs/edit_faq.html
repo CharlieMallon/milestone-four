@@ -1,20 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block page_header %}
+	<!-- Search Bar-->
+	{% include 'includes/search.html' %}
+	
+	{% if request.user.is_superuser %}
+		<div class="cat-header row">
+			<h2 class="page-title">Edit a Frequently Asked Questions</h2>
+			<div>
+				<a href="{% url 'faqs' %}" class="button">
+					Back
+				</a>
+			</div>
+		</div>
+	{% else %}
+		<h2 class="page-title">Frequently Asked Questions</h2>
+	{% endif %}
+
+{% endblock %}
+
 {% block content %}
-    <!-- Search Bar-->
-    {% include 'includes/search.html' %}
-    <h1>Edit FAQ</h1>
-    <form method="POST" action="{% url 'edit_faq' faq.id %}">
+<div class="w-100">
+    <form method="POST" action="{% url 'edit_faq' faq.id %}" class="add-faq">
         {% csrf_token%}
-        {{ form }}
         <div class="col">
-            <a href="{% url 'faqs' %}" class="">
-                <span class="">Back</span>
+            <div class="row">
+                <p class="label">
+                    Question:
+                </p>
+                <p class="input">
+                    {{ form.faq_title }}
+                </p>
+            </div>
+            <div class="row">
+                <p class="label">
+                    Answer:
+                </p>
+                <p class="input">
+                    {{ form.faq_content }}
+                </p>
+            </div>
+        </div>
+        <div class="button-row">
+            <a href="{% url 'faqs' %}" class="button">
+                Back
             </a>
             <button type="submit">Edit FAQ</button>
         </div>
     </form>
+</div>
+    
 {% endblock %}
 
 {% block postload_js %}

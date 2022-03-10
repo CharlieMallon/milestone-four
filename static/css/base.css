@@ -1104,6 +1104,27 @@ footer{
     width: 100%;
 }
 
+.faq-card .big-text{
+    padding-left: 5px;
+}
+
+.faq-card .content .question{
+    padding: 10px;
+}
+
+.add-faq .row{
+    justify-content: space-between;
+    padding: 0px 10px 10px 10px;
+}
+
+.add-faq .input{
+    width: 90%;
+}
+
+.add-faq input{
+    width: 100%;
+}
+
 .placeholder-card{
     display: none;
 }
@@ -1290,6 +1311,20 @@ footer{
     .profile-card .card-contents{
         padding: 5px;
     }
+
+    /* ---------- faq ---------- */
+    .faq-card,
+    .add-faq-card{
+        width: 90%;
+        max-width: unset;
+        margin: 10px auto;
+    }
+
+    .add-faq{
+        padding: 10px;
+    }
+
+
 }
 
 /* ---------- Large devices ---------- Desktops, 992px and Up ---------- */
