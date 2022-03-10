@@ -1120,12 +1120,30 @@ footer{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        width: 100%;
     }
 
 	.image-card,
     .card{
         width: 320px;
     }
+
+    /* ---------- Products Page --------- */
+    .product-page{
+        width: 100%;
+    }
+    
+    .product-detail{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .card-content{
+        justify-content: space-between;
+    }
+
+    /* ---------- Manage Shop ---------- */
 
     .manage-shop-card{
         width: unset;

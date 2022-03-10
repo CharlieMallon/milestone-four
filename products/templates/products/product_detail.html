@@ -15,112 +15,114 @@
 	<div class="text-center">
 		<h2 class="product-title">{{ product.name }}</h2>
 	</div>
-	<div class="product-image w-100">
-		{% if product.image %}
-		<a href="{% url 'product_detail' product.id %}">
-			<img src="{{ product.image.url }}" alt="{{ product.name }}" />
-		</a>
-		{% else %}
-		<a href="{% url 'product_detail' product.id %}">
-			<img
-				src="{{ MEDIA_URL }}noimage.png"
-				alt="{{ product.name }}"
-			/>
-		</a>
-		{% endif %}
-	</div>
-	<div class="card-content w-100 col">
-		<div class="row product-details">
-			<div class="product-category">
-				<a class="category link"
-					href="{% url 'products' %}?category={{ product.category.name }}&sort=name&direction=asc">
-					{{ product.category.friendly_name }}
-				</a>
-			</div>
-			<div class="price row">
-				<p class="product-price">
-					<strong>
-						£{{ product.price }}
-					</strong> 
-				</p>
-				<p class="each">
-					<small>each</small>
-				</p>
-			</div>
-		</div>
-		<div class="col product-text">
-			<p class="">{{ product.description }}</p>
-		</div>
-		<form class="add-basket-form form w-100" action="{% url 'add_to_basket' product.id %}" method="POST">
-			{% csrf_token %}
-			<div class="form-row">
-				<div class="w-100 col">
-					<div class="qty-row w-100 buy-row">
-							<a class=' button product-basket-btn' href="{% url 'products' %}?sort=name&direction=asc">
-								Keep Shopping
-							</a>
-						<div class="form-group">
-							<div class="input-group">
-								<button class="decrement-qty qty-btn" 
-									data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-										<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/remove.svg" alt="remove">
-								</button>
-								<input class="form-control form-control-sm qty_input" type="number"
-									name="quantity" value="1" min="1" max="99"
-									data-item_id="{{ item.item_id }}"
-									id="id_qty_{{ item.item_id }}">
-								<button class="increment-qty qty-btn"
-									data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-										<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/add.svg" alt="add">
-								</button>
-							</div>
-						</div>
-						<button class='product-basket-btn' type="submit">
-							Add to Basket
-						</button>
-					</div>
-				</div>
-				<input type="hidden" name="redirect_url" value="{{ request.path }}">
-			</div>
-			<div class="row">
-			</div>
-
-			{% if request.user.is_superuser %}
-				<div class="row super-user-button-row product-superuser">
-					<a class="button super-user-button" href="{% url 'edit_product' product.id %}">
-						Edit  
-					</a>
-					<div class="open-modal">
-						<p class="delete click button">
-							Delete
-						</p>
-					</div>
-					<!-- Delete Modal -->
-					<div class="modal-background hidden" data-closer="close">
-						<div class="modal">
-							<div class="modal-title">
-								<p>Delete Product?</p>
-								<img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/close.svg" alt="close" class="close" data-closer="close">
-							</div>
-							<div class="modal-content">
-								<div class="modal-par col">
-									<p>Are you sure you want to delete</p> 
-									<p>"{{ product.name  }}"?</p>
-								</div>
-							</div>
-							<div class="modal-btns">
-								<div class="button no-btn" data-closer="close">
-									No, Keep it
-								</div>
-								<a class="button" href="{% url 'delete_product' product.id %}">Yes Delete</a>
-							</div>
-						</div>
-					</div>
-				</div>
+	<div class="product-detail">
+		<div class="product-image w-100">
+			{% if product.image %}
+			<a href="{% url 'product_detail' product.id %}">
+				<img src="{{ product.image.url }}" alt="{{ product.name }}" />
+			</a>
+			{% else %}
+			<a href="{% url 'product_detail' product.id %}">
+				<img
+					src="{{ MEDIA_URL }}noimage.png"
+					alt="{{ product.name }}"
+				/>
+			</a>
 			{% endif %}
+		</div>
+		<div class="card-content w-100 col">
+			<div class="row product-details">
+				<div class="product-category">
+					<a class="category link"
+						href="{% url 'products' %}?category={{ product.category.name }}&sort=name&direction=asc">
+						{{ product.category.friendly_name }}
+					</a>
+				</div>
+				<div class="price row">
+					<p class="product-price">
+						<strong>
+							£{{ product.price }}
+						</strong> 
+					</p>
+					<p class="each">
+						<small>each</small>
+					</p>
+				</div>
+			</div>
+			<div class="col product-text">
+				<p class="">{{ product.description }}</p>
+			</div>
+			<form class="add-basket-form form w-100" action="{% url 'add_to_basket' product.id %}" method="POST">
+				{% csrf_token %}
+				<div class="form-row">
+					<div class="w-100 col">
+						<div class="qty-row w-100 buy-row">
+								<a class=' button product-basket-btn' href="{% url 'products' %}?sort=name&direction=asc">
+									Keep Shopping
+								</a>
+							<div class="form-group">
+								<div class="input-group">
+									<button class="decrement-qty qty-btn" 
+										data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+											<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/remove.svg" alt="remove">
+									</button>
+									<input class="form-control form-control-sm qty_input" type="number"
+										name="quantity" value="1" min="1" max="99"
+										data-item_id="{{ item.item_id }}"
+										id="id_qty_{{ item.item_id }}">
+									<button class="increment-qty qty-btn"
+										data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+											<img class="icon small-icon"  src="{{ MEDIA_URL }}icons/add.svg" alt="add">
+									</button>
+								</div>
+							</div>
+							<button class='product-basket-btn' type="submit">
+								Add to Basket
+							</button>
+						</div>
+					</div>
+					<input type="hidden" name="redirect_url" value="{{ request.path }}">
+				</div>
+				<div class="row">
+				</div>
 
-			<input type="hidden" name="redirect_url" value="{{ request.path }}" />
-		</form>
+				{% if request.user.is_superuser %}
+					<div class="row super-user-button-row product-superuser">
+						<a class="button super-user-button" href="{% url 'edit_product' product.id %}">
+							Edit  
+						</a>
+						<div class="open-modal">
+							<p class="delete click button">
+								Delete
+							</p>
+						</div>
+						<!-- Delete Modal -->
+						<div class="modal-background hidden" data-closer="close">
+							<div class="modal">
+								<div class="modal-title">
+									<p>Delete Product?</p>
+									<img class="icon small-icon inline-img" src="{{ MEDIA_URL }}icons/close.svg" alt="close" class="close" data-closer="close">
+								</div>
+								<div class="modal-content">
+									<div class="modal-par col">
+										<p>Are you sure you want to delete</p> 
+										<p>"{{ product.name  }}"?</p>
+									</div>
+								</div>
+								<div class="modal-btns">
+									<div class="button no-btn" data-closer="close">
+										No, Keep it
+									</div>
+									<a class="button" href="{% url 'delete_product' product.id %}">Yes Delete</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				<input type="hidden" name="redirect_url" value="{{ request.path }}" />
+			</form>
+		</div>
 	</div>
 </div>
 
