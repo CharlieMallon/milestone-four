@@ -758,6 +758,7 @@ footer{
 
 .cat-card{
     width: 90%;
+    border: solid 1px var(--black);
 }
 
 .cat-image{
@@ -770,6 +771,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: solid 1px var(--black);
 }
 
 .cat-buttons{
@@ -1163,8 +1165,22 @@ footer{
         height: 100%;
     }
 
-    #id_name{
+    .product-name #id_name{
         width: 50%;
+    }
+
+    /* ---------- Categories ---------- */
+    .cat-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .cat-card{
+        width: 50%;
+        min-height: 251px;
+        max-width: unset;
     }
 
     /* ---------- Manage Shop ---------- */
