@@ -1,10 +1,13 @@
-from decimal import Decimal
+# pylint: disable=missing-module-docstring
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
-def basket_contents(request):
 
+def basket_contents(request):
+    """
+    Ensures basket is available to the site
+    """
     basket_items = []
     total = 0
     product_count = 0

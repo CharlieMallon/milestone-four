@@ -17,5 +17,7 @@
     ],
     "cSpell.ignoreWords": [
         "btns"
-    ]
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
