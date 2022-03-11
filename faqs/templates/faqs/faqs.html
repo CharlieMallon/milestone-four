@@ -25,7 +25,7 @@
 
 <section class="w-100">
 	{% if request.user.is_superuser %}
-		<div class="card add-faq-card">
+		<div class="card add-faq-card restrict">
 			<div class="card-header">
 				<p class="big-text">Add a FAQ</p>
 			</div>
@@ -59,7 +59,7 @@
 	{% endif %}
 
 	{% for question in faqs %}
-		<div class="card faq-card">
+		<div class="card faq-card restrict">
 			<div class="card-header faq-header row collapsible">
 				<p class="big-text">{{ question.faq_title }}</p>
 				<img class="icon small-icon" src="{{ MEDIA_URL }}icons/expand.svg" alt="expand" />
