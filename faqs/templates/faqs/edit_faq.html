@@ -21,7 +21,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="w-100">
+<div class="w-100 restrict">
     <form method="POST" action="{% url 'edit_faq' faq.id %}" class="add-faq">
         {% csrf_token%}
         <div class="col">
