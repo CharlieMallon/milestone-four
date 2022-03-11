@@ -1,0 +1,56 @@
+<div class="container mobile-nav nav-buttons">
+    <div class="basket-icon">
+        <a href="{% url 'view_basket' %}">
+            <img class="icon"  src="{{ MEDIA_URL }}icons/shopping_basket.svg" alt="basket">
+        </a>
+    </div>
+    <div class="count">
+        {% if product_count %}
+            ({{ product_count }})
+        {% else %}
+            (0)
+        {% endif %}
+    </div>
+    <div class="nav">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                <img class="icon"  src="{{ MEDIA_URL }}icons/close.svg" alt="close Nav">
+            </a>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'products' %}?sort=name&direction=asc">Products</a>
+            <a class="indent" href="{% url 'products' %}?sort=name&direction=asc">All Products</a>
+            {% if categories %}
+                {% for category in categories %}
+                    <a class="indent" href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">{{ category.friendly_name }}</a>
+                {% endfor %}
+            {% endif%}
+            {% if images %}
+            <a href="{% url 'gallery' %}">Gallery</a>
+            {% endif %}
+            {% if faqs %}
+            <a href="{% url 'faqs' %}">FAQ's</a>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'manage_shop' %}">Manage Shop</a>
+                {% endif %}
+                    <a href="{% url 'profile' %}">Account</a>
+                    <a href="{% url 'account_logout' %}">Log Out</a>
+            {% else %}
+                <a href="{% url 'account_login' %}">Log In</a>
+                <a href="{% url 'account_signup' %}">Register</a>
+            {% endif %}
+            <a href="{% url 'view_basket' %}">Basket 
+                {% if product_count %}
+                    ({{ product_count }})
+                {% else %}
+                    (0)
+                {% endif %}
+            </a>
+            <p>Contact us on:</p>
+            <a class="indent" href="https://www.facebook.com/messages/t/100590915463218">Facebook</a>
+            <a class="indent" href="mailto:cakes@cakeshop.com">Email</a>
+        </div>
+        <img onclick="openNav()" class="icon" src="{{ MEDIA_URL }}icons/menu.svg" alt="menu">
+    </div>
+</div>

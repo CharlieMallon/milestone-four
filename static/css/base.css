@@ -296,6 +296,8 @@ input {
     padding-left: 5px;
 }
 
+/* mob-nav */
+
 .nav-buttons{
     align-items: center;
     height: 35px;
@@ -351,6 +353,11 @@ input {
 }
 
 /* end */
+
+/* desktop-nav */
+.desktop-nav{
+    display: none;
+}
 
 .indent{
     margin-left: 30px;
@@ -1367,6 +1374,68 @@ footer{
 
 @media (min-width: 992px) {
 
+    /* mobile-nav */
+    .mobile-nav{
+        display: none;
+    }
+
+    /* desktop-nav */
+    .desktop-nav{
+        display: flex;
+    }
+
+    .nav-bar{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .subnav .subnavbtn,
+    .nav-bar a,
+    .nav-bar p{
+        padding: 0px 10px;
+        text-decoration: none;
+        font-size: 25px;
+        color: var(--black);
+        display: block;
+        transition: 0.3s;
+    }
+
+    .subnav {
+        overflow: hidden;
+    }
+
+    .subnav .subnavbtn{
+        display: flex;
+    }
+
+    .subnav .subnavbtn img{
+        margin-top: 8px;
+    }
+
+
+    .subnav-content {
+        display: none;
+        position: absolute;
+        min-width: 134px;
+        background-color: var(--gray);
+        z-index: 1;
+    }
+
+    .subnav-content a {
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .subnav-content a:hover {
+        background-color: var(--gold);
+        color: var(--black);
+    }
+
+    .subnav:hover .subnav-content {
+        display: flex;
+        flex-direction: column;
+    }
 
 }
 
