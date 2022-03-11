@@ -1463,6 +1463,10 @@ footer{
     .cta-large{
         height: unset;
     }
+
+    .restrict{
+        max-width: 1000px;
+    }
 }
 
 /* ---------- Extra large devices ---------- Large desktops, 1200px and Up ---------- */
