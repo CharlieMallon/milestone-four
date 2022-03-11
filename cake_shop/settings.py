@@ -90,7 +90,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', # makes images available anywhere
                 'basket.contexts.basket_contents', # makes basket available anywhere
-                'products.contexts.categories',
+                'products.contexts.categories',# makes categories available anywhere - used to make navbar work
+                'faqs.contexts.faqs',# makes faqs available anywhere - used to make navbar work
+                'gallery.contexts.gallery',# makes gallery available anywhere - used to make navbar work
             ],
         },
     },
