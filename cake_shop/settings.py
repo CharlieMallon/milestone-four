@@ -9,14 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from pathlib import Path
+
 import os
 import dj_database_url
 
-if os.path.exists("env.py"):
-    import env
-
-from pathlib import Path
-from re import L
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,13 +83,13 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request', # Required by allauth
-                'django.contrib.auth.context_processors.auth', 
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', # makes images available anywhere
                 'basket.contexts.basket_contents', # makes basket available anywhere
-                'products.contexts.categories',# makes categories available anywhere - used to make navbar work
-                'faqs.contexts.faqs',# makes faqs available anywhere - used to make navbar work
-                'gallery.contexts.gallery',# makes gallery available anywhere - used to make navbar work
+                'products.contexts.categories',# makes categories available anywhere
+                'faqs.contexts.faqs',# makes faqs available anywhere
+                'gallery.contexts.gallery',# makes gallery available anywhere
             ],
         },
     },
