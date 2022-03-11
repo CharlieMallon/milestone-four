@@ -256,6 +256,11 @@ input {
     padding-bottom: 10px;
 }
 
+button,
+.open-modal{
+    cursor: pointer;
+}
+
 
 /* collapsible */
 /* base code https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate */
