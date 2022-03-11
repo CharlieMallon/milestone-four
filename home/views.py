@@ -1,10 +1,10 @@
+# pylint: disable=missing-module-docstring
 from django.shortcuts import render, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from checkout.models import Order
 
-# Create your views here.
 
 def index(request):
     """
@@ -22,7 +22,7 @@ def manage_shop(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only admin users can do that.')
         return redirect(reverse('home'))
-        
+
     orders = Order.objects.all()
     template = 'home/manage.html'
     context = {
