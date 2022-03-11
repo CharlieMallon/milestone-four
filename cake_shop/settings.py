@@ -122,8 +122,8 @@ else:
     PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
-# allows users to log in with email or username
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# allows users to log in with username only as username_email requires emails to work
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 # email set up to ensure a 'real' email address is used and typos avoided
 ACCOUNT_EMAIL_REQUIRED = True
 # This really wants to be 'mandatory' but 'Real' emails don't work yet.

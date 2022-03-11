@@ -283,12 +283,12 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   Inputs are clear and rational. - PASS
 -   Payments are confirmed on the site and via email. -FAIL - Emails not working
 -   Payment should be taken from the account. - PASS
-#### Shopper Story 4 - FAIL
+#### Shopper Story 4 - PASS
 -   As a Shopper, I would like to navigate the site easily on any device.
 #### Acceptance Criteria
 -   Clear menu options. - PASS
--   Responsive on all devices. - FAIL - not styled to Desktop or Tablet
-#### Shopper Story 5
+-   Responsive on all devices. - PASS
+#### Shopper Story 5 - PASS
 -   As a returning user, I would like to see my previous orders and edit my information.
 #### Acceptance Criteria
 -   There is a working Register page. - PASS
@@ -304,11 +304,11 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   A forgotten my password link on the login page. - FAIL - Emails not working
 -   A forgotten my password form, that works. - FAIL - Emails not working
 -   The user can change the password on the account page. - Not Applicable to Issue 1
-#### Shopper Story 7 - FAIL
+#### Shopper Story 7 - PASS
 -   As a user, I would like contact the store owner.
 #### Acceptance Criteria
 -   A Contact Us page exists. - PASS
--   It contacts the store owner. - FAIL - catastrophically dies
+-   It contacts the store owner. - PASS
 #### Shop Owner Story 1
 -   As a Shop Owner, I would like to manage products.
 #### Acceptance Criteria - PASS
@@ -317,23 +317,29 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   There is a delete products button - PASS
 -   Deleting a product is easy - PASS
 -   There should be mechanisms in place to prevent accidental deletion - PASS
-#### Shop Owner Story 2
+#### Shop Owner Story 2 - PASS
 -   As a Shop Owner, I would like to manage orders.
 #### Acceptance Criteria
 -   There is a way to view all orders - PASS
 -   Orders can be viewed in detail - PASS
 -   Status of the order can be changed - Not Applicable to Issue 1
-#### Shop Owner Story 3
+#### Shop Owner Story 3 - PASS
 -   As a Shop Owner, I would like to manage the information my customers see.
 #### Acceptance Criteria
 -   The Owner can add, edit and delete
     -   Frequently Asked Questions  - PASS
     -   Gallery images  - PASS
     -   Categories  - PASS
-#### Shop Owner Story 4
+#### Shop Owner Story 4 - PASS
 -   As a Shop Owner, I would like my site to be secure.
 #### Acceptance Criteria
 -   Secure pages require a password to access.  - PASS
+## Validators
+### HTML Validator
+### CSS Validator
+
+### PEP8
+Passed - some comments about line being a little too long, changed where possible.
 ### Testing Summary
 Site looks it best on Mobile, App is fairly well secured.  Removing the Contact Page as there is No time to fix before deployment, issue is due to trying to set up emails. One or two bugs picked up and fixed during texting see bug section for more information. Note - this code has not been through a validator.
 ### Interesting Bugs / Issues
