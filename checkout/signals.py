@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 # This is from the boutique_ado project
 
 from django.db.models.signals import post_save, post_delete

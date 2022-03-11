@@ -1,24 +1,25 @@
+# pylint: disable=missing-module-docstring
+import json
+import stripe
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-
-from .forms import OrderForm
-from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from basket.contexts import basket_contents
 
-import stripe
-import json
+from .forms import OrderForm
+from .models import Order, OrderLineItem
 
-# Create your views here.
+
 def checkout(request):
     """
     Loads the checkout page if minimum order quantity is met,
-    puts users default information in if available, 
+    puts users default information in if available,
     processes payment and creates the order
     """
     current_basket = basket_contents(request)
@@ -107,7 +108,7 @@ def checkout(request):
             order_form = OrderForm()
     else:
         order_form = OrderForm()
-        
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -146,7 +147,7 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
+    messages.success(request, 'Order successfully processed! \
         A confirmation email has been sent')
 
     _send_confirmation_email(order)
@@ -163,18 +164,18 @@ def checkout_success(request, order_number):
 
 
 def _send_confirmation_email(order):
-        """Send the user a confirmation email"""
-        cust_email = order.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )
+    """Send the user a confirmation email"""
+    cust_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email]
+    )

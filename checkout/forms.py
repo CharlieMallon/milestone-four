@@ -1,8 +1,12 @@
+# pylint: disable=missing-module-docstring
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Form for ordering products
+    """
     delivery_date = forms.CharField(widget=forms.TextInput(attrs={'type':'date'}))
     class Meta:
         model = Order
