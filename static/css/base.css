@@ -581,6 +581,11 @@ footer{
     margin-right: 5px;
 }
 
+/* add product */
+.add-image-placeholder{
+    display: none;
+}
+
 /* ---------- Edit Product ---------- */
 .product-form{
     width: 100%;
@@ -1197,6 +1202,20 @@ footer{
 
     .product-name #id_name{
         width: 50%;
+    }
+
+    /* ---------- add products page ---------- */
+    .image-picker{
+        justify-content: space-evenly;
+    }
+    
+    .add-image-placeholder{
+        background-color: #63636385;
+        height: 200px;
+        width: calc(100% - 10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* ---------- Categories ---------- */
