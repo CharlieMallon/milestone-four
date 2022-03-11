@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -82,7 +83,7 @@ def edit_image(request, image_id):
 def delete_image(request, image_id):
     """
     Delete an Image from the gallery
-    """      
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))

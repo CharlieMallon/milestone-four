@@ -1,10 +1,10 @@
+# pylint: disable=missing-module-docstring
 from django.db import models
 
-# Create your models here.
 class Gallery(models.Model):
     """ registering images for the gallery """
-
     class Meta:
+        """ Gallery Plural Defined """
         verbose_name_plural = "Galleries"
 
     tag_line = models.CharField(max_length=254, null=False, blank=False)
