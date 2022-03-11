@@ -12,12 +12,43 @@
 {% endblock %}
 
 {% block content %}
+
     <form method="POST" action="{% url 'edit_image' image.id %}" enctype="multipart/form-data">
         {% csrf_token%}
-        {{ form }}
-        <div class="col">
-            <a href="{% url 'gallery' %}" class="">
-                <span class="">Back</span>
+            <div class="gallery-form col">
+                <div class="row gallery-form-row">
+                    <p class="label">
+                        Label:
+                    </p>
+                    <p class="input">
+                        {{ form.tag_line }}
+                    </p>
+                </div>
+                <div class="row gallery-form-row">
+                    <p class="label">
+                        Alt Tag:
+                    </p>
+                    <p class="input">
+                        {{ form.alt }}
+                    </p>
+                </div>
+                <div class="col">
+                    <p class="label">
+                        Curent Image:
+                    </p>
+                    <p class="input">
+                        <img class="product-image" src="{{ image.image.url }}" alt="{{ image.alt }}" />
+                    </p>
+                </div>
+                <div class="image-picker col">
+                    <p class="input">
+                    {{ form.image }}
+                    </p>
+                </div>
+            </div>
+        <div class="button-row">
+            <a href="{% url 'gallery' %}" class="button">
+                Back
             </a>
             <button type="submit">Edit Image</button>
         </div>

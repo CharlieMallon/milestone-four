@@ -202,7 +202,7 @@ input {
 }
 
 #id_image{
-    width: 100%;
+    width: calc(100% - 10px);
     padding: 5px;
 }
 
@@ -1089,6 +1089,15 @@ footer{
     width: 100%;
 }
 
+.gallery-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.image-card img{
+    height: 300px;
+}
+
 .image-card{
     border: solid 2px var(--gold);
     margin: 5px;
@@ -1324,6 +1333,18 @@ footer{
         padding: 10px;
     }
 
+    /* ---------- Gallery ---------- */
+    .gallery-section{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        grid: 20px 20px;
+    }
+
+    .add-image-card{
+        margin: 5px;
+    }
 
 }
 
