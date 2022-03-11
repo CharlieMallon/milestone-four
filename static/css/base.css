@@ -808,6 +808,11 @@ footer{
 }
 
 /* ---------- Allauth --------- */
+.allauth-section{
+    width: 100%;
+    max-width: 700px;
+}
+
 .allauth-head{
     margin-left: 5px;
 }
@@ -1412,7 +1417,6 @@ footer{
     .subnav .subnavbtn img{
         margin-top: 8px;
     }
-
 
     .subnav-content {
         display: none;
