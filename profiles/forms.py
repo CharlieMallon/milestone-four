@@ -1,10 +1,16 @@
-#
+# pylint: disable=missing-module-docstring
 from django import forms
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    User Profile form setup
+    """
     class Meta:
+        """
+        Add/Edit user profile form
+        """
         model = UserProfile
         exclude = ('user',)
 
