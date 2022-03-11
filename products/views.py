@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -7,7 +8,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm, CategoryForm
 
-# Create your views here.
+
 def all_products(request):
     """
     A view to show all products, including sorting and search categories
@@ -36,16 +37,16 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-                search_categories = request.GET['category'].split(',')
-                products = products.filter(category__name__in=search_categories)
-                search_categories = Category.objects.filter(name__in=search_categories)
-    
-        if 'q' in request.GET:            
+            search_categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=search_categories)
+            search_categories = Category.objects.filter(name__in=search_categories)
+
+        if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, 'You did not enter a search criteria')
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
@@ -96,7 +97,7 @@ def add_product(request):
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -140,7 +141,7 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """
     Delete a product from the store
-    """      
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))
@@ -159,7 +160,7 @@ def categories(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))
-    
+
     categories = Category.objects.all()
     form = CategoryForm()
     template = 'products/categories.html'
@@ -232,9 +233,9 @@ def edit_category(request, category_id):
 
 @login_required
 def delete_category(request, category_id):
-    """ 
+    """
     Delete a category from the store
-    """      
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))

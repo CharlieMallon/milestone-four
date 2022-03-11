@@ -1,10 +1,12 @@
+# pylint: disable=missing-module-docstring
 from django import forms
 from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
-
+    """ Add/edit Product form """
     class Meta:
+        """ Product form """
         model = Product
         fields = '__all__'
 
@@ -17,7 +19,8 @@ class ProductForm(forms.ModelForm):
 
 
 class CategoryForm(forms.ModelForm):
-
+    """ Add/edit Category form """
     class Meta:
+        """ Category form """
         model = Category
         fields = '__all__'
