@@ -428,6 +428,13 @@ footer{
 }
 
 /* ---------- home ---------- */
+
+.home{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .cta{
     position: relative;
     display: flex;
@@ -1441,6 +1448,21 @@ footer{
         flex-direction: column;
     }
 
+    /* ---------- home ---------- */
+    .home{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+    }
+
+    .home .cta-large,
+    .home .categories{
+        width: 50%;
+    }
+
+    .cta-large{
+        height: unset;
+    }
 }
 
 /* ---------- Extra large devices ---------- Large desktops, 1200px and Up ---------- */

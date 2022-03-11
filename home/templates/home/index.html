@@ -9,6 +9,7 @@
 
 {% block content%}
 
+<div class="home">
 	<div class="container w-100 cta cta-large">
 		<!--Aspire for this image to be set by the site owner-->
 		<img class="cta-img" src="{{ MEDIA_URL }}header.jpg" alt="" />
@@ -20,18 +21,24 @@
 		</div>
 	</div>
 
-	{% for category in categories %}
-	<div class="container w-100 cta cta-small">
-		<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
-		<div class="cta-text">
-			<h3>{{ category.friendly_name }}</h3>
-			<a class="button cta-button"
-				href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">
-				Shop Now
-			</a>
+	{% if categories %}
+		<div class="categories">
+			{% for category in categories %}
+				<div class="container w-100 cta cta-small">
+					<img class="cta-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
+					<div class="cta-text">
+						<h3>{{ category.friendly_name }}</h3>
+						<a class="button cta-button"
+							href="{% url 'products' %}?category={{ category.name }}&sort=name&direction=asc">
+							Shop Now
+						</a>
+					</div>
+				</div>
+			{% endfor %}
 		</div>
-	</div>
-	{% endfor %}
+	{% endif %}
+</div>
+
 
 {% endblock %} 
 
