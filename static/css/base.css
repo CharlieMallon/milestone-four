@@ -1444,6 +1444,8 @@ footer{
         text-decoration: none;
     }
 
+    .nav-bar a:hover,
+    .subnavbtn:hover,
     .subnav-content a:hover {
         background-color: var(--gold);
         color: var(--black);
