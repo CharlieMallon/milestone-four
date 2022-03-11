@@ -5,24 +5,26 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<h1 class="allauth-head">{% trans "Sign Out" %}</h1>
+<div class="allauth-section">
+  <h1 class="allauth-head">{% trans "Sign Out" %}</h1>
 
-<div class="allauth-body">
-  <p class="allauth-text">{% trans 'Are you sure you want to sign out?' %}</p>
+  <div class="allauth-body">
+    <p class="allauth-text">{% trans 'Are you sure you want to sign out?' %}</p>
 
-  <div class="allauth-btn-row">
-    <form class=" w-100" method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-      {% endif %}
-      <div class="sign-out row">
-          <a class="button" href="{% url 'products' %}?sort=name&direction=asc">Continue Shopping</a>
-        <button type="submit">{% trans 'Sign Out' %}</button>
-      </div>
-    </form>
+    <div class="allauth-btn-row">
+      <form class=" w-100" method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <div class="sign-out row">
+            <a class="button" href="{% url 'products' %}?sort=name&direction=asc">Continue Shopping</a>
+          <button type="submit">{% trans 'Sign Out' %}</button>
+        </div>
+      </form>
+    </div>
+
   </div>
-
 </div>
 
 {% endblock %}
