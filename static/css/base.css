@@ -101,7 +101,6 @@ img{
 
 /* Cards */
 .card{
-    max-width: 330px;
     margin: 10px;
     margin-top: 0px;
     border: solid 1px black;
@@ -481,6 +480,10 @@ footer{
 }
 
 /* product card */
+.product-card{
+    max-width: 330px;
+}
+
 .product-title{
     font-size: 28px;
     line-height: 28px;
@@ -1229,14 +1232,12 @@ footer{
     .cat-card{
         width: 50%;
         min-height: 251px;
-        max-width: unset;
     }
 
     /* ---------- Manage Shop ---------- */
 
     .manage-shop-card{
         width: unset;
-        max-width: unset;
     }
 
     .order-container{
@@ -1250,7 +1251,6 @@ footer{
     /* ---------- Basket ---------- */
     .basket-card{
         width: calc(100% - 20px);
-        max-width: unset;
     }
 
     .product-info-basket{
@@ -1298,7 +1298,6 @@ footer{
 
     .order-contents .order-card{
         width: 95%;
-        max-width: unset;
     }
 
     .order-contents .order-history-title{
@@ -1327,13 +1326,11 @@ footer{
     
     .profile-card{
         width: 50%;
-        max-width: unset;
     }
 
     .profile-card .card{
         width: calc(100% - 10px);
         margin: 5px;
-        max-width: unset;
     }
 
     .profile-card .card-contents{
@@ -1344,7 +1341,6 @@ footer{
     .faq-card,
     .add-faq-card{
         width: 90%;
-        max-width: unset;
         margin: 10px auto;
     }
 
