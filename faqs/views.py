@@ -1,3 +1,4 @@
+# pylint: disable=missing-module-docstring
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -6,7 +7,6 @@ from .models import Faqs
 from .forms import FaqForm
 
 
-# Create your views here.
 def faqs(request):
     """
     A view to render the faqs page
@@ -43,7 +43,7 @@ def add_faq(request):
             messages.error(request, 'Failed to add faq. Please ensure the form is valid.')
     else:
         form = FaqForm()
-        
+
     template = 'faqs/faqs.html'
     context = {
         'form': form,
@@ -87,7 +87,7 @@ def edit_faq(request, faq_id):
 def delete_faq(request, faq_id):
     """
     Delete an faq from the faqs
-    """      
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only only admin users can do that.')
         return redirect(reverse('home'))

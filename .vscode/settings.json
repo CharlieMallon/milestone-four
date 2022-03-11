@@ -20,5 +20,6 @@
         "btns"
     ],
     "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.linting.pylintPath": "pylint_django"
 }
