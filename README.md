@@ -258,7 +258,7 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   [dbdiagram](https://dbdiagram.io/)
 # Testing
 ## User stories
-#### Shopper Story 1 -PASS
+### Shopper Story 1 -PASS
 -   As a Shopper, I want to browse products and add them to my basket.
 #### Acceptance Criteria
 -   Show a summary of all products on a page. - PASS
@@ -271,24 +271,24 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   Show the detail of an individual product. - PASS
 -   Mechanism to add multiples of a product to the basket. - PASS
 -   Confirmation that the product has been added to the basket. - PASS
-#### Shopper Story 2 - PASS
+### Shopper Story 2 - PASS
 -   As a Shopper, I want to be able to view/edit my basket. - PASS
 #### Acceptance Criteria
 -   Show a summary of the basket items. - PASS
 -   Items have the ability to change quantity. - PASS
 -   Items can be deleted from the basket. - PASS
-#### Shopper Story 3
+### Shopper Story 3
 -   As a Shopper, I would like to pay for my items.
 #### Acceptance Criteria - FAIL
 -   Inputs are clear and rational. - PASS
 -   Payments are confirmed on the site and via email. -FAIL - Emails not working
 -   Payment should be taken from the account. - PASS
-#### Shopper Story 4 - PASS
+### Shopper Story 4 - PASS
 -   As a Shopper, I would like to navigate the site easily on any device.
 #### Acceptance Criteria
 -   Clear menu options. - PASS
 -   Responsive on all devices. - PASS
-#### Shopper Story 5 - PASS
+### Shopper Story 5 - PASS
 -   As a returning user, I would like to see my previous orders and edit my information.
 #### Acceptance Criteria
 -   There is a working Register page. - PASS
@@ -298,18 +298,18 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
     -   Billing address - PASS
     -   Name - PASS
     -   Dietary requirement - Not Applicable to Issue 1
-#### Shopper Story 6 - FAIL
+### Shopper Story 6 - FAIL
 -   As a returning user, I would like to re-set my password.
 #### Acceptance Criteria
 -   A forgotten my password link on the login page. - FAIL - Emails not working
 -   A forgotten my password form, that works. - FAIL - Emails not working
 -   The user can change the password on the account page. - Not Applicable to Issue 1
-#### Shopper Story 7 - PASS
+### Shopper Story 7 - PASS
 -   As a user, I would like contact the store owner.
 #### Acceptance Criteria
 -   A Contact Us page exists. - PASS
 -   It contacts the store owner. - PASS
-#### Shop Owner Story 1
+### Shop Owner Story 1
 -   As a Shop Owner, I would like to manage products.
 #### Acceptance Criteria - PASS
 -   There is an add product page - PASS
@@ -317,34 +317,33 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   There is a delete products button - PASS
 -   Deleting a product is easy - PASS
 -   There should be mechanisms in place to prevent accidental deletion - PASS
-#### Shop Owner Story 2 - PASS
+### Shop Owner Story 2 - PASS
 -   As a Shop Owner, I would like to manage orders.
 #### Acceptance Criteria
 -   There is a way to view all orders - PASS
 -   Orders can be viewed in detail - PASS
 -   Status of the order can be changed - Not Applicable to Issue 1
-#### Shop Owner Story 3 - PASS
+### Shop Owner Story 3 - PASS
 -   As a Shop Owner, I would like to manage the information my customers see.
 #### Acceptance Criteria
 -   The Owner can add, edit and delete
     -   Frequently Asked Questions  - PASS
     -   Gallery images  - PASS
     -   Categories  - PASS
-#### Shop Owner Story 4 - PASS
+### Shop Owner Story 4 - PASS
 -   As a Shop Owner, I would like my site to be secure.
 #### Acceptance Criteria
 -   Secure pages require a password to access.  - PASS
 ## Validators
 ### HTML Validator
-Duplicate ID's comes up quite a lot due to the inc/dec buttons - i have ignored these as this is an issue with the quality
+Duplicate ID's comes up quite a lot due to the inc/dec buttons - i have ignored these as this is due to repeating code snippets.
+All code passes through with minimal warnings.
 ### CSS Validator
 Error for the gap on line 1273 - this is because gap is relatively new.
 ### PEP8
 Passed - some comments about line being a little too long, changed where possible.
-### Testing Summary
-Site looks it best on Mobile, App is fairly well secured.  
-All pages work as expected. 
-One or two bugs picked up and fixed during texting see bug section for more information.
+## Testing Summary
+While the site looks it best on Mobile it works on all screen sizes. The app is fairly well secured.  All pages work as expected. One or two bugs picked up and fixed during texting see bug section for more information.
 ### Interesting Bugs / Issues
 This section will detail the interesting Issues and Bugs that I came across whilst coding and the main ones that I found during testing.
 
@@ -545,7 +544,6 @@ $ pip install -r requirements.txt
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
 ## Credits
-
 ### Code
 
 | Source | Comments |
@@ -554,23 +552,16 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [W3Schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate) | For the basic animated collapsible cards |
 | [W3Schools](https://www.w3schools.com/howto/howto_js_sidenav.asp) | For the side Nav |
 | The Code Institute Boutique Ado mini-project | the whole project is based on it, where I haven't changed it at all I have put a comment to say its from the project |
-
-
 ### Content
 -   I was inspired by the beautiful cakes made by [Cantelo Treats](https://www.facebook.com/cantelotreats)
 -   All content was written by the developer.
 -   Readme inspiration taken from [mitchdavenport88](https://github.com/mitchdavenport88/hop_shop/blob/main/README.md)
-
 ### Media
 
 -   I used Stock photos from Pexels a [Cute Animal Collection](https://www.pexels.com/collections/cute-animals-17ey6em/) before adding the 'cake' images
 -   All Images are copyright [Cantelo Treats](https://www.facebook.com/cantelotreats)
 -   The social media icons svg's were supplied by [simple icons](https://simpleicons.org/ )
-
-
-
-
-### Acknowledgements
+## Acknowledgements
 
 -   My Mentor Brian Macharia for some good guidance.
 -   Bim for the constant reminders that I can do this and nudges in the right direction.
