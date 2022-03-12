@@ -32,7 +32,13 @@ def manage_shop(request):
     return render(request, template, context)
 
 def handle_not_found(request, exception):
+    """
+    A view to render the 404 error page
+    """
     return render(request, '404.html')
 
 def handle_server_error(request):
+    """
+    A view to render the 500 error page
+    """
     return render(request, '500.html')
