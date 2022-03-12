@@ -69,9 +69,11 @@
                                     href="{% url 'products' %}?category={{ product.category.name }}&sort=name&direction=asc">
                                     {{ product.category.friendly_name }}
                                 </a>
-                                <strong>
-                                    <p class="product-price">£{{ product.price }}</p>
-                                </strong>
+                                <p class="product-price">
+                                    <strong>
+                                        £{{ product.price }}
+                                    </strong>
+                                </p>
                             </div>
                         </div>
                         <div class="product-text col">

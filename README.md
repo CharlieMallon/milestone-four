@@ -336,12 +336,15 @@ I have split the features into Beta, Issue 1, Issue 2 & Issue 3. The project is 
 -   Secure pages require a password to access.  - PASS
 ## Validators
 ### HTML Validator
+Duplicate ID's comes up quite a lot due to the inc/dec buttons - i have ignored these as this is an issue with the quality
 ### CSS Validator
-
+Error for the gap on line 1273 - this is because gap is relatively new.
 ### PEP8
 Passed - some comments about line being a little too long, changed where possible.
 ### Testing Summary
-Site looks it best on Mobile, App is fairly well secured.  Removing the Contact Page as there is No time to fix before deployment, issue is due to trying to set up emails. One or two bugs picked up and fixed during texting see bug section for more information. Note - this code has not been through a validator.
+Site looks it best on Mobile, App is fairly well secured.  
+All pages work as expected. 
+One or two bugs picked up and fixed during texting see bug section for more information.
 ### Interesting Bugs / Issues
 This section will detail the interesting Issues and Bugs that I came across whilst coding and the main ones that I found during testing.
 
@@ -360,7 +363,7 @@ This section will detail the interesting Issues and Bugs that I came across whil
 | --------- | -------- | --------- |
 | Basket page not loading on server | I works on my local drive, seems to be an issue with the quantity-form includes. Routing is stringent on heroku the / is a \! |change the \ for a / |
 | Checkout next buttons just reloading the page| I had not added the js to do this. js added and now works| added the code to make it work|
-|Contact Page has catastrophic error with the table or model| Due to time constraints i don't have tie to fix this so i have removed the page, it is likely to do with the emails i tried to set up as i was setting them up in the contact section| remove link to the page temporarily|
+
 
 ## Deployment
 ### Project Creation
