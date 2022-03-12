@@ -150,10 +150,10 @@ def checkout_success(request, order_number):
     messages.success(request, 'Order successfully processed! \
         A confirmation email has been sent')
 
-    _send_confirmation_email(order)
-
     if 'basket' in request.session:
         del request.session['basket']
+
+    _send_confirmation_email(order)
 
     template = 'checkout/checkout_success.html'
     context = {
