@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<!-- Search Bar-->
+{% include 'includes/search.html' %}
+
+{% endblock %}
+
+{% block content%}
+
+<div class="error">
+    <h2>Something went wrong!</h2>
+    <a href="{% url 'home' %}" class="button">Back to Home Page</a>
+</div>
+
+
+{% endblock %} 
+
+{% block postload_js %}
+{% endblock %}

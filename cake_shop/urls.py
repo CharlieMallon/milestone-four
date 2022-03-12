@@ -1,4 +1,5 @@
 # pylint: disable=missing-module-docstring
+from cgitb import handler
 from django.contrib import admin
 from django.urls import path, include
 # import static files
@@ -16,3 +17,6 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('faqs/', include('faqs.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #static files being imported
+
+handler404 = "home.views.handle_not_found"
+handler500 = "home.views.handle_server_error"
